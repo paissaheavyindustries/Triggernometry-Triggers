@@ -272,7 +272,10 @@
         <Triggers>
           <Trigger Enabled="true" Source="FFXIVNetwork" Name="Wipe" Id="502ec73b-2b68-4361-8f43-fcd4576a477b" RegularExpression="^(01|33\|[^|]*\|[^|]*\|400000(?&gt;03|0F)\|)">
             <Actions>
-              <Action OrderNumber="1" ListVariableName="inverseCast" VariableOp="SetNumeric" VariableName="p6offset" VariableExpression="0" ActionType="ListVariable">
+              <Action OrderNumber="1" TriggerOp="CancelTrigger" TriggerId="896a6bf9-b4e1-4ac0-8a30-7a82ec559e48" ActionType="Trigger">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="2" TriggerOp="CancelTrigger" TriggerId="837d6d60-53ab-49d3-997d-f8df462bf0a1" ActionType="Trigger">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
             </Actions>
