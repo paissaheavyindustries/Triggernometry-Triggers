@@ -55,16 +55,6 @@
               <ConditionSingle Enabled="true" ExpressionL="${name}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
             </Condition>
           </Trigger>
-          <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" Name="Guided Missile Kyrios" Id="837d6d60-53ab-49d3-997d-f8df462bf0a1" RegularExpression="^26\|[^|]*\|(D60|DA7|DA8|DA9)\|[^|]*\|[^|]*\|[^|]*\|[^|]*\|[^|]*\|(?&lt;name&gt;[^|]*)\|">
-            <Actions>
-              <Action OrderNumber="1" UseTTSTextExpression="missile soon" ActionType="UseTTS">
-                <Condition Enabled="false" Grouping="Or" />
-              </Action>
-            </Actions>
-            <Condition Enabled="true" Grouping="Or">
-              <ConditionSingle Enabled="true" ExpressionL="${name}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-            </Condition>
-          </Trigger>
           <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" Name="High-powered Sniper Cannon" Id="3c342a89-0593-4e9a-9bbd-5af3d7d6e183" RegularExpression="^26\|[^|]*\|D62\|[^|]*\|[^|]*\|[^|]*\|[^|]*\|[^|]*\|(?&lt;name&gt;[^|]*)\|">
             <Actions>
               <Action OrderNumber="1" UseTTSTextExpression="supersniper soon" ActionType="UseTTS">
@@ -230,9 +220,8 @@
             <Condition Enabled="true" Grouping="Or">
               <ConditionSingle Enabled="true" ExpressionL="${name}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
             </Condition>
-            <Conditions />
           </Trigger>
-          <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" Name="Tether" Id="b234475b-5db8-4724-b635-91b6afaf5bed" RegularExpression="^26\|[^|]*\|(?&lt;marker&gt;BBC|BBD|BBE|D7B)\|[^|]*\|[^|]*\|[^|]*\|[^|]*\|[^|]*\|(?&lt;name&gt;[^|]*)\|">
+          <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" Name="Tether" Id="ffc5a1a4-84d4-41ad-91b8-9757afa13d78" RegularExpression="^26\|[^|]*\|(?&lt;marker&gt;BBC|BBD|BBE|D7B)\|[^|]*\|[^|]*\|[^|]*\|[^|]*\|[^|]*\|(?&lt;name&gt;[^|]*)\|">
             <Actions>
               <Action OrderNumber="1" OBSEndPoint="" UseTTSTextExpression="take 3rd tether" VariableOp="SetNumeric" VariableName="wyrmholeNumber" VariableExpression="1" ActionType="UseTTS" Description="number 1 / 3rd tether" DescriptionOverride="True">
                 <Condition Enabled="true" Grouping="And">
@@ -258,7 +247,32 @@
             <Condition Enabled="true" Grouping="Or">
               <ConditionSingle Enabled="true" ExpressionL="${name}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
             </Condition>
-            <Conditions />
+          </Trigger>
+          <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" Name="Guided Missile Kyrios" Id="837d6d60-53ab-49d3-997d-f8df462bf0a1" RegularExpression="^26\|[^|]*\|(D60|DA7|DA8|DA9)\|[^|]*\|(?&lt;duration&gt;[^|]*)\|[^|]*\|[^|]*\|[^|]*\|(?&lt;name&gt;[^|]*)\|">
+            <Actions>
+              <Action OrderNumber="1" JsonEndpointExpression="http://${_const[TelestoEndpoint]}:${_const[TelestoPort]}" JsonPayloadExpression="{ &quot;version&quot;: 1, &quot;id&quot;: 123456, &quot;type&quot;: &quot;Bundle&quot;, &quot;payload&quot;: [ { &quot;version&quot;: 1, &quot;id&quot;: 123456, &quot;type&quot;: &quot;EnableDoodle&quot;, &quot;payload&quot;: { &quot;name&quot;: &quot;kyrios_1_${name}&quot;, &quot;type&quot;: &quot;circle&quot;, &quot;r&quot;: &quot;1&quot;, &quot;g&quot;: &quot;1&quot;, &quot;expiresin&quot;: &quot;6000&quot;, &quot;thickness&quot;: &quot;3&quot;, &quot;system&quot;: &quot;world&quot;, &quot;radius&quot;: &quot;5&quot;, &quot;position&quot;: { &quot;coords&quot;: &quot;entity&quot;, &quot;name&quot;: &quot;${name}&quot; } } }, { &quot;version&quot;: 1, &quot;id&quot;: 123456, &quot;type&quot;: &quot;EnableDoodle&quot;, &quot;payload&quot;: { &quot;name&quot;: &quot;kyrios_2_${name}&quot;, &quot;type&quot;: &quot;circle&quot;, &quot;r&quot;: &quot;1&quot;, &quot;a&quot;: &quot;abs(sin(${_systemtimems}/100))*0.2&quot;, &quot;expiresin&quot;: &quot;6000&quot;, &quot;filled&quot;: &quot;true&quot;, &quot;system&quot;: &quot;world&quot;, &quot;radius&quot;: &quot;5&quot;, &quot;position&quot;: { &quot;coords&quot;: &quot;entity&quot;, &quot;name&quot;: &quot;${name}&quot; } } } ] }" UseTTSTextExpression="next missile" ActionType="GenericJson" ExecutionDelayExpression="(${duration}-6)*1000">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="2" UseTTSTextExpression="next missile" ActionType="UseTTS">
+                <Condition Enabled="true" Grouping="Or">
+                  <ConditionSingle Enabled="true" ExpressionL="${name}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                </Condition>
+              </Action>
+            </Actions>
+            <Condition Enabled="false" Grouping="Or" />
+          </Trigger>
+        </Triggers>
+      </Folder>
+      <Folder Id="786e3ba2-d530-4129-977d-94d527a89b4c" Name="General" Enabled="true">
+        <Folders />
+        <Triggers>
+          <Trigger Enabled="true" Source="FFXIVNetwork" Name="Wipe" Id="502ec73b-2b68-4361-8f43-fcd4576a477b" RegularExpression="^(01|33\|[^|]*\|[^|]*\|400000(?&gt;03|0F)\|)">
+            <Actions>
+              <Action OrderNumber="1" ListVariableName="inverseCast" VariableOp="SetNumeric" VariableName="p6offset" VariableExpression="0" ActionType="ListVariable">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+            </Actions>
+            <Condition Enabled="false" Grouping="Or" />
           </Trigger>
         </Triggers>
       </Folder>
