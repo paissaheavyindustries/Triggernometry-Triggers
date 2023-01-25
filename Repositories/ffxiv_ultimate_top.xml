@@ -155,26 +155,6 @@
               <ConditionSingle Enabled="true" ExpressionL="${name}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
             </Condition>
           </Trigger>
-          <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" Name="Packet Filter M" Id="24f4eb04-2d51-4b95-a1af-f12bbcd39d94" RegularExpression="^26\|[^|]*\|DAB\|[^|]*\|[^|]*\|[^|]*\|[^|]*\|[^|]*\|(?&lt;name&gt;[^|]*)\|">
-            <Actions>
-              <Action OrderNumber="1" UseTTSTextExpression="go on female" ActionType="UseTTS">
-                <Condition Enabled="false" Grouping="Or" />
-              </Action>
-            </Actions>
-            <Condition Enabled="true" Grouping="Or">
-              <ConditionSingle Enabled="true" ExpressionL="${name}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-            </Condition>
-          </Trigger>
-          <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" Name="Packet Filter F" Id="a69ea286-ffee-4c76-a5fa-3d0b8db2d959" RegularExpression="^26\|[^|]*\|DAC\|[^|]*\|[^|]*\|[^|]*\|[^|]*\|[^|]*\|(?&lt;name&gt;[^|]*)\|">
-            <Actions>
-              <Action OrderNumber="1" UseTTSTextExpression="go on male" ActionType="UseTTS">
-                <Condition Enabled="false" Grouping="Or" />
-              </Action>
-            </Actions>
-            <Condition Enabled="true" Grouping="Or">
-              <ConditionSingle Enabled="true" ExpressionL="${name}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-            </Condition>
-          </Trigger>
         </Triggers>
       </Folder>
       <Folder Id="159745f8-e22b-4a98-bfdd-24d7cb94b9b1" Name="P1" Enabled="true">
@@ -308,12 +288,27 @@
           <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" Name="Nth In Line Gone" Id="00723bae-dbba-41aa-a48b-a0ef4e9bff5a" RegularExpression="^30\|[^|]*\|(?&lt;marker&gt;BBC|BBD|BBE|D7B)\|[^|]*\|[^|]*\|[^|]*\|[^|]*\|[^|]*\|(?&lt;name&gt;[^|]*)\|">
             <Actions>
               <Action OrderNumber="1" JsonEndpointExpression="http://${_const[TelestoEndpoint]}:${_const[TelestoPort]}" JsonPayloadExpression="{ &quot;version&quot;: 1, &quot;id&quot;: 123456, &quot;type&quot;: &quot;DisableDoodle&quot;, &quot;payload&quot;: { &quot;name&quot;: &quot;nthinline&quot; } }" VariableOp="SetString" ActionType="GenericJson">
-                <Condition Enabled="false" Grouping="Or" />
+                <Condition Enabled="true" Grouping="And">
+                  <ConditionSingle Enabled="true" ExpressionL="${name}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                  <ConditionSingle Enabled="true" ExpressionL="${var:top_p1_phase}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                </Condition>
+              </Action>
+              <Action OrderNumber="2" UseTTSTextExpression="max melee" ActionType="UseTTS">
+                <Condition Enabled="true" Grouping="And">
+                  <ConditionSingle Enabled="true" ExpressionL="${var:top_p1_phase}" ExpressionTypeL="Numeric" ExpressionR="2" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                  <ConditionSingle Enabled="true" ExpressionL="${marker}" ExpressionTypeL="String" ExpressionR="D7B" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                  <ConditionSingle Enabled="true" ExpressionL="${_ffxivparty[1].role}" ExpressionTypeL="String" ExpressionR="Tank" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                </Condition>
+              </Action>
+              <Action OrderNumber="3" UseTTSTextExpression="inside hitbox" ActionType="UseTTS">
+                <Condition Enabled="true" Grouping="And">
+                  <ConditionSingle Enabled="true" ExpressionL="${var:top_p1_phase}" ExpressionTypeL="Numeric" ExpressionR="2" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                  <ConditionSingle Enabled="true" ExpressionL="${marker}" ExpressionTypeL="String" ExpressionR="D7B" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                  <ConditionSingle Enabled="true" ExpressionL="${_ffxivparty[1].role}" ExpressionTypeL="String" ExpressionR="Tank" ExpressionTypeR="String" ConditionType="StringNotEqualNocase" />
+                </Condition>
               </Action>
             </Actions>
-            <Condition Enabled="true" Grouping="Or">
-              <ConditionSingle Enabled="true" ExpressionL="${name}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-            </Condition>
+            <Condition Enabled="false" Grouping="Or" />
             <Conditions />
           </Trigger>
         </Triggers>
@@ -331,6 +326,53 @@
               </Action>
             </Actions>
             <Condition Enabled="false" Grouping="Or" />
+          </Trigger>
+        </Triggers>
+      </Folder>
+      <Folder Id="85d37f42-8a93-4ca1-8640-bcedad12e32d" Name="P2" Enabled="true">
+        <Folders />
+        <Triggers>
+          <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" Name="Packet Filter F" Id="a69ea286-ffee-4c76-a5fa-3d0b8db2d959" RegularExpression="^26\|[^|]*\|DAC\|[^|]*\|[^|]*\|[^|]*\|[^|]*\|[^|]*\|(?&lt;name&gt;[^|]*)\|">
+            <Actions>
+              <Action OrderNumber="1" UseTTSTextExpression="go on male" ActionType="UseTTS">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+            </Actions>
+            <Condition Enabled="true" Grouping="Or">
+              <ConditionSingle Enabled="true" ExpressionL="${name}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+            </Condition>
+          </Trigger>
+          <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" Name="Packet Filter M" Id="24f4eb04-2d51-4b95-a1af-f12bbcd39d94" RegularExpression="^26\|[^|]*\|DAB\|[^|]*\|[^|]*\|[^|]*\|[^|]*\|[^|]*\|(?&lt;name&gt;[^|]*)\|">
+            <Actions>
+              <Action OrderNumber="1" UseTTSTextExpression="go on female" ActionType="UseTTS">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+            </Actions>
+            <Condition Enabled="true" Grouping="Or">
+              <ConditionSingle Enabled="true" ExpressionL="${name}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+            </Condition>
+          </Trigger>
+          <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" Name="Mid Glitch" Id="5bb6dcc6-e09e-41a5-a5cb-6e1b6249fd35" RegularExpression="^26\|[^|]*\|D63\|[^|]*\|[^|]*\|[^|]*\|[^|]*\|[^|]*\|(?&lt;name&gt;[^|]*)\|">
+            <Actions>
+              <Action OrderNumber="1" PlaySpeechMyself="True" UseTTSTextExpression="near" ActionType="UseTTS">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+            </Actions>
+            <Condition Enabled="true" Grouping="Or">
+              <ConditionSingle Enabled="true" ExpressionL="${name}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+            </Condition>
+            <Conditions />
+          </Trigger>
+          <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" Name="Remote Glitch" Id="d3cd5620-3d96-43aa-b514-e56bac0ef149" RegularExpression="^26\|[^|]*\|D64\|[^|]*\|[^|]*\|[^|]*\|[^|]*\|[^|]*\|(?&lt;name&gt;[^|]*)\|">
+            <Actions>
+              <Action OrderNumber="1" PlaySpeechMyself="True" UseTTSTextExpression="far" ActionType="UseTTS">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+            </Actions>
+            <Condition Enabled="true" Grouping="Or">
+              <ConditionSingle Enabled="true" ExpressionL="${name}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+            </Condition>
+            <Conditions />
           </Trigger>
         </Triggers>
       </Folder>
