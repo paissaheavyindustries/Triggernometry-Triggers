@@ -180,7 +180,7 @@
       <Folder Id="159745f8-e22b-4a98-bfdd-24d7cb94b9b1" Name="P1" Enabled="true">
         <Folders />
         <Triggers>
-          <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" Name="Looper" Id="7b06cfff-7e31-4cae-b322-700b1acb232e" RegularExpression="^26\|[^|]*\|(658|6A8|D80)\|[^|]*\|(?&lt;duration&gt;[^|]*)\|[^|]*\|[^|]*\|[^|]*\|(?&lt;name&gt;[^|]*)\|">
+          <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" Name="Looper" Id="7b06cfff-7e31-4cae-b322-700b1acb232e" RegularExpression="^26\|[^|]*\|D80\|[^|]*\|(?&lt;duration&gt;[^|]*)\|[^|]*\|[^|]*\|[^|]*\|(?&lt;name&gt;[^|]*)\|">
             <Actions>
               <Action OrderNumber="1" UseTTSTextExpression="take 1st tower" ActionType="UseTTS" ExecutionDelayExpression="2500" Description="1st tower" DescriptionOverride="True">
                 <Condition Enabled="true" Grouping="And">
@@ -211,32 +211,55 @@
               <ConditionSingle Enabled="true" ExpressionL="${name}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
             </Condition>
           </Trigger>
-          <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" Name="Tether" Id="ffc5a1a4-84d4-41ad-91b8-9757afa13d78" RegularExpression="^26\|[^|]*\|(?&lt;marker&gt;BBC|BBD|BBE|D7B)\|[^|]*\|[^|]*\|[^|]*\|[^|]*\|[^|]*\|(?&lt;name&gt;[^|]*)\|">
+          <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" Name="Nth In Line" Id="ffc5a1a4-84d4-41ad-91b8-9757afa13d78" RegularExpression="^26\|[^|]*\|(?&lt;marker&gt;BBC|BBD|BBE|D7B)\|[^|]*\|[^|]*\|[^|]*\|[^|]*\|[^|]*\|(?&lt;name&gt;[^|]*)\|">
             <Actions>
               <Action OrderNumber="1" OBSEndPoint="" UseTTSTextExpression="take 3rd tether" VariableOp="SetNumeric" VariableName="wyrmholeNumber" VariableExpression="1" ActionType="UseTTS" Description="number 1 / 3rd tether" DescriptionOverride="True">
                 <Condition Enabled="true" Grouping="And">
                   <ConditionSingle Enabled="true" ExpressionL="${marker}" ExpressionTypeL="String" ExpressionR="BBC" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                  <ConditionSingle Enabled="true" ExpressionL="${name}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                  <ConditionSingle Enabled="true" ExpressionL="${var:top_p1_phase}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                 </Condition>
               </Action>
               <Action OrderNumber="2" OBSEndPoint="" UseTTSTextExpression="take 4th tether" VariableOp="SetNumeric" VariableName="wyrmholeNumber" VariableExpression="2" ActionType="UseTTS" Description="number 2 / 4th tether" DescriptionOverride="True">
                 <Condition Enabled="true" Grouping="And">
                   <ConditionSingle Enabled="true" ExpressionL="${marker}" ExpressionTypeL="String" ExpressionR="BBD" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                  <ConditionSingle Enabled="true" ExpressionL="${name}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                  <ConditionSingle Enabled="true" ExpressionL="${var:top_p1_phase}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                 </Condition>
               </Action>
               <Action OrderNumber="3" OBSEndPoint="" UseTTSTextExpression="take 1st tether" VariableOp="SetNumeric" VariableName="wyrmholeNumber" VariableExpression="3" ActionType="UseTTS" Description="number 3 / 1st tether" DescriptionOverride="True">
                 <Condition Enabled="true" Grouping="And">
                   <ConditionSingle Enabled="true" ExpressionL="${marker}" ExpressionTypeL="String" ExpressionR="BBE" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                  <ConditionSingle Enabled="true" ExpressionL="${name}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                  <ConditionSingle Enabled="true" ExpressionL="${var:top_p1_phase}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                 </Condition>
               </Action>
               <Action OrderNumber="4" OBSEndPoint="" UseTTSTextExpression="take 2nd tether" VariableOp="SetNumeric" VariableName="wyrmholeNumber" VariableExpression="4" ActionType="UseTTS" Description="number 4 / 2nd tether" DescriptionOverride="True">
                 <Condition Enabled="true" Grouping="And">
                   <ConditionSingle Enabled="true" ExpressionL="${marker}" ExpressionTypeL="String" ExpressionR="D7B" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                  <ConditionSingle Enabled="true" ExpressionL="${name}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                  <ConditionSingle Enabled="true" ExpressionL="${var:top_p1_phase}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                </Condition>
+              </Action>
+              <Action OrderNumber="5" VariableOp="SetString" VariableName="toplooper_buddy_${marker}" VariableExpression="${name}" ActionType="Variable">
+                <Condition Enabled="true" Grouping="Or">
+                  <ConditionSingle Enabled="true" ExpressionL="${name}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringNotEqualNocase" />
+                </Condition>
+              </Action>
+              <Action OrderNumber="6" JsonEndpointExpression="http://${_const[TelestoEndpoint]}:${_const[TelestoPort]}" JsonPayloadExpression="{ &quot;version&quot;: 1, &quot;id&quot;: 123456, &quot;type&quot;: &quot;EnableDoodle&quot;, &quot;payload&quot;: { &quot;name&quot;: &quot;nthinline&quot;, &quot;type&quot;: &quot;line&quot;, &quot;r&quot;: &quot;1&quot;, &quot;g&quot;: &quot;0.7&quot;, &quot;a&quot;: &quot;0.5&quot;, &quot;expiresin&quot;: &quot;40000&quot;, &quot;thickness&quot;: &quot;5&quot;, &quot;start&quot;: { &quot;coords&quot;: &quot;entity&quot;, &quot;name&quot;: &quot;${_ffxivplayer}&quot; }, &quot;end&quot;: { &quot;coords&quot;: &quot;entity&quot;, &quot;name&quot;: &quot;${var:toplooper_buddy_${marker}}&quot; } } }" VariableOp="SetString" ActionType="GenericJson" ExecutionDelayExpression="2000">
+                <Condition Enabled="true" Grouping="And">
+                  <ConditionSingle Enabled="true" ExpressionL="${name}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                  <ConditionSingle Enabled="true" ExpressionL="${var:top_p1_phase}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                </Condition>
+              </Action>
+              <Action OrderNumber="7" JsonEndpointExpression="http://${_const[TelestoEndpoint]}:${_const[TelestoPort]}" JsonPayloadExpression="{ &quot;version&quot;: 1, &quot;id&quot;: 123456, &quot;type&quot;: &quot;EnableDoodle&quot;, &quot;payload&quot;: { &quot;name&quot;: &quot;nthinline&quot;, &quot;type&quot;: &quot;line&quot;, &quot;r&quot;: &quot;1&quot;, &quot;g&quot;: &quot;0.7&quot;, &quot;a&quot;: &quot;0.5&quot;, &quot;expiresin&quot;: &quot;5000&quot;, &quot;thickness&quot;: &quot;10&quot;, &quot;start&quot;: { &quot;coords&quot;: &quot;entity&quot;, &quot;name&quot;: &quot;${_ffxivplayer}&quot; }, &quot;end&quot;: { &quot;coords&quot;: &quot;entity&quot;, &quot;name&quot;: &quot;${var:toplooper_buddy_${marker}}&quot; } } }" VariableOp="SetString" ActionType="GenericJson">
+                <Condition Enabled="true" Grouping="And">
+                  <ConditionSingle Enabled="true" ExpressionL="${name}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                  <ConditionSingle Enabled="true" ExpressionL="${var:top_p1_phase}" ExpressionTypeL="Numeric" ExpressionR="2" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                 </Condition>
               </Action>
             </Actions>
-            <Condition Enabled="true" Grouping="Or">
-              <ConditionSingle Enabled="true" ExpressionL="${name}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-            </Condition>
+            <Condition Enabled="false" Grouping="Or" />
           </Trigger>
           <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" Name="Guided Missile Kyrios" Id="837d6d60-53ab-49d3-997d-f8df462bf0a1" RegularExpression="^26\|[^|]*\|(D60|DA7|DA8|DA9)\|[^|]*\|(?&lt;duration&gt;[^|]*)\|[^|]*\|[^|]*\|[^|]*\|(?&lt;name&gt;[^|]*)\|">
             <Actions>
@@ -253,7 +276,7 @@
           </Trigger>
           <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" Name="Condensed Wave Cannon Kyrios" Id="896a6bf9-b4e1-4ac0-8a30-7a82ec559e48" RegularExpression="^26\|[^|]*\|(DB3|DB4|DB5|DB6)\|[^|]*\|(?&lt;duration&gt;[^|]*)\|[^|]*\|[^|]*\|[^|]*\|(?&lt;name&gt;[^|]*)\|">
             <Actions>
-              <Action OrderNumber="1" JsonEndpointExpression="http://${_const[TelestoEndpoint]}:${_const[TelestoPort]}" JsonPayloadExpression="{ &quot;version&quot;: 1, &quot;id&quot;: 123456, &quot;type&quot;: &quot;EnableDoodle&quot;, &quot;payload&quot;: { &quot;name&quot;: &quot;condensed_${name}&quot;, &quot;type&quot;: &quot;arrow&quot;, &quot;r&quot;: &quot;0.7&quot;, &quot;g&quot;: &quot;0.7&quot;, &quot;b&quot;: &quot;1.0&quot;, &quot;expiresin&quot;: &quot;6000&quot;, &quot;system&quot;: &quot;world&quot;, &quot;from&quot;: { &quot;coords&quot;: &quot;entity&quot;, &quot;name&quot;: &quot;Omega&quot; }, &quot;to&quot;: { &quot;coords&quot;: &quot;entity&quot;, &quot;name&quot;: &quot;${name}&quot; } } }" UseTTSTextExpression="next missile" ActionType="GenericJson" ExecutionDelayExpression="(${duration}-6)*1000">
+              <Action OrderNumber="1" JsonEndpointExpression="http://${_const[TelestoEndpoint]}:${_const[TelestoPort]}" JsonPayloadExpression="{ &quot;version&quot;: 1, &quot;id&quot;: 123456, &quot;type&quot;: &quot;EnableDoodle&quot;, &quot;payload&quot;: { &quot;name&quot;: &quot;condensed_${name}&quot;, &quot;type&quot;: &quot;beam&quot;, &quot;r&quot;: &quot;0.7&quot;, &quot;g&quot;: &quot;0.7&quot;, &quot;b&quot;: &quot;1.0&quot;, &quot;width&quot;: &quot;2&quot;, &quot;length&quot;: &quot;100&quot;, &quot;expiresin&quot;: &quot;6000&quot;, &quot;system&quot;: &quot;world&quot;, &quot;from&quot;: { &quot;coords&quot;: &quot;entity&quot;, &quot;name&quot;: &quot;Omega&quot; }, &quot;at&quot;: { &quot;coords&quot;: &quot;entity&quot;, &quot;name&quot;: &quot;${name}&quot; } } }" UseTTSTextExpression="next missile" ActionType="GenericJson" ExecutionDelayExpression="(${duration}-6)*1000">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
               <Action OrderNumber="2" UseTTSTextExpression="next beam" ActionType="UseTTS">
@@ -263,6 +286,34 @@
               </Action>
             </Actions>
             <Condition Enabled="false" Grouping="Or" />
+          </Trigger>
+          <Trigger Enabled="true" Name="Program Loop" Id="0f9a5ed8-8554-4169-a8a3-3dbbb72ad715" RegularExpression="^20\|[^|]*\|[^|]*\|[^|]*\|7B03\|">
+            <Actions>
+              <Action OrderNumber="1" VariableOp="SetNumeric" VariableName="top_p1_phase" VariableExpression="1" ActionType="Variable">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+            </Actions>
+            <Condition Enabled="false" Grouping="Or" />
+            <Conditions />
+          </Trigger>
+          <Trigger Enabled="true" Name="Pantokrator" Id="bcdd2764-d904-4b52-b114-b91b4795eaad" RegularExpression="^20\|[^|]*\|[^|]*\|[^|]*\|7B0B\|">
+            <Actions>
+              <Action OrderNumber="1" VariableOp="SetNumeric" VariableName="top_p1_phase" VariableExpression="2" ActionType="Variable">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+            </Actions>
+            <Condition Enabled="false" Grouping="Or" />
+            <Conditions />
+          </Trigger>
+          <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" Name="Nth In Line Gone" Id="00723bae-dbba-41aa-a48b-a0ef4e9bff5a" RegularExpression="^30\|[^|]*\|(?&lt;marker&gt;BBC|BBD|BBE|D7B)\|[^|]*\|[^|]*\|[^|]*\|[^|]*\|[^|]*\|(?&lt;name&gt;[^|]*)\|">
+            <Actions>
+              <Action OrderNumber="1" JsonEndpointExpression="http://${_const[TelestoEndpoint]}:${_const[TelestoPort]}" JsonPayloadExpression="{ &quot;version&quot;: 1, &quot;id&quot;: 123456, &quot;type&quot;: &quot;DisableDoodle&quot;, &quot;payload&quot;: { &quot;name&quot;: &quot;nthinline&quot; } }" VariableOp="SetString" ActionType="GenericJson">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+            </Actions>
+            <Condition Enabled="true" Grouping="Or">
+              <ConditionSingle Enabled="true" ExpressionL="${name}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+            </Condition>
             <Conditions />
           </Trigger>
         </Triggers>
