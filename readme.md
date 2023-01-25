@@ -1,6 +1,8 @@
 ## What is this?
 
-This is a trigger repository for Triggernometry triggers made by myself.
+This is a trigger repository for Triggernometry triggers made by myself. To read more about Triggernometry, head over to:
+
+https://github.com/paissaheavyindustries/Triggernometry
 
 ## What are repositories?
 
@@ -13,3 +15,9 @@ A repository generally has a theme, for example a raid trigger repository would 
 It's quite easy - right click on "Remote triggers", and select "Add repository from list". Triggernometry will download the manifest.xml from Github, and present all available and known repositories for you to choose from.
 
 Alternatively, you can add a repository manually in Triggernometry by selection "Add repository", and specify an address to the repository file (generally a XML file).
+
+## Discord
+
+There is a publicly available Discord server for updates, suggestions, and questions related to the triggers, Triggernometry, and Telesto. Feel free to join at:
+
+https://discord.gg/6f9MY55
