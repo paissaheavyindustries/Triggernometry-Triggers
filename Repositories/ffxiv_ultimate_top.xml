@@ -221,18 +221,42 @@
                   <ConditionSingle Enabled="true" ExpressionL="${var:top_p1_phase}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                 </Condition>
               </Action>
-              <Action OrderNumber="5" VariableOp="SetString" VariableName="toplooper_buddy_${marker}" VariableExpression="${name}" ActionType="Variable">
+              <Action OrderNumber="5" ListVariableOp="Push" ListVariableName="nthinline1" ListVariableExpression="${name}" OBSEndPoint="" VariableOp="SetNumeric" VariableName="wyrmholeNumber" VariableExpression="1" ActionType="ListVariable">
+                <Condition Enabled="true" Grouping="And">
+                  <ConditionSingle Enabled="true" ExpressionL="${marker}" ExpressionTypeL="String" ExpressionR="BBC" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                  <ConditionSingle Enabled="true" ExpressionL="${var:top_p1_phase}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                </Condition>
+              </Action>
+              <Action OrderNumber="6" ListVariableOp="Push" ListVariableName="nthinline2" ListVariableExpression="${name}" OBSEndPoint="" VariableOp="SetNumeric" VariableName="wyrmholeNumber" VariableExpression="1" ActionType="ListVariable">
+                <Condition Enabled="true" Grouping="And">
+                  <ConditionSingle Enabled="true" ExpressionL="${marker}" ExpressionTypeL="String" ExpressionR="BBD" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                  <ConditionSingle Enabled="true" ExpressionL="${var:top_p1_phase}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                </Condition>
+              </Action>
+              <Action OrderNumber="7" ListVariableOp="Push" ListVariableName="nthinline3" ListVariableExpression="${name}" OBSEndPoint="" VariableOp="SetNumeric" VariableName="wyrmholeNumber" VariableExpression="1" ActionType="ListVariable">
+                <Condition Enabled="true" Grouping="And">
+                  <ConditionSingle Enabled="true" ExpressionL="${marker}" ExpressionTypeL="String" ExpressionR="BBE" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                  <ConditionSingle Enabled="true" ExpressionL="${var:top_p1_phase}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                </Condition>
+              </Action>
+              <Action OrderNumber="8" ListVariableOp="Push" ListVariableName="nthinline4" ListVariableExpression="${name}" OBSEndPoint="" VariableOp="SetNumeric" VariableName="wyrmholeNumber" VariableExpression="1" ActionType="ListVariable">
+                <Condition Enabled="true" Grouping="And">
+                  <ConditionSingle Enabled="true" ExpressionL="${marker}" ExpressionTypeL="String" ExpressionR="D7B" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                  <ConditionSingle Enabled="true" ExpressionL="${var:top_p1_phase}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                </Condition>
+              </Action>
+              <Action OrderNumber="9" VariableOp="SetString" VariableName="toplooper_buddy_${marker}" VariableExpression="${name}" ActionType="Variable">
                 <Condition Enabled="true" Grouping="Or">
                   <ConditionSingle Enabled="true" ExpressionL="${name}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringNotEqualNocase" />
                 </Condition>
               </Action>
-              <Action OrderNumber="6" JsonEndpointExpression="http://${_const[TelestoEndpoint]}:${_const[TelestoPort]}" JsonPayloadExpression="{ &quot;version&quot;: 1, &quot;id&quot;: 123456, &quot;type&quot;: &quot;EnableDoodle&quot;, &quot;payload&quot;: { &quot;name&quot;: &quot;nthinline&quot;, &quot;type&quot;: &quot;line&quot;, &quot;r&quot;: &quot;1&quot;, &quot;g&quot;: &quot;0.7&quot;, &quot;a&quot;: &quot;0.5&quot;, &quot;expiresin&quot;: &quot;40000&quot;, &quot;thickness&quot;: &quot;5&quot;, &quot;start&quot;: { &quot;coords&quot;: &quot;entity&quot;, &quot;name&quot;: &quot;${_ffxivplayer}&quot; }, &quot;end&quot;: { &quot;coords&quot;: &quot;entity&quot;, &quot;name&quot;: &quot;${var:toplooper_buddy_${marker}}&quot; } } }" VariableOp="SetString" ActionType="GenericJson" ExecutionDelayExpression="2000" Description="draw line to number buddy on program loop" DescriptionOverride="True">
+              <Action OrderNumber="10" JsonEndpointExpression="http://${_const[TelestoEndpoint]}:${_const[TelestoPort]}" JsonPayloadExpression="{ &quot;version&quot;: 1, &quot;id&quot;: 123456, &quot;type&quot;: &quot;EnableDoodle&quot;, &quot;payload&quot;: { &quot;name&quot;: &quot;nthinline&quot;, &quot;type&quot;: &quot;line&quot;, &quot;r&quot;: &quot;1&quot;, &quot;g&quot;: &quot;0.7&quot;, &quot;a&quot;: &quot;0.5&quot;, &quot;expiresin&quot;: &quot;40000&quot;, &quot;thickness&quot;: &quot;5&quot;, &quot;start&quot;: { &quot;coords&quot;: &quot;entity&quot;, &quot;name&quot;: &quot;${_ffxivplayer}&quot; }, &quot;end&quot;: { &quot;coords&quot;: &quot;entity&quot;, &quot;name&quot;: &quot;${var:toplooper_buddy_${marker}}&quot; } } }" VariableOp="SetString" ActionType="GenericJson" ExecutionDelayExpression="2000" Description="draw line to number buddy on program loop" DescriptionOverride="True">
                 <Condition Enabled="true" Grouping="And">
                   <ConditionSingle Enabled="true" ExpressionL="${name}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                   <ConditionSingle Enabled="true" ExpressionL="${var:top_p1_phase}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                 </Condition>
               </Action>
-              <Action OrderNumber="7" JsonEndpointExpression="http://${_const[TelestoEndpoint]}:${_const[TelestoPort]}" JsonPayloadExpression="{ &quot;version&quot;: 1, &quot;id&quot;: 123456, &quot;type&quot;: &quot;EnableDoodle&quot;, &quot;payload&quot;: { &quot;name&quot;: &quot;nthinline&quot;, &quot;type&quot;: &quot;line&quot;, &quot;r&quot;: &quot;1&quot;, &quot;g&quot;: &quot;0.7&quot;, &quot;a&quot;: &quot;0.5&quot;, &quot;expiresin&quot;: &quot;5000&quot;, &quot;thickness&quot;: &quot;10&quot;, &quot;start&quot;: { &quot;coords&quot;: &quot;entity&quot;, &quot;name&quot;: &quot;${_ffxivplayer}&quot; }, &quot;end&quot;: { &quot;coords&quot;: &quot;entity&quot;, &quot;name&quot;: &quot;${var:toplooper_buddy_${marker}}&quot; } } }" VariableOp="SetString" ActionType="GenericJson" Description="draw line to number buddy on pantokrator" DescriptionOverride="True">
+              <Action OrderNumber="11" JsonEndpointExpression="http://${_const[TelestoEndpoint]}:${_const[TelestoPort]}" JsonPayloadExpression="{ &quot;version&quot;: 1, &quot;id&quot;: 123456, &quot;type&quot;: &quot;EnableDoodle&quot;, &quot;payload&quot;: { &quot;name&quot;: &quot;nthinline&quot;, &quot;type&quot;: &quot;line&quot;, &quot;r&quot;: &quot;1&quot;, &quot;g&quot;: &quot;0.7&quot;, &quot;a&quot;: &quot;0.5&quot;, &quot;expiresin&quot;: &quot;5000&quot;, &quot;thickness&quot;: &quot;10&quot;, &quot;start&quot;: { &quot;coords&quot;: &quot;entity&quot;, &quot;name&quot;: &quot;${_ffxivplayer}&quot; }, &quot;end&quot;: { &quot;coords&quot;: &quot;entity&quot;, &quot;name&quot;: &quot;${var:toplooper_buddy_${marker}}&quot; } } }" VariableOp="SetString" ActionType="GenericJson" Description="draw line to number buddy on pantokrator" DescriptionOverride="True">
                 <Condition Enabled="true" Grouping="And">
                   <ConditionSingle Enabled="true" ExpressionL="${name}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                   <ConditionSingle Enabled="true" ExpressionL="${var:top_p1_phase}" ExpressionTypeL="Numeric" ExpressionR="2" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
@@ -272,12 +296,36 @@
               <Action OrderNumber="1" VariableOp="SetNumeric" VariableName="top_p1_phase" VariableExpression="1" ActionType="Variable">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
+              <Action OrderNumber="2" ListVariableName="nthinline1" ActionType="ListVariable">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="3" ListVariableName="nthinline2" ActionType="ListVariable">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="4" ListVariableName="nthinline3" ActionType="ListVariable">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="5" ListVariableName="nthinline4" ActionType="ListVariable">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
             </Actions>
             <Condition Enabled="false" Grouping="Or" />
           </Trigger>
           <Trigger Enabled="true" Source="FFXIVNetwork" Name="Pantokrator" Id="bcdd2764-d904-4b52-b114-b91b4795eaad" RegularExpression="^20\|[^|]*\|[^|]*\|[^|]*\|7B0B\|">
             <Actions>
               <Action OrderNumber="1" VariableOp="SetNumeric" VariableName="top_p1_phase" VariableExpression="2" ActionType="Variable">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="2" ListVariableName="nthinline1" ActionType="ListVariable">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="3" ListVariableName="nthinline2" ActionType="ListVariable">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="4" ListVariableName="nthinline3" ActionType="ListVariable">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="5" ListVariableName="nthinline4" ActionType="ListVariable">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
             </Actions>
@@ -327,7 +375,68 @@
         </Triggers>
       </Folder>
       <Folder Id="85d37f42-8a93-4ca1-8640-bcedad12e32d" Name="P2" Enabled="true">
-        <Folders />
+        <Folders>
+          <Folder Id="883d3621-9763-4d73-8469-2bd13e3590f6" Name="Playstation Callouts (by King Pendragon)" Enabled="true">
+            <Folders>
+              <Folder Id="f9b969fb-15c3-4012-aab4-8414a79dc63e" Name="PlayStation TOP" Enabled="true">
+                <Folders />
+                <Triggers>
+                  <Trigger Enabled="true" Source="FFXIVNetwork" Name="HeadCounterReset" Id="0dd81510-658c-4b8f-bb2b-fa02400ac4e8" RegularExpression="^33\|[^|]*\|[^|]*\|400000(?&gt;03|10)\|">
+                    <Actions>
+                      <Action OrderNumber="1" ListVariableName="HeadCounterName" VariableName="PS1HM" ActionType="Variable">
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Action>
+                      <Action OrderNumber="2" VariableName="PS1HMoffset" ActionType="Variable">
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Action>
+                    </Actions>
+                    <Condition Enabled="false" Grouping="Or" />
+                    <Conditions />
+                  </Trigger>
+                  <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" Name="HeadMarker" Id="64237603-2364-4cf6-87eb-8ce4b13cae66" RegularExpression="^27\|[^|]*\|[^|]*\|(?&lt;name&gt;[^|]*)\|[^|]*\|[^|]*\|(?&lt;ID&gt;[0-9A-F]{4})\|" MutexToCapture="TeaHeadMarker">
+                    <Actions>
+                      <Action OrderNumber="1" VariableOp="SetNumeric" VariableName="PS1HMoffset" VariableExpression="hex2dec(${ID})-23" ActionType="Variable" Asynchronous="False">
+                        <Condition Enabled="true" Grouping="Or">
+                          <ConditionSingle Enabled="true" ExpressionL="${evar:TEAoffset}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                        </Condition>
+                      </Action>
+                      <Action OrderNumber="2" VariableOp="SetString" VariableName="PS1HM" VariableExpression="${func:dec2hex:${numeric:(hex2dec(${ID})-${var:PS1HMoffset})}}" ActionType="Variable" Asynchronous="False">
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Action>
+                      <Action OrderNumber="3" UseTTSTextExpression="Circle" ActionType="UseTTS" Asynchronous="False">
+                        <Condition Enabled="true" Grouping="And">
+                          <ConditionSingle Enabled="true" ExpressionL="1A0" ExpressionTypeL="String" ExpressionR="${var:PS1HM}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                          <ConditionSingle Enabled="true" ExpressionL="${name}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                        </Condition>
+                      </Action>
+                      <Action OrderNumber="4" UseTTSTextExpression="Triangle" ActionType="UseTTS" Asynchronous="False">
+                        <Condition Enabled="true" Grouping="And">
+                          <ConditionSingle Enabled="true" ExpressionL="1AB" ExpressionTypeL="String" ExpressionR="${var:PS1HM}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                          <ConditionSingle Enabled="true" ExpressionL="${name}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                        </Condition>
+                      </Action>
+                      <Action OrderNumber="5" UseTTSTextExpression="Square" ActionType="UseTTS" Asynchronous="False">
+                        <Condition Enabled="true" Grouping="And">
+                          <ConditionSingle Enabled="true" ExpressionL="1AC" ExpressionTypeL="String" ExpressionR="${var:PS1HM}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                          <ConditionSingle Enabled="true" ExpressionL="${name}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                        </Condition>
+                      </Action>
+                      <Action OrderNumber="6" UseTTSTextExpression="X" ActionType="UseTTS" Asynchronous="False">
+                        <Condition Enabled="true" Grouping="And">
+                          <ConditionSingle Enabled="true" ExpressionL="1AD" ExpressionTypeL="String" ExpressionR="${var:PS1HM}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                          <ConditionSingle Enabled="true" ExpressionL="${name}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                        </Condition>
+                      </Action>
+                    </Actions>
+                    <Condition Enabled="false" Grouping="Or" />
+                    <Conditions />
+                  </Trigger>
+                </Triggers>
+              </Folder>
+            </Folders>
+            <Triggers />
+          </Folder>
+        </Folders>
         <Triggers>
           <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" Name="Packet Filter F" Id="a69ea286-ffee-4c76-a5fa-3d0b8db2d959" RegularExpression="^26\|[^|]*\|DAC\|[^|]*\|[^|]*\|[^|]*\|[^|]*\|[^|]*\|(?&lt;name&gt;[^|]*)\|">
             <Actions>
