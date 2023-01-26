@@ -378,60 +378,65 @@
         <Folders>
           <Folder Id="883d3621-9763-4d73-8469-2bd13e3590f6" Name="Playstation Callouts (by King Pendragon)" Enabled="true">
             <Folders>
-              <Folder Id="f9b969fb-15c3-4012-aab4-8414a79dc63e" Name="PlayStation TOP" Enabled="true">
-                <Folders />
-                <Triggers>
-                  <Trigger Enabled="true" Source="FFXIVNetwork" Name="HeadCounterReset" Id="0dd81510-658c-4b8f-bb2b-fa02400ac4e8" RegularExpression="^33\|[^|]*\|[^|]*\|400000(?&gt;03|10)\|">
-                    <Actions>
-                      <Action OrderNumber="1" ListVariableName="HeadCounterName" VariableName="PS1HM" ActionType="Variable">
+              <Folder Id="efbae09a-72b3-4f31-acc4-f7a7afc8b5ba" Name="Playstation Callouts (by King Pendragon)" Enabled="true">
+                <Folders>
+                  <Folder Id="34e484ce-d61a-4f1d-9919-8470cc21542b" Name="PlayStation TOP" Enabled="true">
+                    <Folders />
+                    <Triggers>
+                      <Trigger Enabled="true" Source="FFXIVNetwork" Name="HeadCounterReset" Id="0dd81510-658c-4b8f-bb2b-fa02400ac4e8" RegularExpression="^33\|[^|]*\|[^|]*\|400000(?&gt;03|10)\|">
+                        <Actions>
+                          <Action OrderNumber="1" ListVariableName="HeadCounterName" VariableName="PS1HM" ActionType="Variable">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                          <Action OrderNumber="2" VariableName="PS1HMoffset" ActionType="Variable">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                        </Actions>
                         <Condition Enabled="false" Grouping="Or" />
-                      </Action>
-                      <Action OrderNumber="2" VariableName="PS1HMoffset" ActionType="Variable">
+                        <Conditions />
+                      </Trigger>
+                      <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" Name="HeadMarker" Id="f2c75372-c5f2-49f7-89fb-8a74170f3a6c" RegularExpression="^27\|[^|]*\|[^|]*\|(?&lt;name&gt;[^|]*)\|[^|]*\|[^|]*\|(?&lt;ID&gt;[0-9A-F]{4})\|" MutexToCapture="TOPHeadMarker">
+                        <Actions>
+                          <Action OrderNumber="1" VariableOp="SetNumeric" VariableName="PS1HMoffset" VariableExpression="hex2dec(${ID})-23" ActionType="Variable" Asynchronous="False">
+                            <Condition Enabled="true" Grouping="Or">
+                              <ConditionSingle Enabled="true" ExpressionL="${evar:PS1HMoffset}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                            </Condition>
+                          </Action>
+                          <Action OrderNumber="2" VariableOp="SetString" VariableName="PS1HM" VariableExpression="${func:dec2hex:${numeric:(hex2dec(${ID})-${var:PS1HMoffset})}}" ActionType="Variable" Asynchronous="False">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                          <Action OrderNumber="3" UseTTSTextExpression="Circle" ActionType="UseTTS" Asynchronous="False">
+                            <Condition Enabled="true" Grouping="And">
+                              <ConditionSingle Enabled="true" ExpressionL="1A0" ExpressionTypeL="String" ExpressionR="${var:PS1HM}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                              <ConditionSingle Enabled="true" ExpressionL="${name}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                            </Condition>
+                          </Action>
+                          <Action OrderNumber="4" UseTTSTextExpression="Triangle" ActionType="UseTTS" Asynchronous="False">
+                            <Condition Enabled="true" Grouping="And">
+                              <ConditionSingle Enabled="true" ExpressionL="1AB" ExpressionTypeL="String" ExpressionR="${var:PS1HM}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                              <ConditionSingle Enabled="true" ExpressionL="${name}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                            </Condition>
+                          </Action>
+                          <Action OrderNumber="5" UseTTSTextExpression="Square" ActionType="UseTTS" Asynchronous="False">
+                            <Condition Enabled="true" Grouping="And">
+                              <ConditionSingle Enabled="true" ExpressionL="1AC" ExpressionTypeL="String" ExpressionR="${var:PS1HM}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                              <ConditionSingle Enabled="true" ExpressionL="${name}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                            </Condition>
+                          </Action>
+                          <Action OrderNumber="6" UseTTSTextExpression="X" ActionType="UseTTS" Asynchronous="False">
+                            <Condition Enabled="true" Grouping="And">
+                              <ConditionSingle Enabled="true" ExpressionL="1AD" ExpressionTypeL="String" ExpressionR="${var:PS1HM}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                              <ConditionSingle Enabled="true" ExpressionL="${name}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                            </Condition>
+                          </Action>
+                        </Actions>
                         <Condition Enabled="false" Grouping="Or" />
-                      </Action>
-                    </Actions>
-                    <Condition Enabled="false" Grouping="Or" />
-                    <Conditions />
-                  </Trigger>
-                  <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" Name="HeadMarker" Id="64237603-2364-4cf6-87eb-8ce4b13cae66" RegularExpression="^27\|[^|]*\|[^|]*\|(?&lt;name&gt;[^|]*)\|[^|]*\|[^|]*\|(?&lt;ID&gt;[0-9A-F]{4})\|" MutexToCapture="TeaHeadMarker">
-                    <Actions>
-                      <Action OrderNumber="1" VariableOp="SetNumeric" VariableName="PS1HMoffset" VariableExpression="hex2dec(${ID})-23" ActionType="Variable" Asynchronous="False">
-                        <Condition Enabled="true" Grouping="Or">
-                          <ConditionSingle Enabled="true" ExpressionL="${evar:TEAoffset}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                        </Condition>
-                      </Action>
-                      <Action OrderNumber="2" VariableOp="SetString" VariableName="PS1HM" VariableExpression="${func:dec2hex:${numeric:(hex2dec(${ID})-${var:PS1HMoffset})}}" ActionType="Variable" Asynchronous="False">
-                        <Condition Enabled="false" Grouping="Or" />
-                      </Action>
-                      <Action OrderNumber="3" UseTTSTextExpression="Circle" ActionType="UseTTS" Asynchronous="False">
-                        <Condition Enabled="true" Grouping="And">
-                          <ConditionSingle Enabled="true" ExpressionL="1A0" ExpressionTypeL="String" ExpressionR="${var:PS1HM}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                          <ConditionSingle Enabled="true" ExpressionL="${name}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                        </Condition>
-                      </Action>
-                      <Action OrderNumber="4" UseTTSTextExpression="Triangle" ActionType="UseTTS" Asynchronous="False">
-                        <Condition Enabled="true" Grouping="And">
-                          <ConditionSingle Enabled="true" ExpressionL="1AB" ExpressionTypeL="String" ExpressionR="${var:PS1HM}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                          <ConditionSingle Enabled="true" ExpressionL="${name}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                        </Condition>
-                      </Action>
-                      <Action OrderNumber="5" UseTTSTextExpression="Square" ActionType="UseTTS" Asynchronous="False">
-                        <Condition Enabled="true" Grouping="And">
-                          <ConditionSingle Enabled="true" ExpressionL="1AC" ExpressionTypeL="String" ExpressionR="${var:PS1HM}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                          <ConditionSingle Enabled="true" ExpressionL="${name}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                        </Condition>
-                      </Action>
-                      <Action OrderNumber="6" UseTTSTextExpression="X" ActionType="UseTTS" Asynchronous="False">
-                        <Condition Enabled="true" Grouping="And">
-                          <ConditionSingle Enabled="true" ExpressionL="1AD" ExpressionTypeL="String" ExpressionR="${var:PS1HM}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                          <ConditionSingle Enabled="true" ExpressionL="${name}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                        </Condition>
-                      </Action>
-                    </Actions>
-                    <Condition Enabled="false" Grouping="Or" />
-                    <Conditions />
-                  </Trigger>
-                </Triggers>
+                        <Conditions />
+                      </Trigger>
+                    </Triggers>
+                  </Folder>
+                </Folders>
+                <Triggers />
               </Folder>
             </Folders>
             <Triggers />
