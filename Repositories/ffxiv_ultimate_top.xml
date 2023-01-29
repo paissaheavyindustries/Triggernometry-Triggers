@@ -389,7 +389,7 @@
               <Folder Id="34e484ce-d61a-4f1d-9919-8470cc21542b" Name="PlayStation TOP" Enabled="true">
                 <Folders />
                 <Triggers>
-                  <Trigger Enabled="true" Source="FFXIVNetwork" Name="HeadCounterReset" Id="0dd81510-658c-4b8f-bb2b-fa02400ac4e8" RegularExpression="^33\|[^|]*\|[^|]*\|400000(?&gt;03|10)\|">
+                  <Trigger Enabled="true" Source="FFXIVNetwork" Name="HeadCounterReset" Id="788d0f3b-cdcb-4a26-bca2-4da0343fb5b5" RegularExpression="^33\|[^|]*\|[A-F0-9]{8}\|4000000[3F]\|">
                     <Actions>
                       <Action OrderNumber="1" ListVariableName="HeadCounterName" VariableName="PS1HM" ActionType="Variable">
                         <Condition Enabled="false" Grouping="Or" />
@@ -399,6 +399,7 @@
                       </Action>
                     </Actions>
                     <Condition Enabled="false" Grouping="Or" />
+                    <Conditions />
                   </Trigger>
                   <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" Name="HeadMarker" Id="f2c75372-c5f2-49f7-89fb-8a74170f3a6c" RegularExpression="^27\|[^|]*\|[^|]*\|(?&lt;name&gt;[^|]*)\|[^|]*\|[^|]*\|(?&lt;ID&gt;[0-9A-F]{4})\|" MutexToCapture="TOPHeadMarker">
                     <Actions>
@@ -436,6 +437,7 @@
                       </Action>
                     </Actions>
                     <Condition Enabled="false" Grouping="Or" />
+                    <Conditions />
                   </Trigger>
                 </Triggers>
               </Folder>
