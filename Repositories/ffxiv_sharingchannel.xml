@@ -4443,6 +4443,88 @@
                   </Folder>
                 </Folders>
               </Folder>
+              <Folder Enabled="false" Name="Everkeep EX (by locrianmode)" Id="35057521-2562-f21b-5e93-dd70de7728fa">
+                <Triggers />
+                <Folders>
+                  <Folder Id="da04cea5-56d1-45fa-b350-4ff9a978255f" Name="Everkeep EX" Enabled="true">
+                    <Folders />
+                    <Triggers>
+                      <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" Name="Forward Half (right safe)" Id="61550b1d-7f21-49a9-be73-3a3b9432fd3d" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|(937B|999A)\|">
+                        <Actions>
+                          <Action OrderNumber="1" UseTTSTextExpression="front right safe" ActionType="UseTTS">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                        </Actions>
+                        <Condition Enabled="false" Grouping="Or" />
+                        <Conditions />
+                      </Trigger>
+                      <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" Name="Half Full (left safe)" Id="8f6135aa-51ea-4fae-805a-c02d916781a8" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|9368\|">
+                        <Actions>
+                          <Action OrderNumber="1" UseTTSTextExpression="left safe" ActionType="UseTTS">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                        </Actions>
+                        <Condition Enabled="false" Grouping="Or" />
+                        <Conditions />
+                      </Trigger>
+                      <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" Name="Half Full (right safe)" Id="b7e0905c-c05c-487e-b2ab-c3b0f27e6584" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|9369\|">
+                        <Actions>
+                          <Action OrderNumber="1" UseTTSTextExpression="right safe" ActionType="UseTTS">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                        </Actions>
+                        <Condition Enabled="false" Grouping="Or" />
+                        <Conditions />
+                      </Trigger>
+                      <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" Name="Forward Half (left safe)" Id="3949bdf2-f706-463f-ad69-f20b42f763d2" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|(937C|999B)\|">
+                        <Actions>
+                          <Action OrderNumber="1" UseTTSTextExpression="front left safe" ActionType="UseTTS">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                        </Actions>
+                        <Condition Enabled="false" Grouping="Or" />
+                        <Conditions />
+                      </Trigger>
+                      <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" Name="Backward Half (right safe)" Id="68b0a06a-0145-4ae3-93c2-4ac963f15a25" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|(937E|999D)\|">
+                        <Actions>
+                          <Action OrderNumber="1" UseTTSTextExpression="back right safe" ActionType="UseTTS">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                        </Actions>
+                        <Condition Enabled="false" Grouping="Or" />
+                        <Conditions />
+                      </Trigger>
+                      <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" Name="Backward Half (left safe)" Id="1233a80b-ea22-49ec-a765-49b7002fcf6b" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|(937D|999C)\|">
+                        <Actions>
+                          <Action OrderNumber="1" UseTTSTextExpression="back left safe" ActionType="UseTTS">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                        </Actions>
+                        <Condition Enabled="false" Grouping="Or" />
+                        <Conditions />
+                      </Trigger>
+                      <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" Name="Half Circuit (in safe)" Id="5ead611f-f39e-42fa-b4f5-cc17a599ce73" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|936D\|">
+                        <Actions>
+                          <Action OrderNumber="1" UseTTSTextExpression="in safe" ActionType="UseTTS">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                        </Actions>
+                        <Condition Enabled="false" Grouping="Or" />
+                        <Conditions />
+                      </Trigger>
+                      <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" Name="Half Circuit (out safe)" Id="5658ebc8-79ae-49de-a17f-1836e713e006" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|939F\|">
+                        <Actions>
+                          <Action OrderNumber="1" UseTTSTextExpression="out safe" ActionType="UseTTS">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                        </Actions>
+                        <Condition Enabled="false" Grouping="Or" />
+                        <Conditions />
+                      </Trigger>
+                    </Triggers>
+                  </Folder>
+                </Folders>
+              </Folder>
             </Folders>
           </Folder>
         </Folders>
