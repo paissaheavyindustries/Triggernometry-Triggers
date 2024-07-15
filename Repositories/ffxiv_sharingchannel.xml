@@ -97,19 +97,36 @@
             </Folders>
           </Folder>
           <Folder Enabled="false" Name="Telesto: Tether &amp; Headmarker Visualisation (by fruct1s)" Id="cf2054f8-7d52-d66c-4388-93e2653e7398">
-            <Triggers>
-              <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" Name="Telesto: Tethers Visualiser Beam" Id="5d393c1f-9125-4107-90fc-6b7747275aa6" RegularExpression="^35\|[^|]*\|(?&lt;mob&gt;[^|]*)\|[^|]*\|[^|]*\|(?&lt;tar&gt;[^|]*)\|[^|]*\|[^|]*\|(?&lt;ID&gt;[^|]*)\|">
-                <Actions>
-                  <Action OrderNumber="1" JsonEndpointExpression="http://${_const[TelestoEndpoint]}:${_const[TelestoPort]}" JsonPayloadExpression="{ &quot;version&quot;: 1, &quot;id&quot;: 69, &quot;type&quot;: &quot;EnableDoodle&quot;, &quot;payload&quot;: { &quot;name&quot;: &quot;Tether${mob}&quot;, &quot;type&quot;: &quot;line&quot;, &quot;r&quot;: &quot;abs((2+¤{_sin[0.2]})*cos(¤{_systemtimems}/1000))+0.1&quot;, &quot;g&quot;: &quot;abs((-2+¤{_sin[0.2]})*cos(¤{_systemtimems}/1000))+0.1&quot;, &quot;b&quot;: &quot;abs((¤{_sin[0.2]})*cos(¤{_systemtimems}/1000))+0.1&quot;, &quot;expiresin&quot;: &quot;7000&quot;, &quot;thickness&quot;: &quot;7&quot;, &quot;start&quot;: { &quot;coords&quot;: &quot;entity&quot;, &quot;id&quot;: &quot;${mob}&quot; }, &quot;end&quot;: { &quot;coords&quot;: &quot;entity&quot;, &quot;name&quot;: &quot;${_ffxivplayer}&quot; } } }" OBSEndPoint="" ActionType="GenericJson" Asynchronous="False" RefireRequeue="False" Description="Tether Beam" DescriptionOverride="True">
-                    <Condition Enabled="false" Grouping="Or" />
-                  </Action>
-                </Actions>
-                <Condition Enabled="true" Grouping="Or">
-                  <ConditionSingle Enabled="true" ExpressionL="${tar}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                </Condition>
-              </Trigger>
-            </Triggers>
-            <Folders />
+            <Triggers />
+            <Folders>
+              <Folder Id="cf2054f8-7d52-d66c-4388-93e2653e7398" Name="Telesto: Tether &amp; Headmarker Visualisation" Enabled="true">
+                <Folders />
+                <Triggers>
+                  <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" Name="Telesto: Tethers Visualiser Beam" Id="bf724749-4c4d-4214-a601-9f7b64b000c0" RegularExpression="^35\|[^|]*\|(?&lt;mob&gt;[^|]*)\|[^|]*\|[^|]*\|(?&lt;tar&gt;[^|]*)\|[^|]*\|[^|]*\|(?&lt;ID&gt;[^|]*)\|">
+                    <Actions>
+                      <Action OrderNumber="1" JsonEndpointExpression="http://${_const[TelestoEndpoint]}:${_const[TelestoPort]}" JsonPayloadExpression="{ &quot;version&quot;: 1, &quot;id&quot;: 69, &quot;type&quot;: &quot;EnableDoodle&quot;, &quot;payload&quot;: { &quot;name&quot;: &quot;Tether${mob}&quot;, &quot;type&quot;: &quot;line&quot;, &quot;r&quot;: &quot;abs((2+¤{_sin[0.2]})*cos(¤{_systemtimems}/1000))+0.1&quot;, &quot;g&quot;: &quot;abs((-2+¤{_sin[0.2]})*cos(¤{_systemtimems}/1000))+0.1&quot;, &quot;b&quot;: &quot;abs((¤{_sin[0.2]})*cos(¤{_systemtimems}/1000))+0.1&quot;, &quot;expiresin&quot;: &quot;7000&quot;, &quot;thickness&quot;: &quot;7&quot;, &quot;start&quot;: { &quot;coords&quot;: &quot;entity&quot;, &quot;id&quot;: &quot;${mob}&quot; }, &quot;end&quot;: { &quot;coords&quot;: &quot;entity&quot;, &quot;name&quot;: &quot;${_ffxivplayer}&quot; } } }" OBSEndPoint="" SoundRouting="None" TTSRouting="None" ActionType="GenericJson" Asynchronous="False" RefireRequeue="False" Description="Tether Beam" DescriptionOverride="True">
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Action>
+                    </Actions>
+                    <Condition Enabled="true" Grouping="Or">
+                      <ConditionSingle Enabled="true" ExpressionL="${tar}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                    </Condition>
+                    <Conditions />
+                  </Trigger>
+                  <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" Name="Telesto: Headmarkers Visualiser Circle" Id="6fcd07d3-96b8-46af-ba70-c1774a91ea3c" RegularExpression="^27\|[^|]*\|[^|]*\|(?&lt;tar&gt;[^|]*)\|">
+                    <Actions>
+                      <Action OrderNumber="1" JsonEndpointExpression="http://${_const[TelestoEndpoint]}:${_const[TelestoPort]}" JsonPayloadExpression="{ &quot;version&quot;: 1, &quot;id&quot;: 69, &quot;type&quot;: &quot;EnableDoodle&quot;, &quot;payload&quot;: { &quot;name&quot;: &quot;HM${tar}&quot;, &quot;type&quot;: &quot;circle&quot;, &quot;r&quot;: &quot;abs((2+¤{_sin[0.2]})*cos(¤{_systemtimems}/1000))+0.1&quot;, &quot;g&quot;: &quot;abs((-2+¤{_sin[0.2]})*cos(¤{_systemtimems}/1000))+0.1&quot;, &quot;b&quot;: &quot;abs((¤{_sin[0.2]})*cos(¤{_systemtimems}/1000))+0.1&quot;, &quot;expiresin&quot;: &quot;7000&quot;, &quot;radius&quot;: &quot;0.5&quot;, &quot;thickness&quot;: &quot;7&quot;, &quot;system&quot;: &quot;world&quot;, &quot;position&quot;: { &quot;coords&quot;: &quot;entity&quot;, &quot;name&quot;: &quot;${_ffxivplayer}&quot; } } }" OBSEndPoint="" SoundRouting="None" TTSRouting="None" ActionType="GenericJson" Asynchronous="False" RefireRequeue="False" Description="Headmerker Circle" DescriptionOverride="True">
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Action>
+                    </Actions>
+                    <Condition Enabled="true" Grouping="Or">
+                      <ConditionSingle Enabled="true" ExpressionL="${tar}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                    </Condition>
+                    <Conditions />
+                  </Trigger>
+                </Triggers>
+              </Folder>
+            </Folders>
           </Folder>
         </Folders>
       </Folder>
