@@ -3728,6 +3728,147 @@
               </Folder>
             </Folders>
           </Folder>
+          <Folder Enabled="false" Name="Bard Song Rotations / Raid DoT Buffs Reminder (by zeffuro)" Id="da1f01cf-7d20-a8bb-fa3b-d505e04fc5ee">
+            <Triggers />
+            <Folders>
+              <Folder Id="2b489b7f-c108-4272-a9e0-1452752f35f2" Name="Bard Song/Raid Reminders" Enabled="true">
+                <Folders>
+                  <Folder Id="a37281ec-6929-436b-b42d-c9a42a081eaf" Name="Song Rotations (Only enable one)" Enabled="true">
+                    <Folders>
+                      <Folder Id="277ad8fa-6bc3-4588-8e5f-8253528463ad" Name="3-6-9 Song Rotation" Enabled="true">
+                        <Folders />
+                        <Triggers>
+                          <Trigger Enabled="true" Source="FFXIVNetwork" Name="369 AP after MB" Id="50fa73a6-9eeb-4895-9b51-229f23a81ee7" RegularExpression="^2[12]\|[^|]*\|[A-Z0-9]{8}\|(?&lt;player&gt;[^|]{2,31})\|72\|(?&lt;spell&gt;[^|]+)\|" PrevActions="Interrupt" PeriodRefire="Deny" RefirePeriodExpression="1000">
+                            <Actions>
+                              <Action OrderNumber="1" TriggerOp="CancelTrigger" TriggerId="ac82bee2-a33d-4ff6-bfd9-9a772a323bfc" ActionType="Trigger">
+                                <Condition Enabled="false" Grouping="Or" />
+                              </Action>
+                              <Action OrderNumber="2" TriggerOp="CancelTrigger" TriggerId="bb064ac2-f604-42e4-a488-4f814047d481" ActionType="Trigger">
+                                <Condition Enabled="false" Grouping="Or" />
+                              </Action>
+                              <Action OrderNumber="3" UseTTSTextExpression="AP Song" ActionType="UseTTS" ExecutionDelayExpression="41000" RefireInterrupt="True">
+                                <Condition Enabled="false" Grouping="Or" />
+                              </Action>
+                            </Actions>
+                            <Condition Enabled="true" Grouping="And">
+                              <ConditionSingle Enabled="true" ExpressionL="${player}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualCase" />
+                            </Condition>
+                          </Trigger>
+                          <Trigger Enabled="true" Source="FFXIVNetwork" Name="369 MB after WM" Id="ac82bee2-a33d-4ff6-bfd9-9a772a323bfc" RegularExpression="^2[12]\|[^|]*\|[A-Z0-9]{8}\|(?&lt;player&gt;[^|]{2,31})\|DE7\|(?&lt;spell&gt;[^|]+)\|" PrevActions="Interrupt" PeriodRefire="Deny" RefirePeriodExpression="1000">
+                            <Actions>
+                              <Action OrderNumber="1" TriggerOp="CancelTrigger" TriggerId="50fa73a6-9eeb-4895-9b51-229f23a81ee7" ActionType="Trigger">
+                                <Condition Enabled="false" Grouping="Or" />
+                              </Action>
+                              <Action OrderNumber="2" TriggerOp="CancelTrigger" TriggerId="bb064ac2-f604-42e4-a488-4f814047d481" ActionType="Trigger">
+                                <Condition Enabled="false" Grouping="Or" />
+                              </Action>
+                              <Action OrderNumber="3" UseTTSTextExpression="MB Song" ActionType="UseTTS" ExecutionDelayExpression="38000" RefireInterrupt="True">
+                                <Condition Enabled="false" Grouping="Or" />
+                              </Action>
+                            </Actions>
+                            <Condition Enabled="true" Grouping="And">
+                              <ConditionSingle Enabled="true" ExpressionL="${player}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualCase" />
+                            </Condition>
+                          </Trigger>
+                          <Trigger Enabled="true" Source="FFXIVNetwork" Name="369 WM after AP with BL" Id="bb064ac2-f604-42e4-a488-4f814047d481" RegularExpression="^2[12]\|[^|]*\|[A-Z0-9]{8}\|(?&lt;player&gt;[^|]{2,31})\|74\|(?&lt;spell&gt;[^|]+)\|" PrevActions="Interrupt" PeriodRefire="Deny" RefirePeriodExpression="1000">
+                            <Actions>
+                              <Action OrderNumber="1" TriggerOp="CancelTrigger" TriggerId="ac82bee2-a33d-4ff6-bfd9-9a772a323bfc" ActionType="Trigger">
+                                <Condition Enabled="false" Grouping="Or" />
+                              </Action>
+                              <Action OrderNumber="2" TriggerOp="CancelTrigger" TriggerId="50fa73a6-9eeb-4895-9b51-229f23a81ee7" ActionType="Trigger">
+                                <Condition Enabled="false" Grouping="Or" />
+                              </Action>
+                              <Action OrderNumber="3" UseTTSTextExpression="Hold BL" ActionType="UseTTS" ExecutionDelayExpression="8000" RefireInterrupt="True">
+                                <Condition Enabled="false" Grouping="Or" />
+                              </Action>
+                              <Action OrderNumber="4" UseTTSTextExpression="WEE M Song" ActionType="UseTTS" ExecutionDelayExpression="27000" RefireInterrupt="True">
+                                <Condition Enabled="false" Grouping="Or" />
+                              </Action>
+                            </Actions>
+                            <Condition Enabled="true" Grouping="And">
+                              <ConditionSingle Enabled="true" ExpressionL="${player}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualCase" />
+                            </Condition>
+                          </Trigger>
+                        </Triggers>
+                      </Folder>
+                      <Folder Id="0679470c-d2b8-4d54-abb0-4918c4d04902" Name="3-3-12 Song Rotation" Enabled="true">
+                        <Folders />
+                        <Triggers>
+                          <Trigger Enabled="true" Source="FFXIVNetwork" Name="3312 AP after MB" Id="298a260b-0891-4643-9cc7-27ca2ef22913" RegularExpression="^2[12]\|[^|]*\|[A-Z0-9]{8}\|(?&lt;player&gt;[^|]{2,31})\|72\|(?&lt;spell&gt;[^|]+)\|" PrevActions="Interrupt" PeriodRefire="Deny" RefirePeriodExpression="1000">
+                            <Actions>
+                              <Action OrderNumber="1" TriggerOp="CancelTrigger" TriggerId="9cac3f7c-ef1d-4b05-a8d3-661ee98efdda" ActionType="Trigger">
+                                <Condition Enabled="false" Grouping="Or" />
+                              </Action>
+                              <Action OrderNumber="2" TriggerOp="CancelTrigger" TriggerId="aab96e4e-8e44-4c48-a9d8-8a0e15374af7" ActionType="Trigger">
+                                <Condition Enabled="false" Grouping="Or" />
+                              </Action>
+                              <Action OrderNumber="3" UseTTSTextExpression="AP Song" ActionType="UseTTS" ExecutionDelayExpression="41000" RefireInterrupt="True">
+                                <Condition Enabled="false" Grouping="Or" />
+                              </Action>
+                            </Actions>
+                            <Condition Enabled="true" Grouping="And">
+                              <ConditionSingle Enabled="true" ExpressionL="${player}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualCase" />
+                            </Condition>
+                            <Conditions />
+                          </Trigger>
+                          <Trigger Enabled="true" Source="FFXIVNetwork" Name="3312 MB after WM" Id="9cac3f7c-ef1d-4b05-a8d3-661ee98efdda" RegularExpression="^2[12]\|[^|]*\|[A-Z0-9]{8}\|(?&lt;player&gt;[^|]{2,31})\|DE7\|(?&lt;spell&gt;[^|]+)\|" PrevActions="Interrupt" PeriodRefire="Deny" RefirePeriodExpression="1000">
+                            <Actions>
+                              <Action OrderNumber="1" TriggerOp="CancelTrigger" TriggerId="298a260b-0891-4643-9cc7-27ca2ef22913" ActionType="Trigger">
+                                <Condition Enabled="false" Grouping="Or" />
+                              </Action>
+                              <Action OrderNumber="2" TriggerOp="CancelTrigger" TriggerId="aab96e4e-8e44-4c48-a9d8-8a0e15374af7" ActionType="Trigger">
+                                <Condition Enabled="false" Grouping="Or" />
+                              </Action>
+                              <Action OrderNumber="3" UseTTSTextExpression="MB Song" ActionType="UseTTS" ExecutionDelayExpression="41000" RefireInterrupt="True">
+                                <Condition Enabled="false" Grouping="Or" />
+                              </Action>
+                            </Actions>
+                            <Condition Enabled="true" Grouping="And">
+                              <ConditionSingle Enabled="true" ExpressionL="${player}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualCase" />
+                            </Condition>
+                            <Conditions />
+                          </Trigger>
+                          <Trigger Enabled="true" Source="FFXIVNetwork" Name="3312 WM after AP with BL" Id="aab96e4e-8e44-4c48-a9d8-8a0e15374af7" RegularExpression="^2[12]\|[^|]*\|[A-Z0-9]{8}\|(?&lt;player&gt;[^|]{2,31})\|74\|(?&lt;spell&gt;[^|]+)\|" PrevActions="Interrupt" PeriodRefire="Deny" RefirePeriodExpression="1000">
+                            <Actions>
+                              <Action OrderNumber="1" TriggerOp="CancelTrigger" TriggerId="9cac3f7c-ef1d-4b05-a8d3-661ee98efdda" ActionType="Trigger">
+                                <Condition Enabled="false" Grouping="Or" />
+                              </Action>
+                              <Action OrderNumber="2" TriggerOp="CancelTrigger" TriggerId="298a260b-0891-4643-9cc7-27ca2ef22913" ActionType="Trigger">
+                                <Condition Enabled="false" Grouping="Or" />
+                              </Action>
+                              <Action OrderNumber="3" UseTTSTextExpression="Hold BL" ActionType="UseTTS" ExecutionDelayExpression="8000" RefireInterrupt="True">
+                                <Condition Enabled="false" Grouping="Or" />
+                              </Action>
+                              <Action OrderNumber="4" UseTTSTextExpression="WEE M Song" ActionType="UseTTS" ExecutionDelayExpression="24000" RefireInterrupt="True">
+                                <Condition Enabled="false" Grouping="Or" />
+                              </Action>
+                            </Actions>
+                            <Condition Enabled="true" Grouping="And">
+                              <ConditionSingle Enabled="true" ExpressionL="${player}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualCase" />
+                            </Condition>
+                            <Conditions />
+                          </Trigger>
+                        </Triggers>
+                      </Folder>
+                    </Folders>
+                    <Triggers />
+                  </Folder>
+                </Folders>
+                <Triggers>
+                  <Trigger Enabled="true" Source="FFXIVNetwork" Name="Catch Buffs" Id="5f29e8b4-e53f-408f-b18f-0e2d2d726da8" RegularExpression="^2[12]\|[^|]*\|[A-Z0-9]{8}\|(?&lt;player&gt;[^|]{2,31})\|65\|(?&lt;spell&gt;[^|]+)\|" PeriodRefire="Deny" RefirePeriodExpression="1000">
+                    <Actions>
+                      <Action OrderNumber="1" UseTTSTextExpression="DoT Buffs" ActionType="UseTTS" ExecutionDelayExpression="12000" RefireInterrupt="True">
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Action>
+                    </Actions>
+                    <Condition Enabled="true" Grouping="And">
+                      <ConditionSingle Enabled="true" ExpressionL="${player}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualCase" />
+                    </Condition>
+                  </Trigger>
+                </Triggers>
+              </Folder>
+            </Folders>
+          </Folder>
         </Folders>
       </Folder>
       <Folder Enabled="true" Name="Trials" Id="3917c704-f3df-db97-de78-1f9590b20acb">
@@ -6666,6 +6807,118 @@
                     </Triggers>
                   </Folder>
                 </Folders>
+              </Folder>
+            </Folders>
+          </Folder>
+        </Folders>
+      </Folder>
+      <Folder Enabled="true" Name="Unsorted" Id="49df5048-a845-9a1e-20bf-62304ce0c95e">
+        <Triggers />
+        <Folders>
+          <Folder Enabled="false" Name="AAC Light-Heavyweight M1 Normal (by fruct1s)" Id="01c760fc-9b6a-d853-0307-8a23262fdc8f">
+            <Triggers />
+            <Folders>
+              <Folder FFXIVZoneFilterEnabled="True" FfxivZoneFilterRegularExpression="^1225$" Id="4406cc4e-c285-46c0-b07e-aca2de528f75" Name="AAC Light-Heavyweight M1 Normal" Enabled="true">
+                <Folders />
+                <Triggers>
+                  <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" Name="Black Cat Crossing" Id="0f1b2e24-2a2c-4ab9-aa31-631bb679f01d" RegularExpression="^20\|[^|]*\|(?&lt;EID&gt;[^|]*)\|[^|]*\|93(?&lt;cast&gt;0F|10)\|" PrevActionsRefire="Deny" PeriodRefire="Deny" RefirePeriodExpression="8000">
+                    <Actions>
+                      <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" VariableOp="SetString" VariableName="Crossing" VariableExpression="Intercards safe, then Cardinal safe" ActionType="Variable">
+                        <Condition Enabled="true" Grouping="Or">
+                          <ConditionSingle Enabled="true" ExpressionL="${cast}" ExpressionTypeL="String" ExpressionR="0F" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                        </Condition>
+                      </Action>
+                      <Action OrderNumber="2" SoundRouting="None" TTSRouting="None" VariableOp="SetString" VariableName="Crossing" VariableExpression="Cardinal safe, then Intercards safe" ActionType="Variable">
+                        <Condition Enabled="true" Grouping="Or">
+                          <ConditionSingle Enabled="true" ExpressionL="${cast}" ExpressionTypeL="String" ExpressionR="10" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                        </Condition>
+                      </Action>
+                      <Action OrderNumber="3" OBSEndPoint="" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="${v:Crossing}" TextAuraEffect="Bold, Underline" TextAuraForeground="Fuchsia" TextAuraOutline="#FF0080" TextAuraName="TATEmplate" TextAuraExpression="Template" TextAuraXIniExpression="784" TextAuraYIniExpression="360" TextAuraWIniExpression="1363" TextAuraHIniExpression="478" TextAuraOIniExpression="100" TextAuraTTLTickExpression="5-${_since}" TriggerId="3c70315c-9305-4e7f-9077-c6325a423bf1" TriggerText="${v:Crossing}" TriggerForce="active" ActionType="UseTTS" ExecutionDelayExpression="5" Description="TTS &amp; Text Aura">
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Action>
+                    </Actions>
+                    <Condition Enabled="false" Grouping="Or" />
+                    <Conditions />
+                  </Trigger>
+                  <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" Name="One-two Paw" Id="024cfe5a-4a19-40e7-890a-b5a2a774885b" RegularExpression="^20\|[^|]*\|(?&lt;EID&gt;[^|]*)\|[^|]*\|930(?&lt;cast&gt;C|9)\|">
+                    <Actions>
+                      <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" VariableOp="SetString" VariableName="Paw" VariableExpression="Right, then Left" ActionType="Variable">
+                        <Condition Enabled="true" Grouping="Or">
+                          <ConditionSingle Enabled="true" ExpressionL="${cast}" ExpressionTypeL="String" ExpressionR="C" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                        </Condition>
+                      </Action>
+                      <Action OrderNumber="2" SoundRouting="None" TTSRouting="None" VariableOp="SetString" VariableName="Paw" VariableExpression="Left, then Right" ActionType="Variable">
+                        <Condition Enabled="true" Grouping="Or">
+                          <ConditionSingle Enabled="true" ExpressionL="${cast}" ExpressionTypeL="String" ExpressionR="9" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                        </Condition>
+                      </Action>
+                      <Action OrderNumber="3" OBSEndPoint="" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="${v:Paw}" TextAuraEffect="Bold, Underline" TextAuraForeground="Fuchsia" TextAuraOutline="#FF0080" TextAuraName="TATEmplate" TextAuraExpression="Template" TextAuraXIniExpression="784" TextAuraYIniExpression="360" TextAuraWIniExpression="1363" TextAuraHIniExpression="478" TextAuraOIniExpression="100" TextAuraTTLTickExpression="5-${_since}" TriggerId="3c70315c-9305-4e7f-9077-c6325a423bf1" TriggerText="${v:Paw}" TriggerForce="active" ActionType="UseTTS" ExecutionDelayExpression="5" Description="TTS &amp; Text Aura">
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Action>
+                    </Actions>
+                    <Condition Enabled="false" Grouping="Or" />
+                    <Conditions />
+                  </Trigger>
+                  <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" Name="Grimalkin Gale" Id="68104432-04b3-4d42-9387-aecf73b16b72" RegularExpression="^20\|[^|]*\|(?&lt;EID&gt;[^|]*)\|[^|]*\|933F\|" PrevActionsRefire="Deny" PeriodRefire="Deny" RefirePeriodExpression="1500">
+                    <Actions>
+                      <Action OrderNumber="1" OBSEndPoint="" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Spread" TextAuraEffect="Bold, Underline" TextAuraForeground="Fuchsia" TextAuraOutline="#FF0080" TextAuraName="TATEmplate" TextAuraExpression="Template" TextAuraXIniExpression="784" TextAuraYIniExpression="360" TextAuraWIniExpression="1363" TextAuraHIniExpression="478" TextAuraOIniExpression="100" TextAuraTTLTickExpression="5-${_since}" TriggerId="3c70315c-9305-4e7f-9077-c6325a423bf1" TriggerText="Spread" TriggerForce="active" ActionType="UseTTS" Description="TTS &amp; Text Aura">
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Action>
+                    </Actions>
+                    <Condition Enabled="false" Grouping="Or" />
+                    <Conditions />
+                  </Trigger>
+                  <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" Name="Leaping One-two Paw" Id="3b12546b-5011-46e8-84b0-c716f4dfa99d" RegularExpression="^20\|[^|]*\|(?&lt;EID&gt;[^|]*)\|[^|]*\|93(?&lt;cast&gt;1F|20|21|22)\|">
+                    <Actions>
+                      <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" VariableOp="SetString" VariableName="LeapingPaw" VariableExpression="West, Right, then Left" ActionType="Variable">
+                        <Condition Enabled="true" Grouping="Or">
+                          <ConditionSingle Enabled="true" ExpressionL="${cast}" ExpressionTypeL="String" ExpressionR="20" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                        </Condition>
+                      </Action>
+                      <Action OrderNumber="2" SoundRouting="None" TTSRouting="None" VariableOp="SetString" VariableName="LeapingPaw" VariableExpression="West, Left, then Right" ActionType="Variable">
+                        <Condition Enabled="true" Grouping="Or">
+                          <ConditionSingle Enabled="true" ExpressionL="${cast}" ExpressionTypeL="String" ExpressionR="1F" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                        </Condition>
+                      </Action>
+                      <Action OrderNumber="3" SoundRouting="None" TTSRouting="None" VariableOp="SetString" VariableName="LeapingPaw" VariableExpression="East, Right, then Left" ActionType="Variable">
+                        <Condition Enabled="true" Grouping="Or">
+                          <ConditionSingle Enabled="true" ExpressionL="${cast}" ExpressionTypeL="String" ExpressionR="22" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                        </Condition>
+                      </Action>
+                      <Action OrderNumber="4" SoundRouting="None" TTSRouting="None" VariableOp="SetString" VariableName="LeapingPaw" VariableExpression="East, Left, then Right" ActionType="Variable">
+                        <Condition Enabled="true" Grouping="Or">
+                          <ConditionSingle Enabled="true" ExpressionL="${cast}" ExpressionTypeL="String" ExpressionR="22" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                        </Condition>
+                      </Action>
+                      <Action OrderNumber="5" OBSEndPoint="" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="${v:LeapingPaw}" TextAuraEffect="Bold, Underline" TextAuraForeground="Fuchsia" TextAuraOutline="#FF0080" TextAuraName="TATEmplate" TextAuraExpression="Template" TextAuraXIniExpression="784" TextAuraYIniExpression="360" TextAuraWIniExpression="1363" TextAuraHIniExpression="478" TextAuraOIniExpression="100" TextAuraTTLTickExpression="5-${_since}" TriggerId="3c70315c-9305-4e7f-9077-c6325a423bf1" TriggerText="${v:LeapingPaw}" TriggerForce="active" ActionType="UseTTS" Description="TTS &amp; Text Aura">
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Action>
+                    </Actions>
+                    <Condition Enabled="false" Grouping="Or" />
+                    <Conditions />
+                  </Trigger>
+                  <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" Name="Leaping Black Cat Crossing" Id="11517883-3836-4d69-be12-ee4c28e4fd64" RegularExpression="^20\|[^|]*\|(?&lt;EID&gt;[^|]*)\|[^|]*\|9(?&lt;cast&gt;810|329)\|">
+                    <Actions>
+                      <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" VariableOp="SetString" VariableName="LeapingCrossing" VariableExpression="Cardinal Safe, then Intercardinal Safe" ActionType="Variable">
+                        <Condition Enabled="true" Grouping="Or">
+                          <ConditionSingle Enabled="true" ExpressionL="${cast}" ExpressionTypeL="String" ExpressionR="810" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                          <ConditionSingle Enabled="true" ExpressionL="${cast}" ExpressionTypeL="String" ExpressionR="329" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                        </Condition>
+                      </Action>
+                      <Action OrderNumber="2" SoundRouting="None" TTSRouting="None" VariableOp="SetString" VariableName="LeapingCrossing" VariableExpression="Intercardinal Safe, then Cardinal Safe" ActionType="Variable">
+                        <Condition Enabled="true" Grouping="Or">
+                          <ConditionSingle Enabled="true" ExpressionL="${cast}" ExpressionTypeL="String" ExpressionR="" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                          <ConditionSingle Enabled="true" ExpressionL="${cast}" ExpressionTypeL="String" ExpressionR="" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                        </Condition>
+                      </Action>
+                      <Action OrderNumber="3" OBSEndPoint="" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="${v:LeapingCrossing}" TextAuraEffect="Bold, Underline" TextAuraForeground="Fuchsia" TextAuraOutline="#FF0080" TextAuraName="TATEmplate" TextAuraExpression="Template" TextAuraXIniExpression="784" TextAuraYIniExpression="360" TextAuraWIniExpression="1363" TextAuraHIniExpression="478" TextAuraOIniExpression="100" TextAuraTTLTickExpression="5-${_since}" TriggerId="3c70315c-9305-4e7f-9077-c6325a423bf1" TriggerForce="active" ActionType="UseTTS" ExecutionDelayExpression="5" Description="TTS &amp; Text Aura">
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Action>
+                    </Actions>
+                    <Condition Enabled="false" Grouping="Or" />
+                    <Conditions />
+                  </Trigger>
+                </Triggers>
               </Folder>
             </Folders>
           </Folder>
