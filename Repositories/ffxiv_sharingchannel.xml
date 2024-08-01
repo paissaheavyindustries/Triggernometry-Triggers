@@ -6403,6 +6403,103 @@
               </Folder>
             </Folders>
           </Folder>
+          <Folder Enabled="true" Name="Unsorted" Id="d16b2b39-aae8-51d9-8036-5bc7545b70ca">
+            <Triggers />
+            <Folders>
+              <Folder Enabled="false" Name="M4S (by locrianmode)" Id="8c842484-d880-fb07-e986-dad7980815ab">
+                <Triggers />
+                <Folders>
+                  <Folder Id="5908ad24-8403-43a5-b4ea-314dea998df4" Name="M4s" Enabled="true">
+                    <Folders />
+                    <Triggers>
+                      <Trigger Enabled="true" Source="FFXIVNetwork" Name="Roundhouse Conductor" Id="a083759c-1a6c-4aa8-b80e-8f324e7fcd9a" RegularExpression="^26\|[^|]*\|FA5\|[^|]*\|[^|]*\|[^|]*\|[^|]*\|[^|]*\|(?&lt;name&gt;[^|]*)\|">
+                        <Actions>
+                          <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="donut" ActionType="UseTTS">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                        </Actions>
+                        <Condition Enabled="true" Grouping="Or">
+                          <ConditionSingle Enabled="true" ExpressionL="${name}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                        </Condition>
+                      </Trigger>
+                      <Trigger Enabled="true" Source="FFXIVNetwork" Name="Spininng Conductor" Id="8f73f7c9-052f-4b2e-8920-d4d15f8a4258" RegularExpression="^26\|[^|]*\|FA4\|[^|]*\|[^|]*\|[^|]*\|[^|]*\|[^|]*\|(?&lt;name&gt;[^|]*)\|">
+                        <Actions>
+                          <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="spread" ActionType="UseTTS">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                        </Actions>
+                        <Condition Enabled="true" Grouping="Or">
+                          <ConditionSingle Enabled="true" ExpressionL="${name}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                        </Condition>
+                      </Trigger>
+                      <Trigger Enabled="true" Source="FFXIVNetwork" Name="Collider Conductor" Id="8d0a985e-d006-4db8-9903-48447e343c67" RegularExpression="^26\|[^|]*\|FA6\|[^|]*\|[^|]*\|[^|]*\|[^|]*\|[^|]*\|(?&lt;name&gt;[^|]*)\|">
+                        <Actions>
+                          <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="grape" ActionType="UseTTS">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                        </Actions>
+                        <Condition Enabled="true" Grouping="Or">
+                          <ConditionSingle Enabled="true" ExpressionL="${name}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                        </Condition>
+                      </Trigger>
+                      <Trigger Enabled="true" Source="FFXIVNetwork" Name="Proximate Current" Id="bb4127b6-1c1c-441f-9cc6-ede08d44929f" RegularExpression="^26\|[^|]*\|FA3\|[^|]*\|[^|]*\|[^|]*\|[^|]*\|[^|]*\|(?&lt;name&gt;[^|]*)\|">
+                        <Actions>
+                          <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="cleave near" ActionType="UseTTS">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                        </Actions>
+                        <Condition Enabled="true" Grouping="Or">
+                          <ConditionSingle Enabled="true" ExpressionL="${name}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                        </Condition>
+                      </Trigger>
+                      <Trigger Enabled="true" Source="FFXIVNetwork" Name="Remote Current" Id="d95fecc4-9848-4039-8ee6-cb8f176f7fb5" RegularExpression="^26\|[^|]*\|FA2\|[^|]*\|[^|]*\|[^|]*\|[^|]*\|[^|]*\|(?&lt;name&gt;[^|]*)\|">
+                        <Actions>
+                          <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="cleave far" ActionType="UseTTS">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                        </Actions>
+                        <Condition Enabled="true" Grouping="Or">
+                          <ConditionSingle Enabled="true" ExpressionL="${name}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                        </Condition>
+                      </Trigger>
+                      <Trigger Enabled="true" Source="FFXIVNetwork" Name="Narrowing Witch Hunt" Id="52d51546-9546-478f-8e61-38eee7905d1c" RegularExpression="^20\|[^|]*\|[^|]*\|[^|]*\|95E1\|">
+                        <Actions>
+                          <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="dynamo" ActionType="UseTTS">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                        </Actions>
+                        <Condition Enabled="true" Grouping="Or" />
+                      </Trigger>
+                      <Trigger Enabled="true" Source="FFXIVNetwork" Name="Wicked Special (out)" Id="691586d9-aa3e-4cd4-8e6c-19276eef10b3" RegularExpression="^20\|[^|]*\|[^|]*\|[^|]*\|9610\|">
+                        <Actions>
+                          <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="out" ActionType="UseTTS">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                        </Actions>
+                        <Condition Enabled="true" Grouping="Or" />
+                      </Trigger>
+                      <Trigger Enabled="true" Source="FFXIVNetwork" Name="Widening Witch Hunt" Id="40ffc088-7d72-4df3-b772-04f30e76e116" RegularExpression="^20\|[^|]*\|[^|]*\|[^|]*\|95E0\|">
+                        <Actions>
+                          <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="chariot" ActionType="UseTTS">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                        </Actions>
+                        <Condition Enabled="true" Grouping="Or" />
+                      </Trigger>
+                      <Trigger Enabled="true" Source="FFXIVNetwork" Name="Wicked Special (in)" Id="2e39d9c1-4596-43d8-a400-6f25d2042391" RegularExpression="^20\|[^|]*\|[^|]*\|[^|]*\|9612\|">
+                        <Actions>
+                          <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="in" ActionType="UseTTS">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                        </Actions>
+                        <Condition Enabled="true" Grouping="Or" />
+                      </Trigger>
+                    </Triggers>
+                  </Folder>
+                </Folders>
+              </Folder>
+            </Folders>
+          </Folder>
         </Folders>
       </Folder>
       <Folder Enabled="true" Name="Variant &amp; Criterion" Id="1a83aad9-faab-e9cf-7c50-00afa403d248">
