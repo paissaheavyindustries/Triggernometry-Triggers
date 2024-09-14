@@ -6409,90 +6409,228 @@
               <Folder Enabled="false" Name="M4S (by locrianmode)" Id="8c842484-d880-fb07-e986-dad7980815ab">
                 <Triggers />
                 <Folders>
-                  <Folder Id="5908ad24-8403-43a5-b4ea-314dea998df4" Name="M4s" Enabled="true">
+                  <Folder FFXIVZoneFilterEnabled="True" FfxivZoneFilterRegularExpression="^1232$" Id="5c8d8576-8946-46d7-a5cf-b756e036c1ab" Name="M4" Enabled="true">
                     <Folders />
                     <Triggers>
-                      <Trigger Enabled="true" Source="FFXIVNetwork" Name="Roundhouse Conductor" Id="a083759c-1a6c-4aa8-b80e-8f324e7fcd9a" RegularExpression="^26\|[^|]*\|FA5\|[^|]*\|[^|]*\|[^|]*\|[^|]*\|[^|]*\|(?&lt;name&gt;[^|]*)\|">
+                      <Trigger Enabled="true" Source="FFXIVNetwork" Name="Collider / Spinning / Roundhouse Conductor | Proximate / Remote Current" Id="8d0a985e-d006-4db8-9903-48447e343c67" RegularExpression="^26\|[^|]*\|FA(?&lt;cast&gt;[23456])\|[^|]*\|[^|]*\|[^|]*\|[^|]*\|(?&lt;tID&gt;[^|]*)\|">
                         <Actions>
-                          <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="donut" ActionType="UseTTS">
+                          <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="grape" TriggerId="2bd24d9d-d8bd-4fad-adda-a75f83fa03f8" TriggerText="Collider" ActionType="Trigger">
+                            <Condition Enabled="true" Grouping="Or">
+                              <ConditionSingle Enabled="true" ExpressionL="${cast}" ExpressionTypeL="String" ExpressionR="6" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                            </Condition>
+                          </Action>
+                          <Action OrderNumber="2" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="grape" TriggerId="2bd24d9d-d8bd-4fad-adda-a75f83fa03f8" TriggerText="Far / Near" TriggerForce="refire" ActionType="Trigger">
+                            <Condition Enabled="true" Grouping="Or">
+                              <ConditionSingle Enabled="true" ExpressionL="${cast}" ExpressionTypeL="String" ExpressionR="2" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                              <ConditionSingle Enabled="true" ExpressionL="${cast}" ExpressionTypeL="String" ExpressionR="3" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                            </Condition>
+                          </Action>
+                          <Action OrderNumber="3" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="grape" TriggerId="2bd24d9d-d8bd-4fad-adda-a75f83fa03f8" TriggerText="Side Spread" TriggerForce="refire" ActionType="Trigger">
+                            <Condition Enabled="true" Grouping="Or">
+                              <ConditionSingle Enabled="true" ExpressionL="${cast}" ExpressionTypeL="String" ExpressionR="4" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                            </Condition>
+                          </Action>
+                          <Action OrderNumber="4" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="grape" TriggerId="2bd24d9d-d8bd-4fad-adda-a75f83fa03f8" TriggerText="Side Donut" TriggerForce="refire" ActionType="Trigger">
+                            <Condition Enabled="true" Grouping="Or">
+                              <ConditionSingle Enabled="true" ExpressionL="${cast}" ExpressionTypeL="String" ExpressionR="5" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                            </Condition>
+                          </Action>
+                        </Actions>
+                        <Condition Enabled="true" Grouping="Or">
+                          <ConditionSingle Enabled="true" ExpressionL="${tID}" ExpressionTypeL="String" ExpressionR="${_me.id}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                        </Condition>
+                      </Trigger>
+                      <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" Name="Electrifying Witch Hunt" Id="2e527b20-d0ea-41ec-8056-86c8265546b7" RegularExpression="^21\|[^|]*\|[^|]*\|[^|]*\|95E6\|[^|]*\|(?&lt;tID&gt;[^|]*)\|" PeriodRefire="Deny" RefirePeriodExpression="1500">
+                        <Actions>
+                          <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" VariableOp="SetNumeric" VariableName="WHCount" VariableExpression="0" ActionType="Variable" RefireRequeue="False">
+                            <Condition Enabled="true" Grouping="Or">
+                              <ConditionSingle Enabled="true" ExpressionL="${ev:WHCount}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                            </Condition>
+                          </Action>
+                          <Action OrderNumber="2" SoundRouting="None" TTSRouting="None" TextAuraEffect="Bold" TextAuraForeground="#FF80FF" TextAuraOutline="#80FF80" TextAuraName="Testing" TextAuraExpression="${f:ifequal(DPS,Support,DPS):${_entity[${tID}].role}} will" TextAuraXIniExpression="-908" TextAuraYIniExpression="1286" TextAuraWIniExpression="893" TextAuraHIniExpression="206" TextAuraOIniExpression="100" TextAuraTTLTickExpression="10-${_since}" TriggerId="3c70315c-9305-4e7f-9077-c6325a423bf1" TriggerText="${f:ifequal(DPS,Support,DPS):${_entity[${tID}].role}} will do" ActionType="Trigger" RefireRequeue="False">
+                            <Condition Enabled="true" Grouping="Or">
+                              <ConditionSingle Enabled="true" ExpressionL="${ev:Forked}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                            </Condition>
+                          </Action>
+                          <Action OrderNumber="3" SoundRouting="None" TTSRouting="None" VariableOp="SetString" VariableName="Forked" VariableExpression="1" ActionType="Variable" ExecutionDelayExpression="1000" RefireRequeue="False">
                             <Condition Enabled="false" Grouping="Or" />
                           </Action>
                         </Actions>
                         <Condition Enabled="true" Grouping="Or">
-                          <ConditionSingle Enabled="true" ExpressionL="${name}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                          <ConditionSingle Enabled="true" ExpressionL="${ev:Forked}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                         </Condition>
                       </Trigger>
-                      <Trigger Enabled="true" Source="FFXIVNetwork" Name="Spininng Conductor" Id="8f73f7c9-052f-4b2e-8920-d4d15f8a4258" RegularExpression="^26\|[^|]*\|FA4\|[^|]*\|[^|]*\|[^|]*\|[^|]*\|[^|]*\|(?&lt;name&gt;[^|]*)\|">
+                      <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" Name="Narrowing Witch Hunt / Widening Witch Hunt" Id="52d51546-9546-478f-8e61-38eee7905d1c" RegularExpression="^20\|[^|]*\|[^|]*\|[^|]*\|95E(?&lt;cast&gt;0|1)\|">
                         <Actions>
-                          <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="spread" ActionType="UseTTS">
-                            <Condition Enabled="false" Grouping="Or" />
+                          <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" VariableOp="SetString" VariableName="WHGroup" VariableExpression="Dynamo" ActionType="Variable">
+                            <Condition Enabled="true" Grouping="Or">
+                              <ConditionSingle Enabled="true" ExpressionL="${cast}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                            </Condition>
+                          </Action>
+                          <Action OrderNumber="2" SoundRouting="None" TTSRouting="None" VariableOp="SetString" VariableName="WHGroup" VariableExpression="Chariot" ActionType="Variable">
+                            <Condition Enabled="true" Grouping="Or">
+                              <ConditionSingle Enabled="true" ExpressionL="${cast}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                            </Condition>
+                          </Action>
+                          <Action OrderNumber="3" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="dynamo" TriggerId="3c70315c-9305-4e7f-9077-c6325a423bf1" TriggerText="${v:WHGroup}" ActionType="Trigger" ExecutionDelayExpression="15">
+                            <Condition Enabled="true" Grouping="Or">
+                              <ConditionSingle Enabled="true" ExpressionL="${ev:WHGroup}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                            </Condition>
                           </Action>
                         </Actions>
                         <Condition Enabled="true" Grouping="Or">
-                          <ConditionSingle Enabled="true" ExpressionL="${name}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                          <ConditionSingle Enabled="true" ExpressionL="${ev:WHGroup}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                         </Condition>
                       </Trigger>
-                      <Trigger Enabled="true" Source="FFXIVNetwork" Name="Collider Conductor" Id="8d0a985e-d006-4db8-9903-48447e343c67" RegularExpression="^26\|[^|]*\|FA6\|[^|]*\|[^|]*\|[^|]*\|[^|]*\|[^|]*\|(?&lt;name&gt;[^|]*)\|">
+                      <Trigger Enabled="false" Source="FFXIVNetwork" Name="Right Roll / Left Roll" Id="6f27e640-a36e-487f-9067-751441cf238c" RegularExpression="^21\|[^|]*\|[^|]*\|[^|]*\|95D(?&lt;cast&gt;2|3)\|">
                         <Actions>
-                          <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="grape" ActionType="UseTTS">
-                            <Condition Enabled="false" Grouping="Or" />
+                          <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="out" TriggerId="3c70315c-9305-4e7f-9077-c6325a423bf1" TriggerText="Go East!" ActionType="Trigger">
+                            <Condition Enabled="true" Grouping="Or">
+                              <ConditionSingle Enabled="true" ExpressionL="${cast}" ExpressionTypeL="String" ExpressionR="2" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                            </Condition>
                           </Action>
-                        </Actions>
-                        <Condition Enabled="true" Grouping="Or">
-                          <ConditionSingle Enabled="true" ExpressionL="${name}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                        </Condition>
-                      </Trigger>
-                      <Trigger Enabled="true" Source="FFXIVNetwork" Name="Proximate Current" Id="bb4127b6-1c1c-441f-9cc6-ede08d44929f" RegularExpression="^26\|[^|]*\|FA3\|[^|]*\|[^|]*\|[^|]*\|[^|]*\|[^|]*\|(?&lt;name&gt;[^|]*)\|">
-                        <Actions>
-                          <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="cleave near" ActionType="UseTTS">
-                            <Condition Enabled="false" Grouping="Or" />
-                          </Action>
-                        </Actions>
-                        <Condition Enabled="true" Grouping="Or">
-                          <ConditionSingle Enabled="true" ExpressionL="${name}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                        </Condition>
-                      </Trigger>
-                      <Trigger Enabled="true" Source="FFXIVNetwork" Name="Remote Current" Id="d95fecc4-9848-4039-8ee6-cb8f176f7fb5" RegularExpression="^26\|[^|]*\|FA2\|[^|]*\|[^|]*\|[^|]*\|[^|]*\|[^|]*\|(?&lt;name&gt;[^|]*)\|">
-                        <Actions>
-                          <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="cleave far" ActionType="UseTTS">
-                            <Condition Enabled="false" Grouping="Or" />
-                          </Action>
-                        </Actions>
-                        <Condition Enabled="true" Grouping="Or">
-                          <ConditionSingle Enabled="true" ExpressionL="${name}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                        </Condition>
-                      </Trigger>
-                      <Trigger Enabled="true" Source="FFXIVNetwork" Name="Narrowing Witch Hunt" Id="52d51546-9546-478f-8e61-38eee7905d1c" RegularExpression="^20\|[^|]*\|[^|]*\|[^|]*\|95E1\|">
-                        <Actions>
-                          <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="dynamo" ActionType="UseTTS">
-                            <Condition Enabled="false" Grouping="Or" />
+                          <Action OrderNumber="2" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="out" TriggerId="3c70315c-9305-4e7f-9077-c6325a423bf1" TriggerText="Go West!" ActionType="Trigger">
+                            <Condition Enabled="true" Grouping="Or">
+                              <ConditionSingle Enabled="true" ExpressionL="${cast}" ExpressionTypeL="String" ExpressionR="3" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                            </Condition>
                           </Action>
                         </Actions>
                         <Condition Enabled="true" Grouping="Or" />
                       </Trigger>
-                      <Trigger Enabled="true" Source="FFXIVNetwork" Name="Wicked Special (out)" Id="691586d9-aa3e-4cd4-8e6c-19276eef10b3" RegularExpression="^20\|[^|]*\|[^|]*\|[^|]*\|9610\|">
+                      <Trigger Enabled="false" Source="FFXIVNetwork" Sequential="True" Name="Scattered / Concentrated Burst" Id="b5c0f860-4a51-43c2-9a72-e1089edfee10" RegularExpression="^20\|[^|]*\|[^|]*\|[^|]*\|962(?&lt;cast&gt;B|C)\|" PeriodRefire="Deny" RefirePeriodExpression="15000">
                         <Actions>
-                          <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="out" ActionType="UseTTS">
-                            <Condition Enabled="false" Grouping="Or" />
+                          <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" TriggerId="3c70315c-9305-4e7f-9077-c6325a423bf1" TriggerText="Spread -&gt; Partners" ActionType="Trigger">
+                            <Condition Enabled="true" Grouping="Or">
+                              <ConditionSingle Enabled="true" ExpressionL="${cast}" ExpressionTypeL="String" ExpressionR="C" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                            </Condition>
+                          </Action>
+                          <Action OrderNumber="2" SoundRouting="None" TTSRouting="None" TriggerId="3c70315c-9305-4e7f-9077-c6325a423bf1" TriggerText="Partners -&gt; Spread" ActionType="Trigger">
+                            <Condition Enabled="true" Grouping="Or">
+                              <ConditionSingle Enabled="true" ExpressionL="${cast}" ExpressionTypeL="String" ExpressionR="B" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                            </Condition>
+                          </Action>
+                        </Actions>
+                        <Condition Enabled="false" Grouping="Or">
+                          <ConditionSingle Enabled="false" ExpressionL="${ev:X}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                        </Condition>
+                      </Trigger>
+                      <Trigger Enabled="false" Source="FFXIVNetwork" Name="Wicked Special" Id="2e39d9c1-4596-43d8-a400-6f25d2042391" RegularExpression="^20\|[^|]*\|[^|]*\|[^|]*\|961(?&lt;cast&gt;[02])\|">
+                        <Actions>
+                          <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="in" TriggerId="3c70315c-9305-4e7f-9077-c6325a423bf1" TriggerText="Middle" ActionType="Trigger">
+                            <Condition Enabled="true" Grouping="Or">
+                              <ConditionSingle Enabled="true" ExpressionL="${cast}" ExpressionTypeL="String" ExpressionR="2" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                            </Condition>
+                          </Action>
+                          <Action OrderNumber="2" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="in" TriggerId="3c70315c-9305-4e7f-9077-c6325a423bf1" TriggerText="Sides" ActionType="Trigger">
+                            <Condition Enabled="true" Grouping="Or">
+                              <ConditionSingle Enabled="true" ExpressionL="${cast}" ExpressionTypeL="String" ExpressionR="0" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                            </Condition>
                           </Action>
                         </Actions>
                         <Condition Enabled="true" Grouping="Or" />
                       </Trigger>
-                      <Trigger Enabled="true" Source="FFXIVNetwork" Name="Widening Witch Hunt" Id="40ffc088-7d72-4df3-b772-04f30e76e116" RegularExpression="^20\|[^|]*\|[^|]*\|[^|]*\|95E0\|">
+                      <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" Name="Witch Hunt" Id="be37c6ad-ec6f-4e31-94db-401741aa2168" RegularExpression="^26\|[^|]*\|B9A\|[^|]*\|[^|]*\|[^|]*\|\|[^|]*\|[^|]*\|2F(?&lt;cast&gt;[0167])\|" PeriodRefire="Deny">
                         <Actions>
-                          <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="chariot" ActionType="UseTTS">
-                            <Condition Enabled="false" Grouping="Or" />
+                          <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" VariableOp="SetNumeric" VariableName="WHCount" VariableExpression="${v:WHCount}+1" ActionType="Variable" Asynchronous="False">
+                            <Condition Enabled="true" Grouping="Or">
+                              <ConditionSingle Enabled="true" ExpressionL="${cast}" ExpressionTypeL="String" ExpressionR="7" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                              <ConditionSingle Enabled="true" ExpressionL="${cast}" ExpressionTypeL="String" ExpressionR="6" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                            </Condition>
+                          </Action>
+                          <Action OrderNumber="2" SoundRouting="None" TTSRouting="None" TriggerId="3c70315c-9305-4e7f-9077-c6325a423bf1" TriggerText="Partners" Enabled="False" ActionType="Trigger">
+                            <Condition Enabled="true" Grouping="Or">
+                              <ConditionSingle Enabled="true" ExpressionL="${cast}" ExpressionTypeL="String" ExpressionR="0" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                            </Condition>
+                          </Action>
+                          <Action OrderNumber="3" SoundRouting="None" TTSRouting="None" TriggerId="3c70315c-9305-4e7f-9077-c6325a423bf1" TriggerText="Spread" Enabled="False" ActionType="Trigger">
+                            <Condition Enabled="true" Grouping="Or">
+                              <ConditionSingle Enabled="true" ExpressionL="${cast}" ExpressionTypeL="String" ExpressionR="1" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                            </Condition>
+                          </Action>
+                          <Action OrderNumber="4" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="FAR bait" TriggerId="3c70315c-9305-4e7f-9077-c6325a423bf1" TriggerText="bait far!" ActionType="Trigger">
+                            <Condition Enabled="true" Grouping="And">
+                              <ConditionSingle Enabled="true" ExpressionL="${cast}" ExpressionTypeL="String" ExpressionR="7" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                              <ConditionGroup Enabled="true" Grouping="Or">
+                                <ConditionSingle Enabled="true" ExpressionL="${v:WHCount}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                                <ConditionSingle Enabled="true" ExpressionL="${v:WHCount}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                              </ConditionGroup>
+                            </Condition>
+                          </Action>
+                          <Action OrderNumber="5" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Close bait" TriggerId="3c70315c-9305-4e7f-9077-c6325a423bf1" TriggerText="bait close!" ActionType="Trigger" RefireRequeue="False">
+                            <Condition Enabled="true" Grouping="And">
+                              <ConditionSingle Enabled="true" ExpressionL="${cast}" ExpressionTypeL="String" ExpressionR="6" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                              <ConditionGroup Enabled="true" Grouping="Or">
+                                <ConditionSingle Enabled="true" ExpressionL="${v:WHCount}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                                <ConditionSingle Enabled="true" ExpressionL="${v:WHCount}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                              </ConditionGroup>
+                            </Condition>
+                          </Action>
+                          <Action OrderNumber="6" SoundRouting="None" TTSRouting="None" ActionType="Placeholder" ExecutionDelayExpression="1500" Asynchronous="False">
+                            <Condition Enabled="true" Grouping="Or">
+                              <ConditionSingle Enabled="true" ExpressionL="${v:WHCount}" ExpressionTypeL="Numeric" ExpressionR="2" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                            </Condition>
+                          </Action>
+                          <Action OrderNumber="7" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="bait FAR!" TriggerId="3c70315c-9305-4e7f-9077-c6325a423bf1" TriggerText="FAR bait" ActionType="Trigger">
+                            <Condition Enabled="true" Grouping="And">
+                              <ConditionSingle Enabled="true" ExpressionL="${cast}" ExpressionTypeL="String" ExpressionR="7" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                              <ConditionSingle Enabled="true" ExpressionL="${v:WHCount}" ExpressionTypeL="Numeric" ExpressionR="2" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                            </Condition>
+                          </Action>
+                          <Action OrderNumber="8" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="bait Close!" TriggerId="3c70315c-9305-4e7f-9077-c6325a423bf1" TriggerText="Close bait" ActionType="Trigger" RefireRequeue="False">
+                            <Condition Enabled="true" Grouping="And">
+                              <ConditionSingle Enabled="true" ExpressionL="${cast}" ExpressionTypeL="String" ExpressionR="6" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                              <ConditionSingle Enabled="true" ExpressionL="${v:WHCount}" ExpressionTypeL="Numeric" ExpressionR="2" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                            </Condition>
+                          </Action>
+                          <Action OrderNumber="9" SoundRouting="None" TTSRouting="None" TriggerId="3e3d0dbe-9ee5-4754-9394-35c4cb1abeb3" TriggerText="/p Group ${f:ifequal(Chariot,⇔ does small steps,${f:ifequal(Dynamo,《≪⇔≫》 moves a lot!,):${v:WHGroup}}):${v:WHGroup}}" Enabled="False" ActionType="Trigger">
+                            <Condition Enabled="true" Grouping="And">
+                              <ConditionSingle Enabled="true" ExpressionL="${cast}" ExpressionTypeL="String" ExpressionR="7" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                              <ConditionSingle Enabled="true" ExpressionL="${ev:WHGroup}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                              <ConditionSingle Enabled="true" ExpressionL="${v:WHCount}" ExpressionTypeL="Numeric" ExpressionR="2" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                            </Condition>
+                          </Action>
+                          <Action OrderNumber="10" SoundRouting="None" TTSRouting="None" TriggerId="3e3d0dbe-9ee5-4754-9394-35c4cb1abeb3" TriggerText="/p Group ${f:ifequal(Dynamo,⇔ does small steps,${f:ifequal(Chariot,《≪⇔≫》 moves a lot!,):${v:WHGroup}}):${v:WHGroup}}" Enabled="False" ActionType="Trigger">
+                            <Condition Enabled="true" Grouping="And">
+                              <ConditionSingle Enabled="true" ExpressionL="${cast}" ExpressionTypeL="String" ExpressionR="6" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                              <ConditionSingle Enabled="true" ExpressionL="${ev:WHGroup}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                              <ConditionSingle Enabled="true" ExpressionL="${v:WHCount}" ExpressionTypeL="Numeric" ExpressionR="2" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                            </Condition>
+                          </Action>
+                          <Action OrderNumber="11" SoundRouting="None" TTSRouting="None" ActionType="Placeholder" ExecutionDelayExpression="1500" Asynchronous="False">
+                            <Condition Enabled="true" Grouping="Or">
+                              <ConditionSingle Enabled="true" ExpressionL="${v:WHCount}" ExpressionTypeL="Numeric" ExpressionR="2" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                            </Condition>
+                          </Action>
+                          <Action OrderNumber="12" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Group ${f:ifequal(Chariot,⇔ does small steps,${f:ifequal(Dynamo,《≪⇔≫》 moves a lot!,):${v:WHGroup}}):${v:WHGroup}}" TriggerId="3c70315c-9305-4e7f-9077-c6325a423bf1" TriggerText="Group ${f:ifequal(Chariot,⇔ does small steps,${f:ifequal(Dynamo,《≪⇔≫》 moves a lot!,):${v:WHGroup}}):${v:WHGroup}}" ActionType="Trigger">
+                            <Condition Enabled="true" Grouping="And">
+                              <ConditionSingle Enabled="true" ExpressionL="${cast}" ExpressionTypeL="String" ExpressionR="7" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                              <ConditionSingle Enabled="true" ExpressionL="${ev:WHGroup}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                              <ConditionSingle Enabled="true" ExpressionL="${v:WHCount}" ExpressionTypeL="Numeric" ExpressionR="2" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                            </Condition>
+                          </Action>
+                          <Action OrderNumber="13" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Group ${f:ifequal(Dynamo,⇔ does small steps,${f:ifequal(Chariot,《≪⇔≫》 moves a lot!,):${v:WHGroup}}):${v:WHGroup}}" TriggerId="3c70315c-9305-4e7f-9077-c6325a423bf1" TriggerText="Group ${f:ifequal(Dynamo,⇔ does small steps,${f:ifequal(Chariot,《≪⇔≫》 moves a lot!,):${v:WHGroup}}):${v:WHGroup}}" ActionType="Trigger">
+                            <Condition Enabled="true" Grouping="And">
+                              <ConditionSingle Enabled="true" ExpressionL="${cast}" ExpressionTypeL="String" ExpressionR="6" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                              <ConditionSingle Enabled="true" ExpressionL="${ev:WHGroup}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                              <ConditionSingle Enabled="true" ExpressionL="${v:WHCount}" ExpressionTypeL="Numeric" ExpressionR="2" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                            </Condition>
                           </Action>
                         </Actions>
-                        <Condition Enabled="true" Grouping="Or" />
+                        <Condition Enabled="false" Grouping="Or">
+                          <ConditionSingle Enabled="false" ExpressionL="${ev:X}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                        </Condition>
                       </Trigger>
-                      <Trigger Enabled="true" Source="FFXIVNetwork" Name="Wicked Special (in)" Id="2e39d9c1-4596-43d8-a400-6f25d2042391" RegularExpression="^20\|[^|]*\|[^|]*\|[^|]*\|9612\|">
+                      <Trigger Enabled="false" Source="FFXIVNetwork" Sequential="True" Name="Aetherial Conversion" Id="04ad96c8-81fb-4c01-ab92-b75bd4c684ac" RegularExpression="^20\|[^|]*\|[^|]*\|[^|]*\|960(?&lt;cast&gt;[2345])\|" PeriodRefire="Deny">
                         <Actions>
-                          <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="in" ActionType="UseTTS">
-                            <Condition Enabled="false" Grouping="Or" />
+                          <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" TriggerId="3c70315c-9305-4e7f-9077-c6325a423bf1" TriggerText="${f:ifequal(${cast},Fire! Go Right! -&gt; dodge left,${f:ifequal(${cast},Knockback from Left! -&gt; Knockback from Right!,${f:ifequal(${cast},Fire! Go Left! -&gt; dodge Right,${f:ifequal(${cast},Knockback from Right! -&gt; Knockback from Left!,):5}):4}):3}):2}" ActionType="Trigger">
+                            <Condition Enabled="false" Grouping="Or">
+                              <ConditionSingle Enabled="false" ExpressionL="${cast}" ExpressionTypeL="String" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                            </Condition>
                           </Action>
                         </Actions>
-                        <Condition Enabled="true" Grouping="Or" />
+                        <Condition Enabled="false" Grouping="Or">
+                          <ConditionSingle Enabled="false" ExpressionL="${ev:X}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                        </Condition>
                       </Trigger>
                     </Triggers>
                   </Folder>
