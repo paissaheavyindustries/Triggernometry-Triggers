@@ -1496,6 +1496,87 @@
               </Folder>
             </Folders>
           </Folder>
+          <Folder Enabled="true" Name="Unsorted" Id="52dfebbe-d98b-167a-ae96-0599e2e153f2">
+            <Triggers />
+            <Folders>
+              <Folder Enabled="false" Name="Tether AM - FRU (testing) (by kingpendragon)" Id="5d72541e-0890-02de-e009-2d011a3d8429">
+                <Triggers />
+                <Folders>
+                  <Folder Id="6d2164d8-7304-478a-871d-bcd27808b650" Name="Fru Tether AM" Enabled="true">
+                    <Folders />
+                    <Triggers>
+                      <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" Name="Teather" Id="fe366d24-4cd9-49b2-8365-39a6eba009ac" RegularExpression="^35\|[^|]*\|[^|]*\|[^|]*\|[^|]*\|(?&lt;name&gt;[^|]*)">
+                        <Actions>
+                          <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" VariableOp="SetNumeric" VariableName="TetherCount" VariableExpression="${var:TetherCount} + 1" ActionType="Variable" Asynchronous="False">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                          <Action OrderNumber="2" JsonEndpointExpression="http://${_const[TelestoEndpoint]}:${_const[TelestoPort]}" JsonPayloadExpression="{&#xD;&#xA;    &quot;version&quot;: 1,&#xD;&#xA;    &quot;id&quot;: 1,&#xD;&#xA;    &quot;type&quot;: &quot;Bundle&quot;,&#xD;&#xA;    &quot;payload&quot;: [&#xD;&#xA;        {&#xD;&#xA;            &quot;id&quot;: 2,&#xD;&#xA;            &quot;type&quot;: &quot;ExecuteCommand&quot;,&#xD;&#xA;            &quot;payload&quot;: {&#xD;&#xA;                &quot;command&quot;: &quot;/mk attack &lt;${lvar:TelestoPartyMembers.indexof(${name})}&gt;&quot;&#xD;&#xA;            }&#xD;&#xA;        }&#xD;&#xA;    ]&#xD;&#xA;}" SoundRouting="None" TTSRouting="None" ActionType="GenericJson" Asynchronous="False">
+                            <Condition Enabled="true" Grouping="And">
+                              <ConditionSingle Enabled="true" ExpressionL="${var:TetherCount}" ExpressionTypeL="Numeric" ExpressionR="2" ExpressionTypeR="Numeric" ConditionType="NumericGreater" />
+                              <ConditionSingle Enabled="true" ExpressionL="${var:TetherCount}" ExpressionTypeL="Numeric" ExpressionR="7" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
+                            </Condition>
+                          </Action>
+                        </Actions>
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Trigger>
+                      <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" Name="Telesto GetPartyMembers" Id="a114e29a-697f-4a0c-83e9-8bd51c20f8da" RegularExpression="^33\|[^|]*\|[^|]*\|4000000[16]\|">
+                        <Actions>
+                          <Action OrderNumber="1" JsonResultVariable="TelestoPartyMembers" JsonEndpointExpression="http://${_const[TelestoEndpoint]}:${_const[TelestoPort]}" JsonPayloadExpression="{ &quot;version&quot;: 1, &quot;id&quot;: 123456, &quot;type&quot;: &quot;GetPartyMembers&quot; }" OBSEndPoint="" SoundRouting="None" TTSRouting="None" ActionType="GenericJson">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                          <Action OrderNumber="2" OBSEndPoint="" SoundRouting="None" TTSRouting="None" VariableOp="QueryJsonPathList" VariableName="TelestoPartyMembers" VariableJsonTarget="TelestoPartyMembers" VariableExpression="$.response[*].fullname" ActionType="Variable">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                          <Action OrderNumber="3" OBSEndPoint="" SoundRouting="None" TTSRouting="None" VariableOp="QueryJsonPathList" VariableName="TelestoPartyMembers" VariableJsonTarget="TelestoPartyJob" VariableExpression="$.response[*].job" ActionType="Variable">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                          <Action OrderNumber="4" LogMessageText="${_responsecode}" LogLevel="Verbose" OBSEndPoint="" SoundRouting="None" TTSRouting="None" ActionType="LogMessage">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                          <Action OrderNumber="5" LogMessageText="Player 1: ${lvar:TelestoPartyMembers[1]}" LogLevel="Info" OBSEndPoint="" SoundRouting="None" TTSRouting="None" ActionType="LogMessage">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                          <Action OrderNumber="6" LogMessageText="Player 2: ${lvar:TelestoPartyMembers[2]}" LogLevel="Info" OBSEndPoint="" SoundRouting="None" TTSRouting="None" ActionType="LogMessage">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                          <Action OrderNumber="7" LogMessageText="Player 3: ${lvar:TelestoPartyMembers[3]}" LogLevel="Info" OBSEndPoint="" SoundRouting="None" TTSRouting="None" ActionType="LogMessage">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                          <Action OrderNumber="8" LogMessageText="Player 4: ${lvar:TelestoPartyMembers[4]}" LogLevel="Info" OBSEndPoint="" SoundRouting="None" TTSRouting="None" ActionType="LogMessage">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                          <Action OrderNumber="9" LogMessageText="Player 5: ${lvar:TelestoPartyMembers[5]}" LogLevel="Info" OBSEndPoint="" SoundRouting="None" TTSRouting="None" ActionType="LogMessage">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                          <Action OrderNumber="10" LogMessageText="Player 6: ${lvar:TelestoPartyMembers[6]}" LogLevel="Info" OBSEndPoint="" SoundRouting="None" TTSRouting="None" ActionType="LogMessage">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                          <Action OrderNumber="11" LogMessageText="Player 7: ${lvar:TelestoPartyMembers[7]}" LogLevel="Info" OBSEndPoint="" SoundRouting="None" TTSRouting="None" ActionType="LogMessage">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                          <Action OrderNumber="12" LogMessageText="Player 8: ${lvar:TelestoPartyMembers[8]}" LogLevel="Info" OBSEndPoint="" SoundRouting="None" TTSRouting="None" ActionType="LogMessage">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                        </Actions>
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Trigger>
+                      <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" Name="WipeResetGaolVar" Id="36969627-4d2d-4827-b64c-cad94169e984" RegularExpression="^33\|[^|]*\|[A-F0-9]{8}\|4000000[3F]\|">
+                        <Actions>
+                          <Action OrderNumber="1" ListVariableName="ListCount" SoundRouting="None" TTSRouting="None" VariableName="TetherCount" ActionType="Variable">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                          <Action OrderNumber="2" JsonEndpointExpression="http://${_const[TelestoEndpoint]}:${_const[TelestoPort]}" JsonPayloadExpression="{&quot;version&quot;: 1, &quot;id&quot;: 1, &quot;type&quot;: &quot;Bundle&quot;, &quot;payload&quot;: [&#xD;&#xA; {&quot;version&quot;: 1, &quot;id&quot;: 2, &quot;type&quot;: &quot;ExecuteCommand&quot;, &quot;payload&quot;: {&quot;command&quot;: &quot;/mk clear &lt;1&gt;&quot;}},&#xD;&#xA; {&quot;version&quot;: 1, &quot;id&quot;: 2, &quot;type&quot;: &quot;ExecuteCommand&quot;, &quot;payload&quot;: {&quot;command&quot;: &quot;/mk clear &lt;2&gt;&quot;}},&#xD;&#xA; {&quot;version&quot;: 1, &quot;id&quot;: 2, &quot;type&quot;: &quot;ExecuteCommand&quot;, &quot;payload&quot;: {&quot;command&quot;: &quot;/mk clear &lt;3&gt;&quot;}},&#xD;&#xA; {&quot;version&quot;: 1, &quot;id&quot;: 2, &quot;type&quot;: &quot;ExecuteCommand&quot;, &quot;payload&quot;: {&quot;command&quot;: &quot;/mk clear &lt;4&gt;&quot;}},&#xD;&#xA; {&quot;version&quot;: 1, &quot;id&quot;: 2, &quot;type&quot;: &quot;ExecuteCommand&quot;, &quot;payload&quot;: {&quot;command&quot;: &quot;/mk clear &lt;5&gt;&quot;}},&#xD;&#xA; {&quot;version&quot;: 1, &quot;id&quot;: 2, &quot;type&quot;: &quot;ExecuteCommand&quot;, &quot;payload&quot;: {&quot;command&quot;: &quot;/mk clear &lt;6&gt;&quot;}},&#xD;&#xA; {&quot;version&quot;: 1, &quot;id&quot;: 2, &quot;type&quot;: &quot;ExecuteCommand&quot;, &quot;payload&quot;: {&quot;command&quot;: &quot;/mk clear &lt;7&gt;&quot;}},&#xD;&#xA; {&quot;version&quot;: 1, &quot;id&quot;: 2, &quot;type&quot;: &quot;ExecuteCommand&quot;, &quot;payload&quot;: {&quot;command&quot;: &quot;/mk clear &lt;8&gt;&quot;}}&#xD;&#xA;]}" KeypressType="WindowMessage" KeyPressExpression="{F9}" KeyPressCode="120" KeyPressWindow="FINAL FANTASY XIV" SoundRouting="None" TTSRouting="None" Enabled="False" ActionType="GenericJson">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                        </Actions>
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Trigger>
+                    </Triggers>
+                  </Folder>
+                </Folders>
+              </Folder>
+            </Folders>
+          </Folder>
         </Folders>
       </Folder>
       <Folder Enabled="true" Name="Disciples of War &amp; Magic" Id="c9f2c154-c86f-71fc-d05c-19816fca0d1f">
