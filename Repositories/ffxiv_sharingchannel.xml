@@ -1655,7 +1655,6 @@
                               </Action>
                             </Actions>
                             <Condition Enabled="false" Grouping="Or" />
-                            <Conditions />
                           </Trigger>
                           <Trigger Enabled="true" Source="FFXIVNetwork" Name="Utopian Sky" Id="3c8d45d8-f5b0-498a-8a1e-45689e51fa3f" RegularExpression="^20\|[^|]*\|[^|]*\|[^|]*\|(?&lt;ID&gt;9CDA|9CDB)\|">
                             <Actions>
@@ -1681,7 +1680,6 @@
                               </Action>
                             </Actions>
                             <Condition Enabled="false" Grouping="Or" />
-                            <Conditions />
                           </Trigger>
                           <Trigger Enabled="true" Source="FFXIVNetwork" Name="Turn of the Heavens" Id="9d2e37db-fe33-4156-bd74-be29b4c5d7a1" RegularExpression="^20\|[^|]*\|[^|]*\|[^|]*\|(?&lt;ID&gt;9CD6|9CD7)\|">
                             <Actions>
@@ -1697,7 +1695,6 @@
                               </Action>
                             </Actions>
                             <Condition Enabled="false" Grouping="Or" />
-                            <Conditions />
                           </Trigger>
                         </Triggers>
                       </Folder>
@@ -1713,7 +1710,6 @@
                                   </Action>
                                 </Actions>
                                 <Condition Enabled="false" Grouping="Or" />
-                                <Conditions />
                               </Trigger>
                               <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" Name="Axe/Scythe Kick" Id="ce867d7d-76b6-47d5-99da-802860bc5e10" RegularExpression="^20\|[^|]*\|[^|]*\|[^|]*\|(?&lt;ID&gt;9D0A|9D0B)\|">
                                 <Actions>
@@ -1746,7 +1742,6 @@
                                   </Action>
                                 </Actions>
                                 <Condition Enabled="false" Grouping="Or" />
-                                <Conditions />
                               </Trigger>
                               <Trigger Enabled="true" Source="FFXIVNetwork" Name="Twin Silence/Stillness" Id="7b896b4b-1ba7-4784-aa71-c4d6b8363e49" RegularExpression="^20\|[^|]*\|[^|]*\|[^|]*\|(?&lt;ID&gt;9D01|9D02)\|">
                                 <Actions>
@@ -1762,9 +1757,8 @@
                                   </Action>
                                 </Actions>
                                 <Condition Enabled="false" Grouping="Or" />
-                                <Conditions />
                               </Trigger>
-                              <Trigger Enabled="true" Source="FFXIVNetwork" Name="Icicle Identifier" Id="c51f7e24-b4cd-4526-9c31-ef94cd85570e" RegularExpression="^263\|[^|]*\|[^|]*\|9D06\|(?&lt;Coordinate&gt;[0-9.]*)\|">
+                              <Trigger Enabled="true" Source="FFXIVNetwork" Name="Icicle Identifier" Id="c51f7e24-b4cd-4526-9c31-ef94cd85570e" RegularExpression="^263\|[^|]*\|[^|]*\|9D06\|(?&lt;Coordinate&gt;[0-9.]*)\|" PeriodRefire="Deny" RefirePeriodExpression="15000">
                                 <Actions>
                                   <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Fire" VariableOp="SetString" VariableName="IcicleStartPos" VariableExpression="Cardinals" ActionType="Variable">
                                     <Condition Enabled="true" Grouping="Or">
@@ -1781,7 +1775,6 @@
                                   </Action>
                                 </Actions>
                                 <Condition Enabled="false" Grouping="Or" />
-                                <Conditions />
                               </Trigger>
                             </Triggers>
                           </Folder>
@@ -1801,7 +1794,6 @@
                               </Action>
                             </Actions>
                             <Condition Enabled="false" Grouping="Or" />
-                            <Conditions />
                           </Trigger>
                         </Triggers>
                       </Folder>
