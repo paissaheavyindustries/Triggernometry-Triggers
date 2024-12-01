@@ -1587,6 +1587,229 @@
                   </Folder>
                 </Folders>
               </Folder>
+              <Folder Enabled="false" Name="Fru Stuff (by holotales)" Id="d9410fd1-df22-fddf-44e9-53cc533ce41d">
+                <Triggers />
+                <Folders>
+                  <Folder Id="62bed04d-0cb9-45f0-92be-3ca1db26810b" Name="p3" Enabled="true">
+                    <Folders />
+                    <Triggers>
+                      <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" Name="Blizzard Debuff" Id="a2f06d62-fe4b-45eb-83a9-79119f00245b" RegularExpression="^26\|[^|]*\|99E\|[^|]*\|(?&lt;debufftimer&gt;[^|]*)\|[^|]*\|[^|]*\|[^|]*\|(?&lt;name&gt;[^|]*)\|">
+                        <Actions>
+                          <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Blizzard" ActionType="UseTTS">
+                            <Condition Enabled="false" Grouping="Or">
+                              <ConditionSingle Enabled="false" ExpressionL="${debufftimer}" ExpressionTypeL="String" ExpressionR="11" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                            </Condition>
+                          </Action>
+                        </Actions>
+                        <Condition Enabled="true" Grouping="Or">
+                          <ConditionSingle Enabled="true" ExpressionL="${name}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                        </Condition>
+                        <Conditions />
+                      </Trigger>
+                      <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" Name="Fire Debuff" Id="b060532d-5331-405a-b2c0-ae380d203b75" RegularExpression="^26\|[^|]*\|997\|[^|]*\|(?&lt;debufftimer&gt;[^|]*)\|[^|]*\|[^|]*\|[^|]*\|(?&lt;name&gt;[^|]*)\|">
+                        <Actions>
+                          <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Short fire" ActionType="UseTTS">
+                            <Condition Enabled="true" Grouping="Or">
+                              <ConditionSingle Enabled="true" ExpressionL="${debufftimer}" ExpressionTypeL="String" ExpressionR="11.00" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                            </Condition>
+                          </Action>
+                          <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="long FIre" ActionType="UseTTS">
+                            <Condition Enabled="true" Grouping="Or">
+                              <ConditionSingle Enabled="true" ExpressionL="${debufftimer}" ExpressionTypeL="String" ExpressionR="31.00" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                            </Condition>
+                          </Action>
+                          <Action OrderNumber="2" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Medium FIre" ActionType="UseTTS">
+                            <Condition Enabled="true" Grouping="Or">
+                              <ConditionSingle Enabled="true" ExpressionL="${debufftimer}" ExpressionTypeL="String" ExpressionR="21.00" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                            </Condition>
+                          </Action>
+                        </Actions>
+                        <Condition Enabled="true" Grouping="Or">
+                          <ConditionSingle Enabled="true" ExpressionL="${name}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                        </Condition>
+                        <Conditions />
+                      </Trigger>
+                    </Triggers>
+                  </Folder>
+                </Folders>
+              </Folder>
+              <Folder Enabled="false" Name="FRU Phase 1&amp;2 (by izanaminomikotoo)" Id="eae6d560-8047-1b65-6d16-d58fce5d4bab">
+                <Triggers />
+                <Folders>
+                  <Folder Id="15f992aa-3708-4519-a47b-22876e87ac08" Name="FRU" Enabled="true">
+                    <Folders>
+                      <Folder Id="cd34b171-01b2-4a37-9049-857ac94e823c" Name="Phase 1" Enabled="true">
+                        <Folders />
+                        <Triggers>
+                          <Trigger Enabled="true" Source="FFXIVNetwork" Name="Fall of Faith" Id="e7f9f4a0-acd7-4551-8f94-ab3a6f3f7167" RegularExpression="^20\|[^|]*\|[^|]*\|[^|]*\|(?&lt;ID&gt;9CCC|9CC9)\|">
+                            <Actions>
+                              <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Fire" ActionType="UseTTS">
+                                <Condition Enabled="true" Grouping="Or">
+                                  <ConditionSingle Enabled="true" ExpressionL="${ID}" ExpressionTypeL="String" ExpressionR="9CC9" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                                </Condition>
+                              </Action>
+                              <Action OrderNumber="2" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Thunder" ActionType="UseTTS">
+                                <Condition Enabled="true" Grouping="Or">
+                                  <ConditionSingle Enabled="true" ExpressionL="${ID}" ExpressionTypeL="String" ExpressionR="9CCC" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                                </Condition>
+                              </Action>
+                            </Actions>
+                            <Condition Enabled="false" Grouping="Or" />
+                            <Conditions />
+                          </Trigger>
+                          <Trigger Enabled="true" Source="FFXIVNetwork" Name="Utopian Sky" Id="3c8d45d8-f5b0-498a-8a1e-45689e51fa3f" RegularExpression="^20\|[^|]*\|[^|]*\|[^|]*\|(?&lt;ID&gt;9CDA|9CDB)\|">
+                            <Actions>
+                              <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Spread" ActionType="UseTTS">
+                                <Condition Enabled="true" Grouping="Or">
+                                  <ConditionSingle Enabled="true" ExpressionL="${ID}" ExpressionTypeL="String" ExpressionR="9CDB" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                                </Condition>
+                              </Action>
+                              <Action OrderNumber="2" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Stack" ActionType="UseTTS">
+                                <Condition Enabled="true" Grouping="Or">
+                                  <ConditionSingle Enabled="true" ExpressionL="${ID}" ExpressionTypeL="String" ExpressionR="9CDA" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                                </Condition>
+                              </Action>
+                              <Action OrderNumber="3" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Spread" ActionType="UseTTS" ExecutionDelayExpression="13000">
+                                <Condition Enabled="true" Grouping="Or">
+                                  <ConditionSingle Enabled="true" ExpressionL="${ID}" ExpressionTypeL="String" ExpressionR="9CDB" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                                </Condition>
+                              </Action>
+                              <Action OrderNumber="4" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Stack" ActionType="UseTTS">
+                                <Condition Enabled="true" Grouping="Or">
+                                  <ConditionSingle Enabled="true" ExpressionL="${ID}" ExpressionTypeL="String" ExpressionR="9CDA" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                                </Condition>
+                              </Action>
+                            </Actions>
+                            <Condition Enabled="false" Grouping="Or" />
+                            <Conditions />
+                          </Trigger>
+                          <Trigger Enabled="true" Source="FFXIVNetwork" Name="Turn of the Heavens" Id="9d2e37db-fe33-4156-bd74-be29b4c5d7a1" RegularExpression="^20\|[^|]*\|[^|]*\|[^|]*\|(?&lt;ID&gt;9CD6|9CD7)\|">
+                            <Actions>
+                              <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Fire Safe" ActionType="UseTTS" ExecutionDelayExpression="5000">
+                                <Condition Enabled="true" Grouping="Or">
+                                  <ConditionSingle Enabled="true" ExpressionL="${ID}" ExpressionTypeL="String" ExpressionR="9CD7" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                                </Condition>
+                              </Action>
+                              <Action OrderNumber="2" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Thunder Safe" ActionType="UseTTS">
+                                <Condition Enabled="true" Grouping="Or">
+                                  <ConditionSingle Enabled="true" ExpressionL="${ID}" ExpressionTypeL="String" ExpressionR="9CD6" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                                </Condition>
+                              </Action>
+                            </Actions>
+                            <Condition Enabled="false" Grouping="Or" />
+                            <Conditions />
+                          </Trigger>
+                        </Triggers>
+                      </Folder>
+                      <Folder Id="473abeff-6cf9-4304-8039-0a9699b0f217" Name="Phase 2" Enabled="true">
+                        <Folders>
+                          <Folder Id="91b33d02-2116-4cf8-91c6-46e9e163c220" Name="Diamond Dust" Enabled="true">
+                            <Folders />
+                            <Triggers>
+                              <Trigger Enabled="true" Source="FFXIVNetwork" Name="AoE" Id="78fef360-2c0d-4bc5-af7d-461b2162b6fa" RegularExpression="^20\|[^|]*\|[^|]*\|[^|]*\|9D05\|">
+                                <Actions>
+                                  <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="A O E" ActionType="UseTTS">
+                                    <Condition Enabled="false" Grouping="Or" />
+                                  </Action>
+                                </Actions>
+                                <Condition Enabled="false" Grouping="Or" />
+                                <Conditions />
+                              </Trigger>
+                              <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" Name="Axe/Scythe Kick" Id="ce867d7d-76b6-47d5-99da-802860bc5e10" RegularExpression="^20\|[^|]*\|[^|]*\|[^|]*\|(?&lt;ID&gt;9D0A|9D0B)\|">
+                                <Actions>
+                                  <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Out, ${var:IcicleStartPos}" ActionType="UseTTS">
+                                    <Condition Enabled="true" Grouping="Or">
+                                      <ConditionSingle Enabled="true" ExpressionL="${ID}" ExpressionTypeL="String" ExpressionR="9D0A" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                                    </Condition>
+                                  </Action>
+                                  <Action OrderNumber="2" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="In, ${var:IcicleStartPos}" ActionType="UseTTS">
+                                    <Condition Enabled="true" Grouping="Or">
+                                      <ConditionSingle Enabled="true" ExpressionL="${ID}" ExpressionTypeL="String" ExpressionR="9D0B" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                                    </Condition>
+                                  </Action>
+                                  <Action OrderNumber="3" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Out" ActionType="UseTTS">
+                                    <Condition Enabled="true" Grouping="And">
+                                      <ConditionSingle Enabled="true" ExpressionL="${ID}" ExpressionTypeL="String" ExpressionR="9D0A" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                                      <ConditionSingle Enabled="true" ExpressionL="${var:IcicleStartPos}" ExpressionTypeL="String" ExpressionR="Cardinals" ExpressionTypeR="String" ConditionType="StringNotEqualNocase" />
+                                      <ConditionSingle Enabled="true" ExpressionL="${var:IcicleStartPos}" ExpressionTypeL="String" ExpressionR="Intercardinals" ExpressionTypeR="String" ConditionType="StringNotEqualNocase" />
+                                    </Condition>
+                                  </Action>
+                                  <Action OrderNumber="4" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="In" ActionType="UseTTS">
+                                    <Condition Enabled="true" Grouping="And">
+                                      <ConditionSingle Enabled="true" ExpressionL="${ID}" ExpressionTypeL="String" ExpressionR="9D0B" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                                      <ConditionSingle Enabled="true" ExpressionL="${var:IcicleStartPos}" ExpressionTypeL="String" ExpressionR="Cardinals" ExpressionTypeR="String" ConditionType="StringNotEqualNocase" />
+                                      <ConditionSingle Enabled="true" ExpressionL="${var:IcicleStartPos}" ExpressionTypeL="String" ExpressionR="Intercardinals" ExpressionTypeR="String" ConditionType="StringNotEqualNocase" />
+                                    </Condition>
+                                  </Action>
+                                  <Action OrderNumber="5" SoundRouting="None" TTSRouting="None" VariableName="IcicleStartPos" ActionType="Variable">
+                                    <Condition Enabled="false" Grouping="Or" />
+                                  </Action>
+                                </Actions>
+                                <Condition Enabled="false" Grouping="Or" />
+                                <Conditions />
+                              </Trigger>
+                              <Trigger Enabled="true" Source="FFXIVNetwork" Name="Twin Silence/Stillness" Id="7b896b4b-1ba7-4784-aa71-c4d6b8363e49" RegularExpression="^20\|[^|]*\|[^|]*\|[^|]*\|(?&lt;ID&gt;9D01|9D02)\|">
+                                <Actions>
+                                  <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Back then Front" ActionType="UseTTS">
+                                    <Condition Enabled="true" Grouping="Or">
+                                      <ConditionSingle Enabled="true" ExpressionL="${ID}" ExpressionTypeL="String" ExpressionR="9D01" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                                    </Condition>
+                                  </Action>
+                                  <Action OrderNumber="2" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Front then Back" ActionType="UseTTS">
+                                    <Condition Enabled="true" Grouping="Or">
+                                      <ConditionSingle Enabled="true" ExpressionL="${ID}" ExpressionTypeL="String" ExpressionR="9D02" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                                    </Condition>
+                                  </Action>
+                                </Actions>
+                                <Condition Enabled="false" Grouping="Or" />
+                                <Conditions />
+                              </Trigger>
+                              <Trigger Enabled="true" Source="FFXIVNetwork" Name="Icicle Identifier" Id="c51f7e24-b4cd-4526-9c31-ef94cd85570e" RegularExpression="^263\|[^|]*\|[^|]*\|9D06\|(?&lt;Coordinate&gt;[0-9.]*)\|">
+                                <Actions>
+                                  <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Fire" VariableOp="SetString" VariableName="IcicleStartPos" VariableExpression="Cardinals" ActionType="Variable">
+                                    <Condition Enabled="true" Grouping="Or">
+                                      <ConditionSingle Enabled="true" ExpressionL="${Coordinate}" ExpressionTypeL="String" ExpressionR="100.009" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                                      <ConditionSingle Enabled="true" ExpressionL="${Coordinate}" ExpressionTypeL="String" ExpressionR="116.001" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                                      <ConditionSingle Enabled="true" ExpressionL="${Coordinate}" ExpressionTypeL="String" ExpressionR="83.987" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                                    </Condition>
+                                  </Action>
+                                  <Action OrderNumber="2" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Fire" VariableOp="SetString" VariableName="IcicleStartPos" VariableExpression="Intercardinals" ActionType="Variable">
+                                    <Condition Enabled="true" Grouping="Or">
+                                      <ConditionSingle Enabled="true" ExpressionL="${Coordinate}" ExpressionTypeL="String" ExpressionR="88.687" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                                      <ConditionSingle Enabled="true" ExpressionL="${Coordinate}" ExpressionTypeL="String" ExpressionR="111.301" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                                    </Condition>
+                                  </Action>
+                                </Actions>
+                                <Condition Enabled="false" Grouping="Or" />
+                                <Conditions />
+                              </Trigger>
+                            </Triggers>
+                          </Folder>
+                        </Folders>
+                        <Triggers>
+                          <Trigger Enabled="true" Source="FFXIVNetwork" Name="Banish III" Id="e4bd2591-4118-4058-be7c-b2e7e4035dca" RegularExpression="^20\|[^|]*\|[^|]*\|[^|]*\|(?&lt;ID&gt;9D1C|9D1D)\|">
+                            <Actions>
+                              <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Partners" ActionType="UseTTS">
+                                <Condition Enabled="true" Grouping="Or">
+                                  <ConditionSingle Enabled="true" ExpressionL="${ID}" ExpressionTypeL="String" ExpressionR="9D1C" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                                </Condition>
+                              </Action>
+                              <Action OrderNumber="2" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Spread" ActionType="UseTTS">
+                                <Condition Enabled="true" Grouping="Or">
+                                  <ConditionSingle Enabled="true" ExpressionL="${ID}" ExpressionTypeL="String" ExpressionR="9D1D" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                                </Condition>
+                              </Action>
+                            </Actions>
+                            <Condition Enabled="false" Grouping="Or" />
+                            <Conditions />
+                          </Trigger>
+                        </Triggers>
+                      </Folder>
+                    </Folders>
+                    <Triggers />
+                  </Folder>
+                </Folders>
+              </Folder>
             </Folders>
           </Folder>
         </Folders>
