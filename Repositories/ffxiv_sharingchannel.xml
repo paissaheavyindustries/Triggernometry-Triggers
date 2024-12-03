@@ -1800,7 +1800,7 @@
                             <Triggers>
                               <Trigger Enabled="false" Source="FFXIVNetwork" Sequential="True" Name="Debuff Detector (LEAVE TURNED OFF)" Id="9c8e4de3-f9af-49f8-bf81-649db494e078" RegularExpression="^26\|[^|]*\|8D1\|[^|]*\|[^|]*\|[^|]*\|\|[^|]*\|(?&lt;name&gt;[^|]*)\|" Scheduling="FromLastAction">
                                 <Actions>
-                                  <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" VariableOp="SetString" VariableName="TakeTower" VariableExpression="TRUE" ActionType="Variable">
+                                  <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" VariableOp="SetString" VariableName="IgnoreTower" VariableExpression="TRUE" ActionType="Variable">
                                     <Condition Enabled="true" Grouping="Or">
                                       <ConditionSingle Enabled="true" ExpressionL="${name}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                                     </Condition>
@@ -1811,11 +1811,11 @@
                               <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" Name="Callout" Id="ac6f5b08-b6b6-4546-8d66-521e7f70b876" RegularExpression="^20\|[^|]*\|[^|]*\|[^|]*\|9D1B\|" PeriodRefire="Deny" RefirePeriodExpression="20000">
                                 <Actions>
                                   <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Take Tower" ActionType="UseTTS">
-                                    <Condition Enabled="true" Grouping="Or">
-                                      <ConditionSingle Enabled="true" ExpressionL="${var:TakeTower}" ExpressionTypeL="String" ExpressionR="TRUE" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                                    <Condition Enabled="true" Grouping="And">
+                                      <ConditionSingle Enabled="true" ExpressionL="${var:IgnoreTower}" ExpressionTypeL="String" ExpressionR="TRUE" ExpressionTypeR="String" ConditionType="StringNotEqualNocase" />
                                     </Condition>
                                   </Action>
-                                  <Action OrderNumber="2" SoundRouting="None" TTSRouting="None" VariableName="TakeTower" ActionType="Variable" ExecutionDelayExpression="5000">
+                                  <Action OrderNumber="2" SoundRouting="None" TTSRouting="None" VariableName="IgnoreTower" ActionType="Variable" ExecutionDelayExpression="5000">
                                     <Condition Enabled="false" Grouping="Or" />
                                   </Action>
                                 </Actions>
@@ -1823,7 +1823,7 @@
                               </Trigger>
                               <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" Name="Start/Stop Detecting" Id="5e7712e7-425b-461e-adbf-ecc65dd58ae9" RegularExpression="^20\|[^|]*\|[^|]*\|[^|]*\|9D14\|">
                                 <Actions>
-                                  <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" VariableName="TakeTower" ActionType="Variable">
+                                  <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" VariableName="IgnoreTower" ActionType="Variable">
                                     <Condition Enabled="false" Grouping="Or" />
                                   </Action>
                                   <Action OrderNumber="2" SoundRouting="None" TTSRouting="None" TriggerOp="EnableTrigger" TriggerId="9c8e4de3-f9af-49f8-bf81-649db494e078" ActionType="Trigger">
@@ -1882,30 +1882,30 @@
                                   <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" TriggerId="1c2a7d5a-a473-467c-8d3e-c0f4e963ca8f" TriggerForce="regexp,conditions" ActionType="Trigger">
                                     <Condition Enabled="true" Grouping="And">
                                       <ConditionSingle Enabled="true" ExpressionL="${ID}" ExpressionTypeL="String" ExpressionR="997" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                                      <ConditionSingle Enabled="true" ExpressionL="${timer}" ExpressionTypeL="String" ExpressionR="11" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                                      <ConditionSingle Enabled="true" ExpressionL="${timer}" ExpressionTypeL="String" ExpressionR="11.00" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                                     </Condition>
                                   </Action>
                                   <Action OrderNumber="2" SoundRouting="None" TTSRouting="None" TriggerId="654f8c98-350b-435a-bdd4-e56212d06e26" TriggerForce="regexp,conditions" ActionType="Trigger">
                                     <Condition Enabled="true" Grouping="And">
                                       <ConditionSingle Enabled="true" ExpressionL="${ID}" ExpressionTypeL="String" ExpressionR="997" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                                       <ConditionSingle Enabled="true" ExpressionL="${_me.role}" ExpressionTypeL="String" ExpressionR="DPS" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                                      <ConditionSingle Enabled="true" ExpressionL="${timer}" ExpressionTypeL="String" ExpressionR="21" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                                      <ConditionSingle Enabled="true" ExpressionL="${timer}" ExpressionTypeL="String" ExpressionR="21.00" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                                     </Condition>
                                   </Action>
-                                  <Action OrderNumber="3" SoundRouting="None" TTSRouting="None" TriggerId="093f0801-a8bc-42d5-8a9d-044c43ce91d2" TriggerForce="regexp,conditions,refire" ActionType="Trigger">
+                                  <Action OrderNumber="3" SoundRouting="None" TTSRouting="None" TriggerId="093f0801-a8bc-42d5-8a9d-044c43ce91d2" TriggerForce="regexp,conditions" ActionType="Trigger">
                                     <Condition Enabled="true" Grouping="And">
                                       <ConditionSingle Enabled="true" ExpressionL="${ID}" ExpressionTypeL="String" ExpressionR="997" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                                       <ConditionGroup Enabled="true" Grouping="Or">
                                         <ConditionSingle Enabled="true" ExpressionL="${_me.role}" ExpressionTypeL="String" ExpressionR="Tank" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                                         <ConditionSingle Enabled="true" ExpressionL="${_me.role}" ExpressionTypeL="String" ExpressionR="Healer" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                                       </ConditionGroup>
-                                      <ConditionSingle Enabled="true" ExpressionL="${timer}" ExpressionTypeL="String" ExpressionR="21" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                                      <ConditionSingle Enabled="true" ExpressionL="${timer}" ExpressionTypeL="String" ExpressionR="21.00" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                                     </Condition>
                                   </Action>
                                   <Action OrderNumber="4" SoundRouting="None" TTSRouting="None" TriggerId="b8f9a6e2-8762-4122-a396-4ce56c2bf51a" TriggerForce="regexp,conditions" ActionType="Trigger">
                                     <Condition Enabled="true" Grouping="And">
                                       <ConditionSingle Enabled="true" ExpressionL="${ID}" ExpressionTypeL="String" ExpressionR="997" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                                      <ConditionSingle Enabled="true" ExpressionL="${timer}" ExpressionTypeL="String" ExpressionR="31" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                                      <ConditionSingle Enabled="true" ExpressionL="${timer}" ExpressionTypeL="String" ExpressionR="31.00" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                                     </Condition>
                                   </Action>
                                   <Action OrderNumber="5" SoundRouting="None" TTSRouting="None" TriggerId="9cacebd1-663d-4a92-96fa-0ecf462ad68c" TriggerForce="regexp,conditions" ActionType="Trigger">
@@ -2148,7 +2148,7 @@
                     <Triggers>
                       <Trigger Enabled="true" Source="FFXIVNetwork" Name="Wipe Detector" Id="b635440b-36ef-4c9d-bce9-10d1b2a06dda" RegularExpression="^33\|[^|]*\|[A-F0-9]{8}\|4000000[3F]\|">
                         <Actions>
-                          <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" VariableName="TakeTower" ActionType="Variable">
+                          <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" VariableName="IgnoreTower" ActionType="Variable">
                             <Condition Enabled="false" Grouping="Or" />
                           </Action>
                           <Action OrderNumber="2" SoundRouting="None" TTSRouting="None" VariableName="IcicleStartPos" ActionType="Variable">
