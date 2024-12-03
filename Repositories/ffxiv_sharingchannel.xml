@@ -1590,43 +1590,60 @@
               <Folder Enabled="false" Name="Fru Stuff (by holotales)" Id="d9410fd1-df22-fddf-44e9-53cc533ce41d">
                 <Triggers />
                 <Folders>
-                  <Folder Id="62bed04d-0cb9-45f0-92be-3ca1db26810b" Name="p3" Enabled="true">
+                  <Folder FFXIVZoneFilterEnabled="True" FfxivZoneFilterRegularExpression="^1238$" Id="cf5bdb85-e330-4126-b438-0ff5655fa70b" Name="Fru" Enabled="true">
                     <Folders />
                     <Triggers>
-                      <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" Name="Blizzard Debuff" Id="a2f06d62-fe4b-45eb-83a9-79119f00245b" RegularExpression="^26\|[^|]*\|99E\|[^|]*\|(?&lt;debufftimer&gt;[^|]*)\|[^|]*\|[^|]*\|[^|]*\|(?&lt;name&gt;[^|]*)\|">
+                      <Trigger Enabled="true" Name="The oracle's reflection readies Scythe Kick." Id="f8e6230c-dad3-4f39-aa13-2c0b81f74da8" RegularExpression="The oracle's reflection readies Scythe Kick.">
                         <Actions>
-                          <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Blizzard" ActionType="UseTTS">
-                            <Condition Enabled="false" Grouping="Or">
-                              <ConditionSingle Enabled="false" ExpressionL="${debufftimer}" ExpressionTypeL="String" ExpressionR="11" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                            </Condition>
+                          <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="In Scythe" UseTTSRateExpression="2" ActionType="UseTTS">
+                            <Condition Enabled="false" Grouping="Or" />
                           </Action>
                         </Actions>
-                        <Condition Enabled="true" Grouping="Or">
-                          <ConditionSingle Enabled="true" ExpressionL="${name}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                        </Condition>
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Trigger>
+                      <Trigger Enabled="true" Name="The oracle's reflection readies Axe Kick." Id="4a920e02-6e0c-4fef-9de7-bb043db0fb92" RegularExpression="The oracle's reflection readies Axe Kick.">
+                        <Actions>
+                          <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Out Axe" UseTTSRateExpression="2" ActionType="UseTTS">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                        </Actions>
+                        <Condition Enabled="false" Grouping="Or" />
                         <Conditions />
                       </Trigger>
-                      <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" Name="Fire Debuff" Id="b060532d-5331-405a-b2c0-ae380d203b75" RegularExpression="^26\|[^|]*\|997\|[^|]*\|(?&lt;debufftimer&gt;[^|]*)\|[^|]*\|[^|]*\|[^|]*\|(?&lt;name&gt;[^|]*)\|">
+                      <Trigger Enabled="true" Name="The oracle's reflection readies Twin Silence." Id="ecf47107-df53-4e0f-b903-b168b4a70746" RegularExpression="The oracle's reflection readies Twin Silence.">
                         <Actions>
-                          <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Short fire" ActionType="UseTTS">
-                            <Condition Enabled="true" Grouping="Or">
-                              <ConditionSingle Enabled="true" ExpressionL="${debufftimer}" ExpressionTypeL="String" ExpressionR="11.00" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                            </Condition>
-                          </Action>
-                          <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="long FIre" ActionType="UseTTS">
-                            <Condition Enabled="true" Grouping="Or">
-                              <ConditionSingle Enabled="true" ExpressionL="${debufftimer}" ExpressionTypeL="String" ExpressionR="31.00" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                            </Condition>
-                          </Action>
-                          <Action OrderNumber="2" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Medium FIre" ActionType="UseTTS">
-                            <Condition Enabled="true" Grouping="Or">
-                              <ConditionSingle Enabled="true" ExpressionL="${debufftimer}" ExpressionTypeL="String" ExpressionR="21.00" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                            </Condition>
+                          <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Front Then Behind" ActionType="UseTTS">
+                            <Condition Enabled="false" Grouping="Or" />
                           </Action>
                         </Actions>
-                        <Condition Enabled="true" Grouping="Or">
-                          <ConditionSingle Enabled="true" ExpressionL="${name}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                        </Condition>
+                        <Condition Enabled="false" Grouping="Or" />
+                        <Conditions />
+                      </Trigger>
+                      <Trigger Enabled="true" Name="The oracle's reflection readies Twin Stillness." Id="5d53a298-44c3-415b-a46a-a1453621efc3" RegularExpression="The oracle's reflection readies Twin Stillness.">
+                        <Actions>
+                          <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Behind then front" UseTTSRateExpression="2" ActionType="UseTTS">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                        </Actions>
+                        <Condition Enabled="false" Grouping="Or" />
+                        <Conditions />
+                      </Trigger>
+                      <Trigger Enabled="true" Source="FFXIVNetwork" Name="Patners Banish" Id="71fb5774-ebbf-47c4-b09d-7ddf8ddc033d" RegularExpression="^20\|[^|]*\|[^|]*\|[^|]*\|9D1C\|">
+                        <Actions>
+                          <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="PARTNERS" ActionType="UseTTS">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                        </Actions>
+                        <Condition Enabled="false" Grouping="Or" />
+                        <Conditions />
+                      </Trigger>
+                      <Trigger Enabled="true" Source="FFXIVNetwork" Name="Spread Banish" Id="8c734f93-5cb3-4733-9e6b-7525bfbd98e2" RegularExpression="^20\|[^|]*\|[^|]*\|[^|]*\|9D1D\|">
+                        <Actions>
+                          <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="SPREAD" ActionType="UseTTS">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                        </Actions>
+                        <Condition Enabled="false" Grouping="Or" />
                         <Conditions />
                       </Trigger>
                     </Triggers>
