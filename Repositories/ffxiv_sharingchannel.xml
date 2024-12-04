@@ -1590,61 +1590,32 @@
               <Folder Enabled="false" Name="Fru Stuff (by holotales)" Id="d9410fd1-df22-fddf-44e9-53cc533ce41d">
                 <Triggers />
                 <Folders>
-                  <Folder FFXIVZoneFilterEnabled="True" FfxivZoneFilterRegularExpression="^1238$" Id="cf5bdb85-e330-4126-b438-0ff5655fa70b" Name="Fru" Enabled="true">
+                  <Folder Id="3bb8082b-37ae-4ba2-9069-4990fbf33491" Name="Spread/Stack/Tank" Enabled="true">
                     <Folders />
                     <Triggers>
-                      <Trigger Enabled="true" Name="The oracle's reflection readies Scythe Kick." Id="f8e6230c-dad3-4f39-aa13-2c0b81f74da8" RegularExpression="The oracle's reflection readies Scythe Kick.">
+                      <Trigger Enabled="true" Source="FFXIVNetwork" Name="Shell Crusher" Id="21f38279-b709-4f8e-badd-aa7d3fc71720" RegularExpression="^20\|[^|]*\|[^|]*\|[^|]*\|9D5E\|">
                         <Actions>
-                          <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="In Scythe" UseTTSRateExpression="2" ActionType="UseTTS">
+                          <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="stack" ActionType="UseTTS">
                             <Condition Enabled="false" Grouping="Or" />
                           </Action>
                         </Actions>
                         <Condition Enabled="false" Grouping="Or" />
                       </Trigger>
-                      <Trigger Enabled="true" Name="The oracle's reflection readies Axe Kick." Id="4a920e02-6e0c-4fef-9de7-bb043db0fb92" RegularExpression="The oracle's reflection readies Axe Kick.">
+                      <Trigger Enabled="true" Source="FFXIVNetwork" Name="Spirit Taker" Id="e0d661f9-fe2f-4240-88a1-9d904297a5bd" RegularExpression="^20\|[^|]*\|[^|]*\|[^|]*\|9D60\|">
                         <Actions>
-                          <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Out Axe" UseTTSRateExpression="2" ActionType="UseTTS">
+                          <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="spread" ActionType="UseTTS">
                             <Condition Enabled="false" Grouping="Or" />
                           </Action>
                         </Actions>
                         <Condition Enabled="false" Grouping="Or" />
-                        <Conditions />
                       </Trigger>
-                      <Trigger Enabled="true" Name="The oracle's reflection readies Twin Silence." Id="ecf47107-df53-4e0f-b903-b168b4a70746" RegularExpression="The oracle's reflection readies Twin Silence.">
+                      <Trigger Enabled="true" Source="FFXIVNetwork" Name="Darkest Dance" Id="4d6c94b5-145f-4625-b645-fef30d82fc16" RegularExpression="^20\|[^|]*\|[^|]*\|[^|]*\|9CF5\|">
                         <Actions>
-                          <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Front Then Behind" ActionType="UseTTS">
+                          <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="far tank bait" ActionType="UseTTS">
                             <Condition Enabled="false" Grouping="Or" />
                           </Action>
                         </Actions>
                         <Condition Enabled="false" Grouping="Or" />
-                        <Conditions />
-                      </Trigger>
-                      <Trigger Enabled="true" Name="The oracle's reflection readies Twin Stillness." Id="5d53a298-44c3-415b-a46a-a1453621efc3" RegularExpression="The oracle's reflection readies Twin Stillness.">
-                        <Actions>
-                          <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Behind then front" UseTTSRateExpression="2" ActionType="UseTTS">
-                            <Condition Enabled="false" Grouping="Or" />
-                          </Action>
-                        </Actions>
-                        <Condition Enabled="false" Grouping="Or" />
-                        <Conditions />
-                      </Trigger>
-                      <Trigger Enabled="true" Source="FFXIVNetwork" Name="Patners Banish" Id="71fb5774-ebbf-47c4-b09d-7ddf8ddc033d" RegularExpression="^20\|[^|]*\|[^|]*\|[^|]*\|9D1C\|">
-                        <Actions>
-                          <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="PARTNERS" ActionType="UseTTS">
-                            <Condition Enabled="false" Grouping="Or" />
-                          </Action>
-                        </Actions>
-                        <Condition Enabled="false" Grouping="Or" />
-                        <Conditions />
-                      </Trigger>
-                      <Trigger Enabled="true" Source="FFXIVNetwork" Name="Spread Banish" Id="8c734f93-5cb3-4733-9e6b-7525bfbd98e2" RegularExpression="^20\|[^|]*\|[^|]*\|[^|]*\|9D1D\|">
-                        <Actions>
-                          <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="SPREAD" ActionType="UseTTS">
-                            <Condition Enabled="false" Grouping="Or" />
-                          </Action>
-                        </Actions>
-                        <Condition Enabled="false" Grouping="Or" />
-                        <Conditions />
                       </Trigger>
                     </Triggers>
                   </Folder>
