@@ -1701,32 +1701,15 @@
                               </Trigger>
                               <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" Name="Axe/Scythe Kick" Id="ce867d7d-76b6-47d5-99da-802860bc5e10" RegularExpression="^20\|[^|]*\|[^|]*\|[^|]*\|(?&lt;ID&gt;9D0A|9D0B)\|">
                                 <Actions>
-                                  <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Out, ${var:IcicleStartPos}" ActionType="UseTTS">
+                                  <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Out, ${var:IcicleStartPos}" VariableOp="SetString" VariableName="InOut" VariableExpression="Out" ActionType="Variable">
                                     <Condition Enabled="true" Grouping="Or">
                                       <ConditionSingle Enabled="true" ExpressionL="${ID}" ExpressionTypeL="String" ExpressionR="9D0A" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                                     </Condition>
                                   </Action>
-                                  <Action OrderNumber="2" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="In, ${var:IcicleStartPos}" ActionType="UseTTS">
+                                  <Action OrderNumber="2" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="In, ${var:IcicleStartPos}" VariableOp="SetString" VariableName="InOut" VariableExpression="In" ActionType="Variable">
                                     <Condition Enabled="true" Grouping="Or">
                                       <ConditionSingle Enabled="true" ExpressionL="${ID}" ExpressionTypeL="String" ExpressionR="9D0B" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                                     </Condition>
-                                  </Action>
-                                  <Action OrderNumber="3" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Out" ActionType="UseTTS">
-                                    <Condition Enabled="true" Grouping="And">
-                                      <ConditionSingle Enabled="true" ExpressionL="${ID}" ExpressionTypeL="String" ExpressionR="9D0A" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                                      <ConditionSingle Enabled="true" ExpressionL="${var:IcicleStartPos}" ExpressionTypeL="String" ExpressionR="Cardinals" ExpressionTypeR="String" ConditionType="StringNotEqualNocase" />
-                                      <ConditionSingle Enabled="true" ExpressionL="${var:IcicleStartPos}" ExpressionTypeL="String" ExpressionR="Intercardinals" ExpressionTypeR="String" ConditionType="StringNotEqualNocase" />
-                                    </Condition>
-                                  </Action>
-                                  <Action OrderNumber="4" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="In" ActionType="UseTTS">
-                                    <Condition Enabled="true" Grouping="And">
-                                      <ConditionSingle Enabled="true" ExpressionL="${ID}" ExpressionTypeL="String" ExpressionR="9D0B" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                                      <ConditionSingle Enabled="true" ExpressionL="${var:IcicleStartPos}" ExpressionTypeL="String" ExpressionR="Cardinals" ExpressionTypeR="String" ConditionType="StringNotEqualNocase" />
-                                      <ConditionSingle Enabled="true" ExpressionL="${var:IcicleStartPos}" ExpressionTypeL="String" ExpressionR="Intercardinals" ExpressionTypeR="String" ConditionType="StringNotEqualNocase" />
-                                    </Condition>
-                                  </Action>
-                                  <Action OrderNumber="5" SoundRouting="None" TTSRouting="None" VariableName="IcicleStartPos" ActionType="Variable">
-                                    <Condition Enabled="false" Grouping="Or" />
                                   </Action>
                                 </Actions>
                                 <Condition Enabled="false" Grouping="Or" />
@@ -1746,7 +1729,7 @@
                                 </Actions>
                                 <Condition Enabled="false" Grouping="Or" />
                               </Trigger>
-                              <Trigger Enabled="true" Source="FFXIVNetwork" Name="Icicle Identifier" Id="c51f7e24-b4cd-4526-9c31-ef94cd85570e" RegularExpression="^263\|[^|]*\|[^|]*\|9D06\|(?&lt;Coordinate&gt;[0-9.]*)\|" PeriodRefire="Deny" RefirePeriodExpression="15000">
+                              <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" Name="Icicle Identifier" Id="c51f7e24-b4cd-4526-9c31-ef94cd85570e" RegularExpression="^263\|[^|]*\|[^|]*\|9D06\|(?&lt;Coordinate&gt;[0-9.]*)\|(?&lt;Coordinate2&gt;[0-9.]*)\|" PeriodRefire="Deny" RefirePeriodExpression="15000">
                                 <Actions>
                                   <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Fire" VariableOp="SetString" VariableName="IcicleStartPos" VariableExpression="Cardinals" ActionType="Variable">
                                     <Condition Enabled="true" Grouping="Or">
@@ -1761,8 +1744,73 @@
                                       <ConditionSingle Enabled="true" ExpressionL="${Coordinate}" ExpressionTypeL="String" ExpressionR="111.301" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                                     </Condition>
                                   </Action>
+                                  <Action OrderNumber="3" SoundRouting="None" TTSRouting="None" VariableOp="SetString" VariableName="SafeSpot" VariableExpression="North South Safe" ActionType="Variable">
+                                    <Condition Enabled="true" Grouping="Or">
+                                      <ConditionSingle Enabled="true" ExpressionL="${Coordinate}" ExpressionTypeL="String" ExpressionR="100.009" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                                    </Condition>
+                                  </Action>
+                                  <Action OrderNumber="4" SoundRouting="None" TTSRouting="None" VariableOp="SetString" VariableName="SafeSpot" VariableExpression="East West Safe" ActionType="Variable">
+                                    <Condition Enabled="true" Grouping="Or">
+                                      <ConditionSingle Enabled="true" ExpressionL="${Coordinate}" ExpressionTypeL="String" ExpressionR="83.987" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                                      <ConditionSingle Enabled="true" ExpressionL="${Coordinate}" ExpressionTypeL="String" ExpressionR="116.001" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                                    </Condition>
+                                  </Action>
+                                  <Action OrderNumber="5" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Northwest Southeast Safe" VariableOp="SetString" VariableName="SafeSpot" VariableExpression="Northwest Southeast Safe" ActionType="Variable">
+                                    <Condition Enabled="true" Grouping="Or">
+                                      <ConditionGroup Enabled="true" Grouping="And">
+                                        <ConditionSingle Enabled="true" ExpressionL="${Coordinate}" ExpressionTypeL="String" ExpressionR="88.687" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                                        <ConditionSingle Enabled="true" ExpressionL="${Coordinate2}" ExpressionTypeL="String" ExpressionR="88.687" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                                      </ConditionGroup>
+                                      <ConditionGroup Enabled="true" Grouping="And">
+                                        <ConditionSingle Enabled="true" ExpressionL="${Coordinate}" ExpressionTypeL="String" ExpressionR="111.301" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                                        <ConditionSingle Enabled="true" ExpressionL="${Coordinate2}" ExpressionTypeL="String" ExpressionR="111.301" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                                      </ConditionGroup>
+                                    </Condition>
+                                  </Action>
+                                  <Action OrderNumber="6" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Northwest Southeast Safe" VariableOp="SetString" VariableName="SafeSpot" VariableExpression="Northeast Southwest Safe" ActionType="Variable">
+                                    <Condition Enabled="true" Grouping="Or">
+                                      <ConditionGroup Enabled="true" Grouping="And">
+                                        <ConditionSingle Enabled="true" ExpressionL="${Coordinate}" ExpressionTypeL="String" ExpressionR="88.687" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                                        <ConditionSingle Enabled="true" ExpressionL="${Coordinate2}" ExpressionTypeL="String" ExpressionR="111.301" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                                      </ConditionGroup>
+                                      <ConditionGroup Enabled="true" Grouping="And">
+                                        <ConditionSingle Enabled="true" ExpressionL="${Coordinate}" ExpressionTypeL="String" ExpressionR="111.301" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                                        <ConditionSingle Enabled="true" ExpressionL="${Coordinate2}" ExpressionTypeL="String" ExpressionR="88.687" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                                      </ConditionGroup>
+                                    </Condition>
+                                  </Action>
+                                  <Action OrderNumber="7" SoundRouting="None" TTSRouting="None" TriggerId="327f32ef-7756-49cc-9232-2209182dddf6" TriggerForce="regexp,conditions" ActionType="Trigger" ExecutionDelayExpression="300">
+                                    <Condition Enabled="false" Grouping="Or" />
+                                  </Action>
                                 </Actions>
                                 <Condition Enabled="false" Grouping="Or" />
+                              </Trigger>
+                              <Trigger Enabled="true" Sequential="True" Name="Callout" Id="327f32ef-7756-49cc-9232-2209182dddf6" RegularExpression="">
+                                <Actions>
+                                  <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="${var:InOut}, ${var:IcicleStartPos}" ActionType="UseTTS">
+                                    <Condition Enabled="true" Grouping="Or">
+                                      <ConditionSingle Enabled="true" ExpressionL="${var:IcicleStartPos}" ExpressionTypeL="String" ExpressionR="Intercardinals" ExpressionTypeR="String" ConditionType="StringNotEqualNocase" />
+                                      <ConditionSingle Enabled="true" ExpressionL="${var:IcicleStartPos}" ExpressionTypeL="String" ExpressionR="Cardinals" ExpressionTypeR="String" ConditionType="StringNotEqualNocase" />
+                                    </Condition>
+                                  </Action>
+                                  <Action OrderNumber="2" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="${var:InOut}" ActionType="UseTTS">
+                                    <Condition Enabled="true" Grouping="And">
+                                      <ConditionSingle Enabled="true" ExpressionL="${var:IcicleStartPos}" ExpressionTypeL="String" ExpressionR="Cardinals" ExpressionTypeR="String" ConditionType="StringNotEqualNocase" />
+                                      <ConditionSingle Enabled="true" ExpressionL="${var:IcicleStartPos}" ExpressionTypeL="String" ExpressionR="Intercardinals" ExpressionTypeR="String" ConditionType="StringNotEqualNocase" />
+                                    </Condition>
+                                  </Action>
+                                  <Action OrderNumber="3" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="${var:SafeSpot}" Enabled="False" ActionType="UseTTS" ExecutionDelayExpression="6500">
+                                    <Condition Enabled="false" Grouping="Or" />
+                                  </Action>
+                                  <Action OrderNumber="4" SoundRouting="None" TTSRouting="None" VariableName="IcicleStartPos" ActionType="Variable">
+                                    <Condition Enabled="false" Grouping="Or" />
+                                  </Action>
+                                  <Action OrderNumber="5" SoundRouting="None" TTSRouting="None" VariableName="SafeSpot" ActionType="Variable">
+                                    <Condition Enabled="false" Grouping="Or" />
+                                  </Action>
+                                </Actions>
+                                <Condition Enabled="false" Grouping="Or" />
+                                <Conditions />
                               </Trigger>
                             </Triggers>
                           </Folder>
@@ -1850,20 +1898,31 @@
                             <Triggers>
                               <Trigger Enabled="true" Source="FFXIVNetwork" Name="Identifier" Id="76583f94-3f5f-4b45-9eda-2de94d71c1a3" RegularExpression="^26\|[^|]*\|(?&lt;ID&gt;997|99E)\|[^|]*\|(?&lt;timer&gt;[^|]*)\|[^|]*\|[^|]*\|[^|]*\|(?&lt;name&gt;[^|]*)\|">
                                 <Actions>
-                                  <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" TriggerId="1c2a7d5a-a473-467c-8d3e-c0f4e963ca8f" TriggerForce="regexp,conditions" ActionType="Trigger">
+                                  <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" TriggerId="8a3c564c-872b-4a8c-9861-ae1138c79cf6" TriggerForce="regexp,conditions,refire" ActionType="Trigger">
                                     <Condition Enabled="true" Grouping="And">
                                       <ConditionSingle Enabled="true" ExpressionL="${ID}" ExpressionTypeL="String" ExpressionR="997" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                                       <ConditionSingle Enabled="true" ExpressionL="${timer}" ExpressionTypeL="String" ExpressionR="11.00" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                                      <ConditionSingle Enabled="true" ExpressionL="${_me.role}" ExpressionTypeL="String" ExpressionR="DPS" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                                     </Condition>
                                   </Action>
-                                  <Action OrderNumber="2" SoundRouting="None" TTSRouting="None" TriggerId="654f8c98-350b-435a-bdd4-e56212d06e26" TriggerForce="regexp,conditions" ActionType="Trigger">
+                                  <Action OrderNumber="2" SoundRouting="None" TTSRouting="None" TriggerId="1c2a7d5a-a473-467c-8d3e-c0f4e963ca8f" TriggerForce="regexp,conditions" ActionType="Trigger">
+                                    <Condition Enabled="true" Grouping="And">
+                                      <ConditionSingle Enabled="true" ExpressionL="${ID}" ExpressionTypeL="String" ExpressionR="997" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                                      <ConditionSingle Enabled="true" ExpressionL="${timer}" ExpressionTypeL="String" ExpressionR="11.00" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                                      <ConditionGroup Enabled="true" Grouping="Or">
+                                        <ConditionSingle Enabled="true" ExpressionL="${_me.role}" ExpressionTypeL="String" ExpressionR="Tank" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                                        <ConditionSingle Enabled="true" ExpressionL="${_me.role}" ExpressionTypeL="String" ExpressionR="Healer" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                                      </ConditionGroup>
+                                    </Condition>
+                                  </Action>
+                                  <Action OrderNumber="3" SoundRouting="None" TTSRouting="None" TriggerId="654f8c98-350b-435a-bdd4-e56212d06e26" TriggerForce="regexp,conditions" ActionType="Trigger">
                                     <Condition Enabled="true" Grouping="And">
                                       <ConditionSingle Enabled="true" ExpressionL="${ID}" ExpressionTypeL="String" ExpressionR="997" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                                       <ConditionSingle Enabled="true" ExpressionL="${_me.role}" ExpressionTypeL="String" ExpressionR="DPS" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                                       <ConditionSingle Enabled="true" ExpressionL="${timer}" ExpressionTypeL="String" ExpressionR="21.00" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                                     </Condition>
                                   </Action>
-                                  <Action OrderNumber="3" SoundRouting="None" TTSRouting="None" TriggerId="093f0801-a8bc-42d5-8a9d-044c43ce91d2" TriggerForce="regexp,conditions" ActionType="Trigger">
+                                  <Action OrderNumber="4" SoundRouting="None" TTSRouting="None" TriggerId="093f0801-a8bc-42d5-8a9d-044c43ce91d2" TriggerForce="regexp,conditions" ActionType="Trigger">
                                     <Condition Enabled="true" Grouping="And">
                                       <ConditionSingle Enabled="true" ExpressionL="${ID}" ExpressionTypeL="String" ExpressionR="997" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                                       <ConditionGroup Enabled="true" Grouping="Or">
@@ -1873,19 +1932,30 @@
                                       <ConditionSingle Enabled="true" ExpressionL="${timer}" ExpressionTypeL="String" ExpressionR="21.00" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                                     </Condition>
                                   </Action>
-                                  <Action OrderNumber="4" SoundRouting="None" TTSRouting="None" TriggerId="b8f9a6e2-8762-4122-a396-4ce56c2bf51a" TriggerForce="regexp,conditions" ActionType="Trigger">
+                                  <Action OrderNumber="5" SoundRouting="None" TTSRouting="None" TriggerId="90442edc-e977-40bb-b6b0-45b61d6bbe73" TriggerForce="regexp,conditions" ActionType="Trigger">
                                     <Condition Enabled="true" Grouping="And">
                                       <ConditionSingle Enabled="true" ExpressionL="${ID}" ExpressionTypeL="String" ExpressionR="997" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                                       <ConditionSingle Enabled="true" ExpressionL="${timer}" ExpressionTypeL="String" ExpressionR="31.00" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                                      <ConditionSingle Enabled="true" ExpressionL="${_me.role}" ExpressionTypeL="String" ExpressionR="DPS" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                                     </Condition>
                                   </Action>
-                                  <Action OrderNumber="5" SoundRouting="None" TTSRouting="None" TriggerId="9cacebd1-663d-4a92-96fa-0ecf462ad68c" TriggerForce="regexp,conditions" ActionType="Trigger">
+                                  <Action OrderNumber="6" SoundRouting="None" TTSRouting="None" TriggerId="b8f9a6e2-8762-4122-a396-4ce56c2bf51a" TriggerForce="regexp,conditions" ActionType="Trigger">
+                                    <Condition Enabled="true" Grouping="And">
+                                      <ConditionSingle Enabled="true" ExpressionL="${ID}" ExpressionTypeL="String" ExpressionR="997" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                                      <ConditionSingle Enabled="true" ExpressionL="${timer}" ExpressionTypeL="String" ExpressionR="31.00" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                                      <ConditionGroup Enabled="true" Grouping="Or">
+                                        <ConditionSingle Enabled="true" ExpressionL="${_me.role}" ExpressionTypeL="String" ExpressionR="Tank" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                                        <ConditionSingle Enabled="true" ExpressionL="${_me.role}" ExpressionTypeL="String" ExpressionR="Healer" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                                      </ConditionGroup>
+                                    </Condition>
+                                  </Action>
+                                  <Action OrderNumber="7" SoundRouting="None" TTSRouting="None" TriggerId="9cacebd1-663d-4a92-96fa-0ecf462ad68c" TriggerForce="regexp,conditions" ActionType="Trigger">
                                     <Condition Enabled="true" Grouping="And">
                                       <ConditionSingle Enabled="true" ExpressionL="${ID}" ExpressionTypeL="String" ExpressionR="99E" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                                       <ConditionSingle Enabled="true" ExpressionL="${_me.role}" ExpressionTypeL="String" ExpressionR="DPS" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                                     </Condition>
                                   </Action>
-                                  <Action OrderNumber="6" SoundRouting="None" TTSRouting="None" TriggerId="6e15b258-0ea6-416d-8322-03c98267dee3" TriggerForce="regexp,conditions" ActionType="Trigger">
+                                  <Action OrderNumber="8" SoundRouting="None" TTSRouting="None" TriggerId="6e15b258-0ea6-416d-8322-03c98267dee3" TriggerForce="regexp,conditions" ActionType="Trigger">
                                     <Condition Enabled="true" Grouping="And">
                                       <ConditionSingle Enabled="true" ExpressionL="${ID}" ExpressionTypeL="String" ExpressionR="99E" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                                       <ConditionGroup Enabled="true" Grouping="Or">
@@ -1898,9 +1968,8 @@
                                 <Condition Enabled="true" Grouping="Or">
                                   <ConditionSingle Enabled="true" ExpressionL="${name}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                                 </Condition>
-                                <Conditions />
                               </Trigger>
-                              <Trigger Enabled="true" Sequential="True" Name="30s Fire" Id="b8f9a6e2-8762-4122-a396-4ce56c2bf51a" RegularExpression="lol fuck this">
+                              <Trigger Enabled="true" Sequential="True" Name="30s Fire Support" Id="b8f9a6e2-8762-4122-a396-4ce56c2bf51a" RegularExpression="lol fuck this">
                                 <Actions>
                                   <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="North West North East, 30 seconds fire" ActionType="UseTTS">
                                     <Condition Enabled="true" Grouping="Or">
@@ -1908,34 +1977,28 @@
                                       <ConditionSingle Enabled="true" ExpressionL="${_me.role}" ExpressionTypeL="String" ExpressionR="Tank" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                                     </Condition>
                                   </Action>
-                                  <Action OrderNumber="2" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="South, 30 seconds fire" ActionType="UseTTS">
-                                    <Condition Enabled="true" Grouping="Or">
-                                      <ConditionSingle Enabled="true" ExpressionL="${_me.role}" ExpressionTypeL="String" ExpressionR="DPS" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                                    </Condition>
-                                  </Action>
-                                  <Action OrderNumber="3" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Stack Middle" ActionType="UseTTS" ExecutionDelayExpression="5000">
+                                  <Action OrderNumber="2" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Stack Middle" ActionType="UseTTS" ExecutionDelayExpression="5000">
                                     <Condition Enabled="false" Grouping="Or" />
                                   </Action>
-                                  <Action OrderNumber="4" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Bait Laser" ActionType="UseTTS" ExecutionDelayExpression="6000">
+                                  <Action OrderNumber="3" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Bait Laser" ActionType="UseTTS" ExecutionDelayExpression="6000">
                                     <Condition Enabled="false" Grouping="Or" />
                                   </Action>
-                                  <Action OrderNumber="5" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Stack Middle" ActionType="UseTTS" ExecutionDelayExpression="5000">
+                                  <Action OrderNumber="4" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Stack Middle" ActionType="UseTTS" ExecutionDelayExpression="5000">
                                     <Condition Enabled="false" Grouping="Or" />
                                   </Action>
-                                  <Action OrderNumber="6" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Place Rewind Inside, Gaze" ActionType="UseTTS" ExecutionDelayExpression="5000">
+                                  <Action OrderNumber="5" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Place Rewind Inside, Gaze" ActionType="UseTTS" ExecutionDelayExpression="5000">
                                     <Condition Enabled="false" Grouping="Or" />
                                   </Action>
-                                  <Action OrderNumber="7" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Drop Fire Outside" ActionType="UseTTS" ExecutionDelayExpression="5000">
+                                  <Action OrderNumber="6" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Drop Fire Outside" ActionType="UseTTS" ExecutionDelayExpression="5000">
                                     <Condition Enabled="false" Grouping="Or" />
                                   </Action>
-                                  <Action OrderNumber="8" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Chill Middle, Look Outside for Rewind" ActionType="UseTTS" ExecutionDelayExpression="5000">
+                                  <Action OrderNumber="7" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Chill Middle, Look Outside for Rewind" ActionType="UseTTS" ExecutionDelayExpression="5000">
                                     <Condition Enabled="false" Grouping="Or" />
                                   </Action>
                                 </Actions>
                                 <Condition Enabled="false" Grouping="Or" />
-                                <Conditions />
                               </Trigger>
-                              <Trigger Enabled="true" Sequential="True" Name="10s Fire" Id="1c2a7d5a-a473-467c-8d3e-c0f4e963ca8f" RegularExpression="lol fuck this">
+                              <Trigger Enabled="true" Sequential="True" Name="10s Fire Support" Id="1c2a7d5a-a473-467c-8d3e-c0f4e963ca8f" RegularExpression="lol fuck this">
                                 <Actions>
                                   <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="North, 10 seconds fire" ActionType="UseTTS">
                                     <Condition Enabled="true" Grouping="Or">
@@ -1943,32 +2006,26 @@
                                       <ConditionSingle Enabled="true" ExpressionL="${_me.role}" ExpressionTypeL="String" ExpressionR="Tank" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                                     </Condition>
                                   </Action>
-                                  <Action OrderNumber="2" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="South West South East, 10 seconds fire" ActionType="UseTTS">
-                                    <Condition Enabled="true" Grouping="Or">
-                                      <ConditionSingle Enabled="true" ExpressionL="${_me.role}" ExpressionTypeL="String" ExpressionR="DPS" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                                    </Condition>
-                                  </Action>
-                                  <Action OrderNumber="3" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Drop Fire Outside" ActionType="UseTTS" ExecutionDelayExpression="5000">
+                                  <Action OrderNumber="2" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Drop Fire Outside" ActionType="UseTTS" ExecutionDelayExpression="5000">
                                     <Condition Enabled="false" Grouping="Or" />
                                   </Action>
-                                  <Action OrderNumber="4" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Place Rewind Outside" ActionType="UseTTS" ExecutionDelayExpression="6000">
+                                  <Action OrderNumber="3" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Place Rewind Outside" ActionType="UseTTS" ExecutionDelayExpression="6000">
                                     <Condition Enabled="false" Grouping="Or" />
                                   </Action>
-                                  <Action OrderNumber="5" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Stack Middle" ActionType="UseTTS" ExecutionDelayExpression="5000">
+                                  <Action OrderNumber="4" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Stack Middle" ActionType="UseTTS" ExecutionDelayExpression="5000">
                                     <Condition Enabled="false" Grouping="Or" />
                                   </Action>
-                                  <Action OrderNumber="6" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Bait Laser" ActionType="UseTTS" ExecutionDelayExpression="5000">
+                                  <Action OrderNumber="5" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Bait Laser" ActionType="UseTTS" ExecutionDelayExpression="5000">
                                     <Condition Enabled="false" Grouping="Or" />
                                   </Action>
-                                  <Action OrderNumber="7" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Stack Middle" ActionType="UseTTS" ExecutionDelayExpression="5000">
+                                  <Action OrderNumber="6" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Stack Middle" ActionType="UseTTS" ExecutionDelayExpression="5000">
                                     <Condition Enabled="false" Grouping="Or" />
                                   </Action>
-                                  <Action OrderNumber="8" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Chill Middle, Look Outside for Rewind" ActionType="UseTTS" ExecutionDelayExpression="5000">
+                                  <Action OrderNumber="7" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Chill Middle, Look Outside for Rewind" ActionType="UseTTS" ExecutionDelayExpression="5000">
                                     <Condition Enabled="false" Grouping="Or" />
                                   </Action>
                                 </Actions>
                                 <Condition Enabled="false" Grouping="Or" />
-                                <Conditions />
                               </Trigger>
                               <Trigger Enabled="true" Sequential="True" Name="20s Fire DPS" Id="654f8c98-350b-435a-bdd4-e56212d06e26" RegularExpression="lol fuck this">
                                 <Actions>
@@ -1995,7 +2052,6 @@
                                   </Action>
                                 </Actions>
                                 <Condition Enabled="false" Grouping="Or" />
-                                <Conditions />
                               </Trigger>
                               <Trigger Enabled="true" Sequential="True" Name="20s Fire Support" Id="093f0801-a8bc-42d5-8a9d-044c43ce91d2" RegularExpression="lol fuck this">
                                 <Actions>
@@ -2022,7 +2078,6 @@
                                   </Action>
                                 </Actions>
                                 <Condition Enabled="false" Grouping="Or" />
-                                <Conditions />
                               </Trigger>
                               <Trigger Enabled="true" Sequential="True" Name="Ice DPS" Id="9cacebd1-663d-4a92-96fa-0ecf462ad68c" RegularExpression="lol fuck this">
                                 <Actions>
@@ -2049,7 +2104,6 @@
                                   </Action>
                                 </Actions>
                                 <Condition Enabled="false" Grouping="Or" />
-                                <Conditions />
                               </Trigger>
                               <Trigger Enabled="true" Sequential="True" Name="Ice Support" Id="6e15b258-0ea6-416d-8322-03c98267dee3" RegularExpression="lol fuck this">
                                 <Actions>
@@ -2076,6 +2130,63 @@
                                   </Action>
                                 </Actions>
                                 <Condition Enabled="false" Grouping="Or" />
+                              </Trigger>
+                              <Trigger Enabled="true" Sequential="True" Name="10s Fire DPS" Id="8a3c564c-872b-4a8c-9861-ae1138c79cf6" RegularExpression="lol fuck this">
+                                <Actions>
+                                  <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="South West South East, 10 seconds fire" ActionType="UseTTS">
+                                    <Condition Enabled="true" Grouping="Or">
+                                      <ConditionSingle Enabled="true" ExpressionL="${_me.role}" ExpressionTypeL="String" ExpressionR="DPS" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                                    </Condition>
+                                  </Action>
+                                  <Action OrderNumber="2" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Drop Fire Outside" ActionType="UseTTS" ExecutionDelayExpression="5000">
+                                    <Condition Enabled="false" Grouping="Or" />
+                                  </Action>
+                                  <Action OrderNumber="3" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Place Rewind Outside" ActionType="UseTTS" ExecutionDelayExpression="6000">
+                                    <Condition Enabled="false" Grouping="Or" />
+                                  </Action>
+                                  <Action OrderNumber="4" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Stack Middle" ActionType="UseTTS" ExecutionDelayExpression="5000">
+                                    <Condition Enabled="false" Grouping="Or" />
+                                  </Action>
+                                  <Action OrderNumber="5" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Bait Laser" ActionType="UseTTS" ExecutionDelayExpression="5000">
+                                    <Condition Enabled="false" Grouping="Or" />
+                                  </Action>
+                                  <Action OrderNumber="6" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Stack Middle" ActionType="UseTTS" ExecutionDelayExpression="5000">
+                                    <Condition Enabled="false" Grouping="Or" />
+                                  </Action>
+                                  <Action OrderNumber="7" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Chill Middle, Look Outside for Rewind" ActionType="UseTTS" ExecutionDelayExpression="5000">
+                                    <Condition Enabled="false" Grouping="Or" />
+                                  </Action>
+                                </Actions>
+                                <Condition Enabled="false" Grouping="Or" />
+                                <Conditions />
+                              </Trigger>
+                              <Trigger Enabled="true" Sequential="True" Name="30s Fire DPS" Id="90442edc-e977-40bb-b6b0-45b61d6bbe73" RegularExpression="lol fuck this">
+                                <Actions>
+                                  <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="South, 30 seconds fire" ActionType="UseTTS">
+                                    <Condition Enabled="true" Grouping="And">
+                                      <ConditionSingle Enabled="true" ExpressionL="${_me.role}" ExpressionTypeL="String" ExpressionR="DPS" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                                    </Condition>
+                                  </Action>
+                                  <Action OrderNumber="2" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Stack Middle" ActionType="UseTTS" ExecutionDelayExpression="5000">
+                                    <Condition Enabled="false" Grouping="Or" />
+                                  </Action>
+                                  <Action OrderNumber="3" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Bait Laser" ActionType="UseTTS" ExecutionDelayExpression="6000">
+                                    <Condition Enabled="false" Grouping="Or" />
+                                  </Action>
+                                  <Action OrderNumber="4" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Stack Middle" ActionType="UseTTS" ExecutionDelayExpression="5000">
+                                    <Condition Enabled="false" Grouping="Or" />
+                                  </Action>
+                                  <Action OrderNumber="5" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Place Rewind Inside, Gaze" ActionType="UseTTS" ExecutionDelayExpression="5000">
+                                    <Condition Enabled="false" Grouping="Or" />
+                                  </Action>
+                                  <Action OrderNumber="6" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Drop Fire Outside" ActionType="UseTTS" ExecutionDelayExpression="5000">
+                                    <Condition Enabled="false" Grouping="Or" />
+                                  </Action>
+                                  <Action OrderNumber="7" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Chill Middle, Look Outside for Rewind" ActionType="UseTTS" ExecutionDelayExpression="5000">
+                                    <Condition Enabled="false" Grouping="Or" />
+                                  </Action>
+                                </Actions>
+                                <Condition Enabled="false" Grouping="Or" />
                                 <Conditions />
                               </Trigger>
                             </Triggers>
@@ -2090,7 +2201,6 @@
                                   </Action>
                                 </Actions>
                                 <Condition Enabled="false" Grouping="Or" />
-                                <Conditions />
                               </Trigger>
                               <Trigger Enabled="true" Source="FFXIVNetwork" Name="Shell Crusher" Id="21f38279-b709-4f8e-badd-aa7d3fc71720" RegularExpression="^20\|[^|]*\|[^|]*\|[^|]*\|9D5E\|">
                                 <Actions>
@@ -2099,7 +2209,6 @@
                                   </Action>
                                 </Actions>
                                 <Condition Enabled="false" Grouping="Or" />
-                                <Conditions />
                               </Trigger>
                               <Trigger Enabled="true" Source="FFXIVNetwork" Name="Spirit Taker" Id="e0d661f9-fe2f-4240-88a1-9d904297a5bd" RegularExpression="^20\|[^|]*\|[^|]*\|[^|]*\|9D60\|">
                                 <Actions>
@@ -2108,7 +2217,6 @@
                                   </Action>
                                 </Actions>
                                 <Condition Enabled="false" Grouping="Or" />
-                                <Conditions />
                               </Trigger>
                             </Triggers>
                           </Folder>
@@ -2125,36 +2233,47 @@
                           <Action OrderNumber="2" SoundRouting="None" TTSRouting="None" VariableName="IcicleStartPos" ActionType="Variable">
                             <Condition Enabled="false" Grouping="Or" />
                           </Action>
-                          <Action OrderNumber="3" SoundRouting="None" TTSRouting="None" TriggerOp="CancelTrigger" TriggerId="1c2a7d5a-a473-467c-8d3e-c0f4e963ca8f" ActionType="Trigger">
+                          <Action OrderNumber="3" SoundRouting="None" TTSRouting="None" VariableName="SafeSpot" ActionType="Variable">
                             <Condition Enabled="false" Grouping="Or" />
                           </Action>
-                          <Action OrderNumber="4" SoundRouting="None" TTSRouting="None" TriggerOp="CancelTrigger" TriggerId="654f8c98-350b-435a-bdd4-e56212d06e26" ActionType="Trigger">
+                          <Action OrderNumber="4" SoundRouting="None" TTSRouting="None" TriggerOp="CancelTrigger" TriggerId="ce867d7d-76b6-47d5-99da-802860bc5e10" ActionType="Trigger">
                             <Condition Enabled="false" Grouping="Or" />
                           </Action>
-                          <Action OrderNumber="5" SoundRouting="None" TTSRouting="None" TriggerOp="CancelTrigger" TriggerId="093f0801-a8bc-42d5-8a9d-044c43ce91d2" ActionType="Trigger">
+                          <Action OrderNumber="5" SoundRouting="None" TTSRouting="None" TriggerOp="CancelTrigger" TriggerId="8a3c564c-872b-4a8c-9861-ae1138c79cf6" ActionType="Trigger">
                             <Condition Enabled="false" Grouping="Or" />
                           </Action>
-                          <Action OrderNumber="6" SoundRouting="None" TTSRouting="None" TriggerOp="CancelTrigger" TriggerId="b8f9a6e2-8762-4122-a396-4ce56c2bf51a" ActionType="Trigger">
+                          <Action OrderNumber="6" SoundRouting="None" TTSRouting="None" TriggerOp="CancelTrigger" TriggerId="1c2a7d5a-a473-467c-8d3e-c0f4e963ca8f" ActionType="Trigger">
                             <Condition Enabled="false" Grouping="Or" />
                           </Action>
-                          <Action OrderNumber="7" SoundRouting="None" TTSRouting="None" TriggerOp="CancelTrigger" TriggerId="9cacebd1-663d-4a92-96fa-0ecf462ad68c" ActionType="Trigger">
+                          <Action OrderNumber="7" SoundRouting="None" TTSRouting="None" TriggerOp="CancelTrigger" TriggerId="654f8c98-350b-435a-bdd4-e56212d06e26" ActionType="Trigger">
                             <Condition Enabled="false" Grouping="Or" />
                           </Action>
-                          <Action OrderNumber="8" SoundRouting="None" TTSRouting="None" TriggerOp="CancelTrigger" TriggerId="6e15b258-0ea6-416d-8322-03c98267dee3" ActionType="Trigger">
+                          <Action OrderNumber="8" SoundRouting="None" TTSRouting="None" TriggerOp="CancelTrigger" TriggerId="093f0801-a8bc-42d5-8a9d-044c43ce91d2" ActionType="Trigger">
                             <Condition Enabled="false" Grouping="Or" />
                           </Action>
-                          <Action OrderNumber="9" SoundRouting="None" TTSRouting="None" TriggerOp="CancelTrigger" TriggerId="9d2e37db-fe33-4156-bd74-be29b4c5d7a1" ActionType="Trigger">
+                          <Action OrderNumber="9" SoundRouting="None" TTSRouting="None" TriggerOp="CancelTrigger" TriggerId="90442edc-e977-40bb-b6b0-45b61d6bbe73" ActionType="Trigger">
                             <Condition Enabled="false" Grouping="Or" />
                           </Action>
-                          <Action OrderNumber="10" SoundRouting="None" TTSRouting="None" TriggerOp="CancelTrigger" TriggerId="3c8d45d8-f5b0-498a-8a1e-45689e51fa3f" ActionType="Trigger">
+                          <Action OrderNumber="10" SoundRouting="None" TTSRouting="None" TriggerOp="CancelTrigger" TriggerId="b8f9a6e2-8762-4122-a396-4ce56c2bf51a" ActionType="Trigger">
                             <Condition Enabled="false" Grouping="Or" />
                           </Action>
-                          <Action OrderNumber="11" SoundRouting="None" TTSRouting="None" TriggerOp="CancelTrigger" TriggerId="ac6f5b08-b6b6-4546-8d66-521e7f70b876" ActionType="Trigger">
+                          <Action OrderNumber="11" SoundRouting="None" TTSRouting="None" TriggerOp="CancelTrigger" TriggerId="9cacebd1-663d-4a92-96fa-0ecf462ad68c" ActionType="Trigger">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                          <Action OrderNumber="12" SoundRouting="None" TTSRouting="None" TriggerOp="CancelTrigger" TriggerId="6e15b258-0ea6-416d-8322-03c98267dee3" ActionType="Trigger">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                          <Action OrderNumber="13" SoundRouting="None" TTSRouting="None" TriggerOp="CancelTrigger" TriggerId="9d2e37db-fe33-4156-bd74-be29b4c5d7a1" ActionType="Trigger">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                          <Action OrderNumber="14" SoundRouting="None" TTSRouting="None" TriggerOp="CancelTrigger" TriggerId="3c8d45d8-f5b0-498a-8a1e-45689e51fa3f" ActionType="Trigger">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                          <Action OrderNumber="15" SoundRouting="None" TTSRouting="None" TriggerOp="CancelTrigger" TriggerId="ac6f5b08-b6b6-4546-8d66-521e7f70b876" ActionType="Trigger">
                             <Condition Enabled="false" Grouping="Or" />
                           </Action>
                         </Actions>
                         <Condition Enabled="false" Grouping="Or" />
-                        <Conditions />
                       </Trigger>
                     </Triggers>
                   </Folder>
