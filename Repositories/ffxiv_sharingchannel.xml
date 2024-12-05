@@ -1822,22 +1822,16 @@
                                       <ConditionSingle Enabled="true" ExpressionL="${var:IcicleStartPos}" ExpressionTypeL="String" ExpressionR="Cardinals" ExpressionTypeR="String" ConditionType="StringNotEqualNocase" />
                                     </Condition>
                                   </Action>
-                                  <Action OrderNumber="2" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="${var:InOut}" ActionType="UseTTS">
-                                    <Condition Enabled="true" Grouping="And">
-                                      <ConditionSingle Enabled="true" ExpressionL="${var:IcicleStartPos}" ExpressionTypeL="String" ExpressionR="Cardinals" ExpressionTypeR="String" ConditionType="StringNotEqualNocase" />
-                                      <ConditionSingle Enabled="true" ExpressionL="${var:IcicleStartPos}" ExpressionTypeL="String" ExpressionR="Intercardinals" ExpressionTypeR="String" ConditionType="StringNotEqualNocase" />
-                                    </Condition>
-                                  </Action>
-                                  <Action OrderNumber="3" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="${var:SafeSpot}" Enabled="False" ActionType="UseTTS" ExecutionDelayExpression="6500">
+                                  <Action OrderNumber="2" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="${var:SafeSpot}" Enabled="False" ActionType="UseTTS" ExecutionDelayExpression="6500">
                                     <Condition Enabled="false" Grouping="Or" />
                                   </Action>
-                                  <Action OrderNumber="4" SoundRouting="None" TTSRouting="None" VariableName="IcicleStartPos" ActionType="Variable">
+                                  <Action OrderNumber="3" SoundRouting="None" TTSRouting="None" VariableName="IcicleStartPos" ActionType="Variable">
                                     <Condition Enabled="false" Grouping="Or" />
                                   </Action>
-                                  <Action OrderNumber="5" SoundRouting="None" TTSRouting="None" VariableName="SafeSpot" ActionType="Variable">
+                                  <Action OrderNumber="4" SoundRouting="None" TTSRouting="None" VariableName="SafeSpot" ActionType="Variable">
                                     <Condition Enabled="false" Grouping="Or" />
                                   </Action>
-                                  <Action OrderNumber="6" SoundRouting="None" TTSRouting="None" VariableName="InOut" ActionType="Variable">
+                                  <Action OrderNumber="5" SoundRouting="None" TTSRouting="None" VariableName="InOut" ActionType="Variable">
                                     <Condition Enabled="false" Grouping="Or" />
                                   </Action>
                                 </Actions>
