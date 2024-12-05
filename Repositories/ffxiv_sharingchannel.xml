@@ -1758,53 +1758,53 @@
                                 </Actions>
                                 <Condition Enabled="false" Grouping="Or" />
                               </Trigger>
-                              <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" Name="Icicle Identifier" Id="c51f7e24-b4cd-4526-9c31-ef94cd85570e" RegularExpression="^263\|[^|]*\|[^|]*\|9D06\|(?&lt;Coordinate&gt;[0-9.]*)\|(?&lt;Coordinate2&gt;[0-9.]*)\|" PeriodRefire="Deny" RefirePeriodExpression="15000">
+                              <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" Name="Icicle Identifier" Id="c51f7e24-b4cd-4526-9c31-ef94cd85570e" RegularExpression="^20\|[^|]*\|[^|]*\|[^|]*\|9D06\|[^|]*\|[^|]*\|[^|]*\|[^|]*\|(?&lt;Coordinate&gt;[0-9.]*)\|(?&lt;Coordinate2&gt;[0-9.]*)\|" PeriodRefire="Deny" RefirePeriodExpression="15000">
                                 <Actions>
                                   <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Fire" VariableOp="SetString" VariableName="IcicleStartPos" VariableExpression="Cardinals" ActionType="Variable">
                                     <Condition Enabled="true" Grouping="Or">
-                                      <ConditionSingle Enabled="true" ExpressionL="${Coordinate}" ExpressionTypeL="String" ExpressionR="100.009" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                                      <ConditionSingle Enabled="true" ExpressionL="${Coordinate}" ExpressionTypeL="String" ExpressionR="116.001" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                                      <ConditionSingle Enabled="true" ExpressionL="${Coordinate}" ExpressionTypeL="String" ExpressionR="83.987" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                                      <ConditionSingle Enabled="true" ExpressionL="${Coordinate}" ExpressionTypeL="String" ExpressionR="100.00" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                                      <ConditionSingle Enabled="true" ExpressionL="${Coordinate}" ExpressionTypeL="String" ExpressionR="116.00" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                                      <ConditionSingle Enabled="true" ExpressionL="${Coordinate}" ExpressionTypeL="String" ExpressionR="84.00" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                                     </Condition>
                                   </Action>
                                   <Action OrderNumber="2" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Fire" VariableOp="SetString" VariableName="IcicleStartPos" VariableExpression="Intercardinals" ActionType="Variable">
                                     <Condition Enabled="true" Grouping="Or">
-                                      <ConditionSingle Enabled="true" ExpressionL="${Coordinate}" ExpressionTypeL="String" ExpressionR="88.687" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                                      <ConditionSingle Enabled="true" ExpressionL="${Coordinate}" ExpressionTypeL="String" ExpressionR="111.301" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                                      <ConditionSingle Enabled="true" ExpressionL="${Coordinate}" ExpressionTypeL="String" ExpressionR="88.69" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                                      <ConditionSingle Enabled="true" ExpressionL="${Coordinate}" ExpressionTypeL="String" ExpressionR="111.31" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                                     </Condition>
                                   </Action>
                                   <Action OrderNumber="3" SoundRouting="None" TTSRouting="None" VariableOp="SetString" VariableName="SafeSpot" VariableExpression="North South Safe" ActionType="Variable">
                                     <Condition Enabled="true" Grouping="Or">
-                                      <ConditionSingle Enabled="true" ExpressionL="${Coordinate}" ExpressionTypeL="String" ExpressionR="100.009" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                                      <ConditionSingle Enabled="true" ExpressionL="${Coordinate}" ExpressionTypeL="String" ExpressionR="100.00" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                                     </Condition>
                                   </Action>
                                   <Action OrderNumber="4" SoundRouting="None" TTSRouting="None" VariableOp="SetString" VariableName="SafeSpot" VariableExpression="East West Safe" ActionType="Variable">
                                     <Condition Enabled="true" Grouping="Or">
-                                      <ConditionSingle Enabled="true" ExpressionL="${Coordinate}" ExpressionTypeL="String" ExpressionR="83.987" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                                      <ConditionSingle Enabled="true" ExpressionL="${Coordinate}" ExpressionTypeL="String" ExpressionR="116.001" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                                      <ConditionSingle Enabled="true" ExpressionL="${Coordinate}" ExpressionTypeL="String" ExpressionR="84.00" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                                      <ConditionSingle Enabled="true" ExpressionL="${Coordinate}" ExpressionTypeL="String" ExpressionR="116.00" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                                     </Condition>
                                   </Action>
                                   <Action OrderNumber="5" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Northwest Southeast Safe" VariableOp="SetString" VariableName="SafeSpot" VariableExpression="Northwest Southeast Safe" ActionType="Variable">
                                     <Condition Enabled="true" Grouping="Or">
                                       <ConditionGroup Enabled="true" Grouping="And">
-                                        <ConditionSingle Enabled="true" ExpressionL="${Coordinate}" ExpressionTypeL="String" ExpressionR="88.687" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                                        <ConditionSingle Enabled="true" ExpressionL="${Coordinate2}" ExpressionTypeL="String" ExpressionR="88.687" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                                        <ConditionSingle Enabled="true" ExpressionL="${Coordinate}" ExpressionTypeL="String" ExpressionR="88.69" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                                        <ConditionSingle Enabled="true" ExpressionL="${Coordinate2}" ExpressionTypeL="String" ExpressionR="88.69" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                                       </ConditionGroup>
                                       <ConditionGroup Enabled="true" Grouping="And">
-                                        <ConditionSingle Enabled="true" ExpressionL="${Coordinate}" ExpressionTypeL="String" ExpressionR="111.301" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                                        <ConditionSingle Enabled="true" ExpressionL="${Coordinate2}" ExpressionTypeL="String" ExpressionR="111.301" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                                        <ConditionSingle Enabled="true" ExpressionL="${Coordinate}" ExpressionTypeL="String" ExpressionR="111.31" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                                        <ConditionSingle Enabled="true" ExpressionL="${Coordinate2}" ExpressionTypeL="String" ExpressionR="111.31" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                                       </ConditionGroup>
                                     </Condition>
                                   </Action>
                                   <Action OrderNumber="6" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Northwest Southeast Safe" VariableOp="SetString" VariableName="SafeSpot" VariableExpression="Northeast Southwest Safe" ActionType="Variable">
                                     <Condition Enabled="true" Grouping="Or">
                                       <ConditionGroup Enabled="true" Grouping="And">
-                                        <ConditionSingle Enabled="true" ExpressionL="${Coordinate}" ExpressionTypeL="String" ExpressionR="88.687" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                                        <ConditionSingle Enabled="true" ExpressionL="${Coordinate2}" ExpressionTypeL="String" ExpressionR="111.301" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                                        <ConditionSingle Enabled="true" ExpressionL="${Coordinate}" ExpressionTypeL="String" ExpressionR="88.69" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                                        <ConditionSingle Enabled="true" ExpressionL="${Coordinate2}" ExpressionTypeL="String" ExpressionR="111.31" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                                       </ConditionGroup>
                                       <ConditionGroup Enabled="true" Grouping="And">
-                                        <ConditionSingle Enabled="true" ExpressionL="${Coordinate}" ExpressionTypeL="String" ExpressionR="111.301" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                                        <ConditionSingle Enabled="true" ExpressionL="${Coordinate2}" ExpressionTypeL="String" ExpressionR="88.687" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                                        <ConditionSingle Enabled="true" ExpressionL="${Coordinate}" ExpressionTypeL="String" ExpressionR="111.31" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                                        <ConditionSingle Enabled="true" ExpressionL="${Coordinate2}" ExpressionTypeL="String" ExpressionR="88.69" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                                       </ConditionGroup>
                                     </Condition>
                                   </Action>
