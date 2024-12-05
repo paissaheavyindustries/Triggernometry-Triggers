@@ -1590,32 +1590,61 @@
               <Folder Enabled="false" Name="Fru Stuff (by holotales)" Id="d9410fd1-df22-fddf-44e9-53cc533ce41d">
                 <Triggers />
                 <Folders>
-                  <Folder Id="3bb8082b-37ae-4ba2-9069-4990fbf33491" Name="Spread/Stack/Tank" Enabled="true">
+                  <Folder FFXIVZoneFilterEnabled="True" FfxivZoneFilterRegularExpression="^1238$" Id="cf5bdb85-e330-4126-b438-0ff5655fa70b" Name="Fru" Enabled="true">
                     <Folders />
                     <Triggers>
-                      <Trigger Enabled="true" Source="FFXIVNetwork" Name="Shell Crusher" Id="21f38279-b709-4f8e-badd-aa7d3fc71720" RegularExpression="^20\|[^|]*\|[^|]*\|[^|]*\|9D5E\|">
+                      <Trigger Enabled="true" Name="The oracle's reflection readies Scythe Kick." Id="f8e6230c-dad3-4f39-aa13-2c0b81f74da8" RegularExpression="The oracle's reflection readies Scythe Kick.">
                         <Actions>
-                          <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="stack" ActionType="UseTTS">
+                          <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="In Scythe" UseTTSRateExpression="2" ActionType="UseTTS">
                             <Condition Enabled="false" Grouping="Or" />
                           </Action>
                         </Actions>
                         <Condition Enabled="false" Grouping="Or" />
                       </Trigger>
-                      <Trigger Enabled="true" Source="FFXIVNetwork" Name="Spirit Taker" Id="e0d661f9-fe2f-4240-88a1-9d904297a5bd" RegularExpression="^20\|[^|]*\|[^|]*\|[^|]*\|9D60\|">
+                      <Trigger Enabled="true" Name="The oracle's reflection readies Axe Kick." Id="4a920e02-6e0c-4fef-9de7-bb043db0fb92" RegularExpression="The oracle's reflection readies Axe Kick.">
                         <Actions>
-                          <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="spread" ActionType="UseTTS">
+                          <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Out Axe" UseTTSRateExpression="2" ActionType="UseTTS">
                             <Condition Enabled="false" Grouping="Or" />
                           </Action>
                         </Actions>
                         <Condition Enabled="false" Grouping="Or" />
+                        <Conditions />
                       </Trigger>
-                      <Trigger Enabled="true" Source="FFXIVNetwork" Name="Darkest Dance" Id="4d6c94b5-145f-4625-b645-fef30d82fc16" RegularExpression="^20\|[^|]*\|[^|]*\|[^|]*\|9CF5\|">
+                      <Trigger Enabled="true" Name="The oracle's reflection readies Twin Silence." Id="ecf47107-df53-4e0f-b903-b168b4a70746" RegularExpression="The oracle's reflection readies Twin Silence.">
                         <Actions>
-                          <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="far tank bait" ActionType="UseTTS">
+                          <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Front Then Behind" ActionType="UseTTS">
                             <Condition Enabled="false" Grouping="Or" />
                           </Action>
                         </Actions>
                         <Condition Enabled="false" Grouping="Or" />
+                        <Conditions />
+                      </Trigger>
+                      <Trigger Enabled="true" Name="The oracle's reflection readies Twin Stillness." Id="5d53a298-44c3-415b-a46a-a1453621efc3" RegularExpression="The oracle's reflection readies Twin Stillness.">
+                        <Actions>
+                          <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Behind then front" UseTTSRateExpression="2" ActionType="UseTTS">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                        </Actions>
+                        <Condition Enabled="false" Grouping="Or" />
+                        <Conditions />
+                      </Trigger>
+                      <Trigger Enabled="true" Source="FFXIVNetwork" Name="Patners Banish" Id="71fb5774-ebbf-47c4-b09d-7ddf8ddc033d" RegularExpression="^20\|[^|]*\|[^|]*\|[^|]*\|9D1C\|">
+                        <Actions>
+                          <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="PARTNERS" ActionType="UseTTS">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                        </Actions>
+                        <Condition Enabled="false" Grouping="Or" />
+                        <Conditions />
+                      </Trigger>
+                      <Trigger Enabled="true" Source="FFXIVNetwork" Name="Spread Banish" Id="8c734f93-5cb3-4733-9e6b-7525bfbd98e2" RegularExpression="^20\|[^|]*\|[^|]*\|[^|]*\|9D1D\|">
+                        <Actions>
+                          <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="SPREAD" ActionType="UseTTS">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                        </Actions>
+                        <Condition Enabled="false" Grouping="Or" />
+                        <Conditions />
                       </Trigger>
                     </Triggers>
                   </Folder>
@@ -1808,9 +1837,11 @@
                                   <Action OrderNumber="5" SoundRouting="None" TTSRouting="None" VariableName="SafeSpot" ActionType="Variable">
                                     <Condition Enabled="false" Grouping="Or" />
                                   </Action>
+                                  <Action OrderNumber="6" SoundRouting="None" TTSRouting="None" VariableName="InOut" ActionType="Variable">
+                                    <Condition Enabled="false" Grouping="Or" />
+                                  </Action>
                                 </Actions>
                                 <Condition Enabled="false" Grouping="Or" />
-                                <Conditions />
                               </Trigger>
                             </Triggers>
                           </Folder>
@@ -2158,7 +2189,6 @@
                                   </Action>
                                 </Actions>
                                 <Condition Enabled="false" Grouping="Or" />
-                                <Conditions />
                               </Trigger>
                               <Trigger Enabled="true" Sequential="True" Name="30s Fire DPS" Id="90442edc-e977-40bb-b6b0-45b61d6bbe73" RegularExpression="lol fuck this">
                                 <Actions>
@@ -2187,7 +2217,6 @@
                                   </Action>
                                 </Actions>
                                 <Condition Enabled="false" Grouping="Or" />
-                                <Conditions />
                               </Trigger>
                             </Triggers>
                           </Folder>
@@ -2233,43 +2262,46 @@
                           <Action OrderNumber="2" SoundRouting="None" TTSRouting="None" VariableName="IcicleStartPos" ActionType="Variable">
                             <Condition Enabled="false" Grouping="Or" />
                           </Action>
-                          <Action OrderNumber="3" SoundRouting="None" TTSRouting="None" VariableName="SafeSpot" ActionType="Variable">
+                          <Action OrderNumber="3" SoundRouting="None" TTSRouting="None" VariableName="InOut" ActionType="Variable">
                             <Condition Enabled="false" Grouping="Or" />
                           </Action>
-                          <Action OrderNumber="4" SoundRouting="None" TTSRouting="None" TriggerOp="CancelTrigger" TriggerId="ce867d7d-76b6-47d5-99da-802860bc5e10" ActionType="Trigger">
+                          <Action OrderNumber="4" SoundRouting="None" TTSRouting="None" VariableName="SafeSpot" ActionType="Variable">
                             <Condition Enabled="false" Grouping="Or" />
                           </Action>
-                          <Action OrderNumber="5" SoundRouting="None" TTSRouting="None" TriggerOp="CancelTrigger" TriggerId="8a3c564c-872b-4a8c-9861-ae1138c79cf6" ActionType="Trigger">
+                          <Action OrderNumber="5" SoundRouting="None" TTSRouting="None" TriggerOp="CancelTrigger" TriggerId="ce867d7d-76b6-47d5-99da-802860bc5e10" ActionType="Trigger">
                             <Condition Enabled="false" Grouping="Or" />
                           </Action>
-                          <Action OrderNumber="6" SoundRouting="None" TTSRouting="None" TriggerOp="CancelTrigger" TriggerId="1c2a7d5a-a473-467c-8d3e-c0f4e963ca8f" ActionType="Trigger">
+                          <Action OrderNumber="6" SoundRouting="None" TTSRouting="None" TriggerOp="CancelTrigger" TriggerId="8a3c564c-872b-4a8c-9861-ae1138c79cf6" ActionType="Trigger">
                             <Condition Enabled="false" Grouping="Or" />
                           </Action>
-                          <Action OrderNumber="7" SoundRouting="None" TTSRouting="None" TriggerOp="CancelTrigger" TriggerId="654f8c98-350b-435a-bdd4-e56212d06e26" ActionType="Trigger">
+                          <Action OrderNumber="7" SoundRouting="None" TTSRouting="None" TriggerOp="CancelTrigger" TriggerId="1c2a7d5a-a473-467c-8d3e-c0f4e963ca8f" ActionType="Trigger">
                             <Condition Enabled="false" Grouping="Or" />
                           </Action>
-                          <Action OrderNumber="8" SoundRouting="None" TTSRouting="None" TriggerOp="CancelTrigger" TriggerId="093f0801-a8bc-42d5-8a9d-044c43ce91d2" ActionType="Trigger">
+                          <Action OrderNumber="8" SoundRouting="None" TTSRouting="None" TriggerOp="CancelTrigger" TriggerId="654f8c98-350b-435a-bdd4-e56212d06e26" ActionType="Trigger">
                             <Condition Enabled="false" Grouping="Or" />
                           </Action>
-                          <Action OrderNumber="9" SoundRouting="None" TTSRouting="None" TriggerOp="CancelTrigger" TriggerId="90442edc-e977-40bb-b6b0-45b61d6bbe73" ActionType="Trigger">
+                          <Action OrderNumber="9" SoundRouting="None" TTSRouting="None" TriggerOp="CancelTrigger" TriggerId="093f0801-a8bc-42d5-8a9d-044c43ce91d2" ActionType="Trigger">
                             <Condition Enabled="false" Grouping="Or" />
                           </Action>
-                          <Action OrderNumber="10" SoundRouting="None" TTSRouting="None" TriggerOp="CancelTrigger" TriggerId="b8f9a6e2-8762-4122-a396-4ce56c2bf51a" ActionType="Trigger">
+                          <Action OrderNumber="10" SoundRouting="None" TTSRouting="None" TriggerOp="CancelTrigger" TriggerId="90442edc-e977-40bb-b6b0-45b61d6bbe73" ActionType="Trigger">
                             <Condition Enabled="false" Grouping="Or" />
                           </Action>
-                          <Action OrderNumber="11" SoundRouting="None" TTSRouting="None" TriggerOp="CancelTrigger" TriggerId="9cacebd1-663d-4a92-96fa-0ecf462ad68c" ActionType="Trigger">
+                          <Action OrderNumber="11" SoundRouting="None" TTSRouting="None" TriggerOp="CancelTrigger" TriggerId="b8f9a6e2-8762-4122-a396-4ce56c2bf51a" ActionType="Trigger">
                             <Condition Enabled="false" Grouping="Or" />
                           </Action>
-                          <Action OrderNumber="12" SoundRouting="None" TTSRouting="None" TriggerOp="CancelTrigger" TriggerId="6e15b258-0ea6-416d-8322-03c98267dee3" ActionType="Trigger">
+                          <Action OrderNumber="12" SoundRouting="None" TTSRouting="None" TriggerOp="CancelTrigger" TriggerId="9cacebd1-663d-4a92-96fa-0ecf462ad68c" ActionType="Trigger">
                             <Condition Enabled="false" Grouping="Or" />
                           </Action>
-                          <Action OrderNumber="13" SoundRouting="None" TTSRouting="None" TriggerOp="CancelTrigger" TriggerId="9d2e37db-fe33-4156-bd74-be29b4c5d7a1" ActionType="Trigger">
+                          <Action OrderNumber="13" SoundRouting="None" TTSRouting="None" TriggerOp="CancelTrigger" TriggerId="6e15b258-0ea6-416d-8322-03c98267dee3" ActionType="Trigger">
                             <Condition Enabled="false" Grouping="Or" />
                           </Action>
-                          <Action OrderNumber="14" SoundRouting="None" TTSRouting="None" TriggerOp="CancelTrigger" TriggerId="3c8d45d8-f5b0-498a-8a1e-45689e51fa3f" ActionType="Trigger">
+                          <Action OrderNumber="14" SoundRouting="None" TTSRouting="None" TriggerOp="CancelTrigger" TriggerId="9d2e37db-fe33-4156-bd74-be29b4c5d7a1" ActionType="Trigger">
                             <Condition Enabled="false" Grouping="Or" />
                           </Action>
-                          <Action OrderNumber="15" SoundRouting="None" TTSRouting="None" TriggerOp="CancelTrigger" TriggerId="ac6f5b08-b6b6-4546-8d66-521e7f70b876" ActionType="Trigger">
+                          <Action OrderNumber="15" SoundRouting="None" TTSRouting="None" TriggerOp="CancelTrigger" TriggerId="3c8d45d8-f5b0-498a-8a1e-45689e51fa3f" ActionType="Trigger">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                          <Action OrderNumber="16" SoundRouting="None" TTSRouting="None" TriggerOp="CancelTrigger" TriggerId="ac6f5b08-b6b6-4546-8d66-521e7f70b876" ActionType="Trigger">
                             <Condition Enabled="false" Grouping="Or" />
                           </Action>
                         </Actions>
