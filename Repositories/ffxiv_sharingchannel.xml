@@ -1587,7 +1587,7 @@
                   </Folder>
                 </Folders>
               </Folder>
-              <Folder Enabled="false" Name="Fru Stuff (by holotales)" Id="d9410fd1-df22-fddf-44e9-53cc533ce41d">
+              <Folder Enabled="false" Name="FRU P2 (by holotales)" Id="eec7b68d-3fb7-2c27-57a2-f91082b36880">
                 <Triggers />
                 <Folders>
                   <Folder FFXIVZoneFilterEnabled="True" FfxivZoneFilterRegularExpression="^1238$" Id="cf5bdb85-e330-4126-b438-0ff5655fa70b" Name="Fru" Enabled="true">
@@ -2296,6 +2296,32 @@
                             <Condition Enabled="false" Grouping="Or" />
                           </Action>
                           <Action OrderNumber="16" SoundRouting="None" TTSRouting="None" TriggerOp="CancelTrigger" TriggerId="ac6f5b08-b6b6-4546-8d66-521e7f70b876" ActionType="Trigger">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                        </Actions>
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Trigger>
+                    </Triggers>
+                  </Folder>
+                </Folders>
+              </Folder>
+              <Folder Enabled="false" Name="FRU P3/P4/P5 (by holotales)" Id="30746c89-d4dc-cbbf-8386-5d7b5bfd0b93">
+                <Triggers />
+                <Folders>
+                  <Folder Id="21828fc8-079a-4a9a-a788-9ceb551ed423" Name="P5" Enabled="true">
+                    <Folders />
+                    <Triggers>
+                      <Trigger Enabled="true" Source="FFXIVNetwork" Name="Wings - Light" Id="bfa6f7c6-b3fd-4414-9f33-686f8eb5c979" RegularExpression="^20\|[^|]*\|[^|]*\|[^|]*\|9D79\|">
+                        <Actions>
+                          <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="party close tank far" ActionType="UseTTS">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                        </Actions>
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Trigger>
+                      <Trigger Enabled="true" Source="FFXIVNetwork" Name="Wings - Dark" Id="d6e9b778-f520-4593-8898-a948ffd3aaf9" RegularExpression="^20\|[^|]*\|[^|]*\|[^|]*\|9D29\|">
+                        <Actions>
+                          <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="party far tank close" ActionType="UseTTS">
                             <Condition Enabled="false" Grouping="Or" />
                           </Action>
                         </Actions>
