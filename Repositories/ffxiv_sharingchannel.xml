@@ -1717,134 +1717,17 @@
                       </Folder>
                       <Folder Id="473abeff-6cf9-4304-8039-0a9699b0f217" Name="Phase 2" Enabled="true">
                         <Folders>
-                          <Folder Id="91b33d02-2116-4cf8-91c6-46e9e163c220" Name="Diamond Dust" Enabled="true">
-                            <Folders />
-                            <Triggers>
-                              <Trigger Enabled="true" Source="FFXIVNetwork" Name="AoE" Id="78fef360-2c0d-4bc5-af7d-461b2162b6fa" RegularExpression="^20\|[^|]*\|[^|]*\|[^|]*\|9D05\|">
-                                <Actions>
-                                  <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="A O E" ActionType="UseTTS">
-                                    <Condition Enabled="false" Grouping="Or" />
-                                  </Action>
-                                </Actions>
-                                <Condition Enabled="false" Grouping="Or" />
-                              </Trigger>
-                              <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" Name="Axe/Scythe Kick" Id="ce867d7d-76b6-47d5-99da-802860bc5e10" RegularExpression="^20\|[^|]*\|[^|]*\|[^|]*\|(?&lt;ID&gt;9D0A|9D0B)\|">
-                                <Actions>
-                                  <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Out, ${var:IcicleStartPos}" VariableOp="SetString" VariableName="InOut" VariableExpression="Out" ActionType="Variable">
-                                    <Condition Enabled="true" Grouping="Or">
-                                      <ConditionSingle Enabled="true" ExpressionL="${ID}" ExpressionTypeL="String" ExpressionR="9D0A" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                                    </Condition>
-                                  </Action>
-                                  <Action OrderNumber="2" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="In, ${var:IcicleStartPos}" VariableOp="SetString" VariableName="InOut" VariableExpression="In" ActionType="Variable">
-                                    <Condition Enabled="true" Grouping="Or">
-                                      <ConditionSingle Enabled="true" ExpressionL="${ID}" ExpressionTypeL="String" ExpressionR="9D0B" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                                    </Condition>
-                                  </Action>
-                                </Actions>
-                                <Condition Enabled="false" Grouping="Or" />
-                              </Trigger>
-                              <Trigger Enabled="true" Source="FFXIVNetwork" Name="Twin Silence/Stillness" Id="7b896b4b-1ba7-4784-aa71-c4d6b8363e49" RegularExpression="^20\|[^|]*\|[^|]*\|[^|]*\|(?&lt;ID&gt;9D01|9D02)\|">
-                                <Actions>
-                                  <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Back then Front" ActionType="UseTTS">
-                                    <Condition Enabled="true" Grouping="Or">
-                                      <ConditionSingle Enabled="true" ExpressionL="${ID}" ExpressionTypeL="String" ExpressionR="9D01" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                                    </Condition>
-                                  </Action>
-                                  <Action OrderNumber="2" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Front then Back" ActionType="UseTTS">
-                                    <Condition Enabled="true" Grouping="Or">
-                                      <ConditionSingle Enabled="true" ExpressionL="${ID}" ExpressionTypeL="String" ExpressionR="9D02" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                                    </Condition>
-                                  </Action>
-                                </Actions>
-                                <Condition Enabled="false" Grouping="Or" />
-                              </Trigger>
-                              <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" Name="Icicle Identifier" Id="c51f7e24-b4cd-4526-9c31-ef94cd85570e" RegularExpression="^20\|[^|]*\|[^|]*\|[^|]*\|9D06\|[^|]*\|[^|]*\|[^|]*\|[^|]*\|(?&lt;Coordinate&gt;[0-9.]*)\|(?&lt;Coordinate2&gt;[0-9.]*)\|" PeriodRefire="Deny" RefirePeriodExpression="15000">
-                                <Actions>
-                                  <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Fire" VariableOp="SetString" VariableName="IcicleStartPos" VariableExpression="Cardinals" ActionType="Variable">
-                                    <Condition Enabled="true" Grouping="Or">
-                                      <ConditionSingle Enabled="true" ExpressionL="${Coordinate}" ExpressionTypeL="String" ExpressionR="100.00" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                                      <ConditionSingle Enabled="true" ExpressionL="${Coordinate}" ExpressionTypeL="String" ExpressionR="116.00" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                                      <ConditionSingle Enabled="true" ExpressionL="${Coordinate}" ExpressionTypeL="String" ExpressionR="84.00" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                                    </Condition>
-                                  </Action>
-                                  <Action OrderNumber="2" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Fire" VariableOp="SetString" VariableName="IcicleStartPos" VariableExpression="Intercardinals" ActionType="Variable">
-                                    <Condition Enabled="true" Grouping="Or">
-                                      <ConditionSingle Enabled="true" ExpressionL="${Coordinate}" ExpressionTypeL="String" ExpressionR="88.69" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                                      <ConditionSingle Enabled="true" ExpressionL="${Coordinate}" ExpressionTypeL="String" ExpressionR="111.31" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                                    </Condition>
-                                  </Action>
-                                  <Action OrderNumber="3" SoundRouting="None" TTSRouting="None" VariableOp="SetString" VariableName="SafeSpot" VariableExpression="North South Safe" ActionType="Variable">
-                                    <Condition Enabled="true" Grouping="Or">
-                                      <ConditionSingle Enabled="true" ExpressionL="${Coordinate}" ExpressionTypeL="String" ExpressionR="100.00" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                                    </Condition>
-                                  </Action>
-                                  <Action OrderNumber="4" SoundRouting="None" TTSRouting="None" VariableOp="SetString" VariableName="SafeSpot" VariableExpression="East West Safe" ActionType="Variable">
-                                    <Condition Enabled="true" Grouping="Or">
-                                      <ConditionSingle Enabled="true" ExpressionL="${Coordinate}" ExpressionTypeL="String" ExpressionR="84.00" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                                      <ConditionSingle Enabled="true" ExpressionL="${Coordinate}" ExpressionTypeL="String" ExpressionR="116.00" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                                    </Condition>
-                                  </Action>
-                                  <Action OrderNumber="5" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Northwest Southeast Safe" VariableOp="SetString" VariableName="SafeSpot" VariableExpression="Northwest Southeast Safe" ActionType="Variable">
-                                    <Condition Enabled="true" Grouping="Or">
-                                      <ConditionGroup Enabled="true" Grouping="And">
-                                        <ConditionSingle Enabled="true" ExpressionL="${Coordinate}" ExpressionTypeL="String" ExpressionR="88.69" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                                        <ConditionSingle Enabled="true" ExpressionL="${Coordinate2}" ExpressionTypeL="String" ExpressionR="88.69" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                                      </ConditionGroup>
-                                      <ConditionGroup Enabled="true" Grouping="And">
-                                        <ConditionSingle Enabled="true" ExpressionL="${Coordinate}" ExpressionTypeL="String" ExpressionR="111.31" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                                        <ConditionSingle Enabled="true" ExpressionL="${Coordinate2}" ExpressionTypeL="String" ExpressionR="111.31" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                                      </ConditionGroup>
-                                    </Condition>
-                                  </Action>
-                                  <Action OrderNumber="6" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Northwest Southeast Safe" VariableOp="SetString" VariableName="SafeSpot" VariableExpression="Northeast Southwest Safe" ActionType="Variable">
-                                    <Condition Enabled="true" Grouping="Or">
-                                      <ConditionGroup Enabled="true" Grouping="And">
-                                        <ConditionSingle Enabled="true" ExpressionL="${Coordinate}" ExpressionTypeL="String" ExpressionR="88.69" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                                        <ConditionSingle Enabled="true" ExpressionL="${Coordinate2}" ExpressionTypeL="String" ExpressionR="111.31" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                                      </ConditionGroup>
-                                      <ConditionGroup Enabled="true" Grouping="And">
-                                        <ConditionSingle Enabled="true" ExpressionL="${Coordinate}" ExpressionTypeL="String" ExpressionR="111.31" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                                        <ConditionSingle Enabled="true" ExpressionL="${Coordinate2}" ExpressionTypeL="String" ExpressionR="88.69" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                                      </ConditionGroup>
-                                    </Condition>
-                                  </Action>
-                                  <Action OrderNumber="7" SoundRouting="None" TTSRouting="None" TriggerId="327f32ef-7756-49cc-9232-2209182dddf6" TriggerForce="regexp,conditions" ActionType="Trigger" ExecutionDelayExpression="300">
-                                    <Condition Enabled="false" Grouping="Or" />
-                                  </Action>
-                                </Actions>
-                                <Condition Enabled="false" Grouping="Or" />
-                              </Trigger>
-                              <Trigger Enabled="true" Sequential="True" Name="Callout" Id="327f32ef-7756-49cc-9232-2209182dddf6" RegularExpression="">
-                                <Actions>
-                                  <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="${var:InOut}, ${var:IcicleStartPos}" ActionType="UseTTS">
-                                    <Condition Enabled="true" Grouping="Or">
-                                      <ConditionSingle Enabled="true" ExpressionL="${var:IcicleStartPos}" ExpressionTypeL="String" ExpressionR="Intercardinals" ExpressionTypeR="String" ConditionType="StringNotEqualNocase" />
-                                      <ConditionSingle Enabled="true" ExpressionL="${var:IcicleStartPos}" ExpressionTypeL="String" ExpressionR="Cardinals" ExpressionTypeR="String" ConditionType="StringNotEqualNocase" />
-                                    </Condition>
-                                  </Action>
-                                  <Action OrderNumber="2" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="${var:SafeSpot}" Enabled="False" ActionType="UseTTS" ExecutionDelayExpression="6500">
-                                    <Condition Enabled="false" Grouping="Or" />
-                                  </Action>
-                                  <Action OrderNumber="3" SoundRouting="None" TTSRouting="None" VariableName="IcicleStartPos" ActionType="Variable">
-                                    <Condition Enabled="false" Grouping="Or" />
-                                  </Action>
-                                  <Action OrderNumber="4" SoundRouting="None" TTSRouting="None" VariableName="SafeSpot" ActionType="Variable">
-                                    <Condition Enabled="false" Grouping="Or" />
-                                  </Action>
-                                  <Action OrderNumber="5" SoundRouting="None" TTSRouting="None" VariableName="InOut" ActionType="Variable">
-                                    <Condition Enabled="false" Grouping="Or" />
-                                  </Action>
-                                </Actions>
-                                <Condition Enabled="false" Grouping="Or" />
-                              </Trigger>
-                            </Triggers>
-                          </Folder>
                           <Folder Id="ae07b983-9230-465c-9198-bf84f3b77df1" Name="Light Rampant" Enabled="true">
                             <Folders />
                             <Triggers>
-                              <Trigger Enabled="false" Source="FFXIVNetwork" Sequential="True" Name="Debuff Detector (LEAVE TURNED OFF)" Id="9c8e4de3-f9af-49f8-bf81-649db494e078" RegularExpression="^26\|[^|]*\|8D1\|[^|]*\|[^|]*\|[^|]*\|\|[^|]*\|(?&lt;name&gt;[^|]*)\|" Scheduling="FromLastAction">
+                              <Trigger Enabled="false" Source="FFXIVNetwork" Sequential="True" Name="Light Debuff Detector (LEAVE TURNED OFF)" Id="9c8e4de3-f9af-49f8-bf81-649db494e078" RegularExpression="^26\|[^|]*\|8D1\|[^|]*\|[^|]*\|[^|]*\|\|[^|]*\|(?&lt;name&gt;[^|]*)\|(?&lt;BuffStacks&gt;[^|]*)\|" Scheduling="FromLastAction">
                                 <Actions>
-                                  <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" VariableOp="SetString" VariableName="IgnoreTower" VariableExpression="TRUE" ActionType="Variable">
+                                  <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" VariableOp="SetString" VariableName="LightStack" VariableExpression="TRUE" ActionType="Variable">
+                                    <Condition Enabled="true" Grouping="Or">
+                                      <ConditionSingle Enabled="true" ExpressionL="${name}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                                    </Condition>
+                                  </Action>
+                                  <Action OrderNumber="2" SoundRouting="None" TTSRouting="None" VariableOp="SetString" VariableName="LightStackNumber" VariableExpression="${BuffStacks}" ActionType="Variable">
                                     <Condition Enabled="true" Grouping="Or">
                                       <ConditionSingle Enabled="true" ExpressionL="${name}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                                     </Condition>
@@ -1855,11 +1738,25 @@
                               <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" Name="Callout" Id="ac6f5b08-b6b6-4546-8d66-521e7f70b876" RegularExpression="^20\|[^|]*\|[^|]*\|[^|]*\|9D1B\|" PeriodRefire="Deny" RefirePeriodExpression="20000">
                                 <Actions>
                                   <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Take Tower" ActionType="UseTTS">
-                                    <Condition Enabled="true" Grouping="And">
-                                      <ConditionSingle Enabled="true" ExpressionL="${var:IgnoreTower}" ExpressionTypeL="String" ExpressionR="TRUE" ExpressionTypeR="String" ConditionType="StringNotEqualNocase" />
+                                    <Condition Enabled="true" Grouping="Or">
+                                      <ConditionGroup Enabled="true" Grouping="And">
+                                        <ConditionSingle Enabled="true" ExpressionL="${var:LightStack}" ExpressionTypeL="String" ExpressionR="TRUE" ExpressionTypeR="String" ConditionType="StringNotEqualNocase" />
+                                        <ConditionSingle Enabled="true" ExpressionL="${var:Chain}" ExpressionTypeL="String" ExpressionR="TRUE" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                                      </ConditionGroup>
+                                      <ConditionGroup Enabled="true" Grouping="And">
+                                        <ConditionSingle Enabled="true" ExpressionL="${var:Chain}" ExpressionTypeL="String" ExpressionR="TRUE" ExpressionTypeR="String" ConditionType="StringNotEqualNocase" />
+                                        <ConditionSingle Enabled="true" ExpressionL="${var:LightStack}" ExpressionTypeL="String" ExpressionR="TRUE" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                                        <ConditionSingle Enabled="true" ExpressionL="${var:LightStackNumber}" ExpressionTypeL="String" ExpressionR="01" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                                      </ConditionGroup>
                                     </Condition>
                                   </Action>
-                                  <Action OrderNumber="2" SoundRouting="None" TTSRouting="None" VariableName="IgnoreTower" ActionType="Variable" ExecutionDelayExpression="5000">
+                                  <Action OrderNumber="2" SoundRouting="None" TTSRouting="None" VariableName="LightStack" ActionType="Variable" ExecutionDelayExpression="5000">
+                                    <Condition Enabled="false" Grouping="Or" />
+                                  </Action>
+                                  <Action OrderNumber="3" SoundRouting="None" TTSRouting="None" VariableName="LightStackNumber" ActionType="Variable">
+                                    <Condition Enabled="false" Grouping="Or" />
+                                  </Action>
+                                  <Action OrderNumber="4" SoundRouting="None" TTSRouting="None" VariableName="Chain" ActionType="Variable">
                                     <Condition Enabled="false" Grouping="Or" />
                                   </Action>
                                 </Actions>
@@ -1867,17 +1764,40 @@
                               </Trigger>
                               <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" Name="Start/Stop Detecting" Id="5e7712e7-425b-461e-adbf-ecc65dd58ae9" RegularExpression="^20\|[^|]*\|[^|]*\|[^|]*\|9D14\|">
                                 <Actions>
-                                  <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" VariableName="IgnoreTower" ActionType="Variable">
+                                  <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" VariableName="LightStack" ActionType="Variable">
                                     <Condition Enabled="false" Grouping="Or" />
                                   </Action>
-                                  <Action OrderNumber="2" SoundRouting="None" TTSRouting="None" TriggerOp="EnableTrigger" TriggerId="9c8e4de3-f9af-49f8-bf81-649db494e078" ActionType="Trigger">
+                                  <Action OrderNumber="2" SoundRouting="None" TTSRouting="None" VariableName="Chain" ActionType="Variable">
                                     <Condition Enabled="false" Grouping="Or" />
                                   </Action>
-                                  <Action OrderNumber="3" SoundRouting="None" TTSRouting="None" TriggerOp="DisableTrigger" TriggerId="9c8e4de3-f9af-49f8-bf81-649db494e078" ActionType="Trigger" ExecutionDelayExpression="10000">
+                                  <Action OrderNumber="3" SoundRouting="None" TTSRouting="None" VariableName="LightStackNumber" ActionType="Variable">
+                                    <Condition Enabled="false" Grouping="Or" />
+                                  </Action>
+                                  <Action OrderNumber="4" SoundRouting="None" TTSRouting="None" TriggerOp="EnableTrigger" TriggerId="9c8e4de3-f9af-49f8-bf81-649db494e078" ActionType="Trigger">
+                                    <Condition Enabled="false" Grouping="Or" />
+                                  </Action>
+                                  <Action OrderNumber="5" SoundRouting="None" TTSRouting="None" TriggerOp="EnableTrigger" TriggerId="20cd7012-062c-42d9-be82-c663c925a4b0" ActionType="Trigger">
+                                    <Condition Enabled="false" Grouping="Or" />
+                                  </Action>
+                                  <Action OrderNumber="6" SoundRouting="None" TTSRouting="None" TriggerOp="DisableTrigger" TriggerId="9c8e4de3-f9af-49f8-bf81-649db494e078" ActionType="Trigger" ExecutionDelayExpression="10000">
+                                    <Condition Enabled="false" Grouping="Or" />
+                                  </Action>
+                                  <Action OrderNumber="7" SoundRouting="None" TTSRouting="None" TriggerOp="DisableTrigger" TriggerId="20cd7012-062c-42d9-be82-c663c925a4b0" ActionType="Trigger">
                                     <Condition Enabled="false" Grouping="Or" />
                                   </Action>
                                 </Actions>
                                 <Condition Enabled="false" Grouping="Or" />
+                              </Trigger>
+                              <Trigger Enabled="false" Source="FFXIVNetwork" Name="Chain Detector (LEAVE TURNED OFF)" Id="20cd7012-062c-42d9-be82-c663c925a4b0" RegularExpression="^26\|[^|]*\|103D\|[^|]*\|[^|]*\|[^|]*\|\|[^|]*\|(?&lt;name&gt;[^|]*)\|">
+                                <Actions>
+                                  <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" VariableOp="SetString" VariableName="Chain" VariableExpression="TRUE" ActionType="Variable">
+                                    <Condition Enabled="true" Grouping="Or">
+                                      <ConditionSingle Enabled="true" ExpressionL="${name}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                                    </Condition>
+                                  </Action>
+                                </Actions>
+                                <Condition Enabled="false" Grouping="Or" />
+                                <Conditions />
                               </Trigger>
                             </Triggers>
                           </Folder>
@@ -1910,6 +1830,29 @@
                             <Actions>
                               <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Get close for Knockback" ActionType="UseTTS">
                                 <Condition Enabled="false" Grouping="Or" />
+                              </Action>
+                            </Actions>
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Trigger>
+                          <Trigger Enabled="true" Source="FFXIVNetwork" Name="AoE" Id="304332a1-8cc3-4784-9d90-ccbc79143b27" RegularExpression="^20\|[^|]*\|[^|]*\|[^|]*\|9D05\|">
+                            <Actions>
+                              <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="A O E" ActionType="UseTTS">
+                                <Condition Enabled="false" Grouping="Or" />
+                              </Action>
+                            </Actions>
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Trigger>
+                          <Trigger Enabled="true" Source="FFXIVNetwork" Name="Twin Silence/Stillness" Id="7558ed0c-3c66-42ed-b517-0e6359ceda00" RegularExpression="^20\|[^|]*\|[^|]*\|[^|]*\|(?&lt;ID&gt;9D01|9D02)\|">
+                            <Actions>
+                              <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Back then Front" ActionType="UseTTS">
+                                <Condition Enabled="true" Grouping="Or">
+                                  <ConditionSingle Enabled="true" ExpressionL="${ID}" ExpressionTypeL="String" ExpressionR="9D01" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                                </Condition>
+                              </Action>
+                              <Action OrderNumber="2" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Front then Back" ActionType="UseTTS">
+                                <Condition Enabled="true" Grouping="Or">
+                                  <ConditionSingle Enabled="true" ExpressionL="${ID}" ExpressionTypeL="String" ExpressionR="9D02" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                                </Condition>
                               </Action>
                             </Actions>
                             <Condition Enabled="false" Grouping="Or" />
@@ -1978,6 +1921,7 @@
                                     <Condition Enabled="true" Grouping="And">
                                       <ConditionSingle Enabled="true" ExpressionL="${ID}" ExpressionTypeL="String" ExpressionR="99E" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                                       <ConditionSingle Enabled="true" ExpressionL="${_me.role}" ExpressionTypeL="String" ExpressionR="DPS" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                                      <ConditionSingle Enabled="true" ExpressionL="${timer}" ExpressionTypeL="String" ExpressionR="21.00" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                                     </Condition>
                                   </Action>
                                   <Action OrderNumber="8" SoundRouting="None" TTSRouting="None" TriggerId="6e15b258-0ea6-416d-8322-03c98267dee3" TriggerForce="regexp,conditions" ActionType="Trigger">
@@ -1987,6 +1931,7 @@
                                         <ConditionSingle Enabled="true" ExpressionL="${_me.role}" ExpressionTypeL="String" ExpressionR="Tank" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                                         <ConditionSingle Enabled="true" ExpressionL="${_me.role}" ExpressionTypeL="String" ExpressionR="Healer" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                                       </ConditionGroup>
+                                      <ConditionSingle Enabled="true" ExpressionL="${timer}" ExpressionTypeL="String" ExpressionR="21.00" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                                     </Condition>
                                   </Action>
                                 </Actions>
@@ -2212,19 +2157,6 @@
                                 </Actions>
                                 <Condition Enabled="false" Grouping="Or" />
                               </Trigger>
-                            </Triggers>
-                          </Folder>
-                          <Folder Id="431c3ba0-dd83-46ae-9651-876e40427277" Name="Apocalypse" Enabled="true">
-                            <Folders />
-                            <Triggers>
-                              <Trigger Enabled="true" Source="FFXIVNetwork" Name="Darkest Dance" Id="4d6c94b5-145f-4625-b645-fef30d82fc16" RegularExpression="^20\|[^|]*\|[^|]*\|[^|]*\|9CF5\|">
-                                <Actions>
-                                  <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Tank Far" ActionType="UseTTS">
-                                    <Condition Enabled="false" Grouping="Or" />
-                                  </Action>
-                                </Actions>
-                                <Condition Enabled="false" Grouping="Or" />
-                              </Trigger>
                               <Trigger Enabled="true" Source="FFXIVNetwork" Name="Shell Crusher" Id="21f38279-b709-4f8e-badd-aa7d3fc71720" RegularExpression="^20\|[^|]*\|[^|]*\|[^|]*\|9D5E\|">
                                 <Actions>
                                   <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Stack" ActionType="UseTTS">
@@ -2233,69 +2165,356 @@
                                 </Actions>
                                 <Condition Enabled="false" Grouping="Or" />
                               </Trigger>
-                              <Trigger Enabled="true" Source="FFXIVNetwork" Name="Spirit Taker" Id="e0d661f9-fe2f-4240-88a1-9d904297a5bd" RegularExpression="^20\|[^|]*\|[^|]*\|[^|]*\|9D60\|">
+                            </Triggers>
+                          </Folder>
+                          <Folder Id="431c3ba0-dd83-46ae-9651-876e40427277" Name="Apocalypse" Enabled="true">
+                            <Folders />
+                            <Triggers>
+                              <Trigger Enabled="true" Sequential="True" Name="Callout" Id="485f1419-c4d9-4445-bd2f-72b0ef9e75d1" RegularExpression="lol fuck this">
                                 <Actions>
-                                  <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Spread" ActionType="UseTTS">
+                                  <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="2 4 safe, lean B D" ActionType="UseTTS" Asynchronous="False">
+                                    <Condition Enabled="true" Grouping="And">
+                                      <ConditionGroup Enabled="true" Grouping="And">
+                                        <ConditionSingle Enabled="true" ExpressionL="${var:ApocStartingDirection}" ExpressionTypeL="String" ExpressionR="AC" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                                        <ConditionSingle Enabled="true" ExpressionL="${var:Rotation}" ExpressionTypeL="String" ExpressionR="Counterclockwise" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                                      </ConditionGroup>
+                                      <ConditionGroup Enabled="true" Grouping="Not">
+                                        <ConditionSingle Enabled="true" ExpressionL="${var:ApocStartingDirection}" ExpressionTypeL="String" ExpressionR="BD" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                                        <ConditionSingle Enabled="true" ExpressionL="${var:ApocStartingDirection}" ExpressionTypeL="String" ExpressionR="13" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                                        <ConditionSingle Enabled="true" ExpressionL="${var:ApocStartingDirection}" ExpressionTypeL="String" ExpressionR="24" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                                        <ConditionSingle Enabled="true" ExpressionL="${var:Rotation}" ExpressionTypeL="String" ExpressionR="Clockwise" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                                      </ConditionGroup>
+                                    </Condition>
+                                  </Action>
+                                  <Action OrderNumber="2" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="B D safe, lean 1 3" ActionType="UseTTS" Asynchronous="False">
+                                    <Condition Enabled="true" Grouping="And">
+                                      <ConditionGroup Enabled="true" Grouping="Not">
+                                        <ConditionSingle Enabled="true" ExpressionL="${var:ApocStartingDirection}" ExpressionTypeL="String" ExpressionR="BD" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                                        <ConditionSingle Enabled="true" ExpressionL="${var:ApocStartingDirection}" ExpressionTypeL="String" ExpressionR="13" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                                        <ConditionSingle Enabled="true" ExpressionL="${var:ApocStartingDirection}" ExpressionTypeL="String" ExpressionR="AC" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                                        <ConditionSingle Enabled="true" ExpressionL="${var:Rotation}" ExpressionTypeL="String" ExpressionR="Clockwise" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                                      </ConditionGroup>
+                                      <ConditionGroup Enabled="true" Grouping="And">
+                                        <ConditionSingle Enabled="true" ExpressionL="${var:ApocStartingDirection}" ExpressionTypeL="String" ExpressionR="24" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                                        <ConditionSingle Enabled="true" ExpressionL="${var:Rotation}" ExpressionTypeL="String" ExpressionR="Counterclockwise" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                                      </ConditionGroup>
+                                    </Condition>
+                                  </Action>
+                                  <Action OrderNumber="3" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="1 3 safe, lean A C" ActionType="UseTTS" Asynchronous="False">
+                                    <Condition Enabled="true" Grouping="And">
+                                      <ConditionGroup Enabled="true" Grouping="Not">
+                                        <ConditionSingle Enabled="true" ExpressionL="${var:ApocStartingDirection}" ExpressionTypeL="String" ExpressionR="AC" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                                        <ConditionSingle Enabled="true" ExpressionL="${var:ApocStartingDirection}" ExpressionTypeL="String" ExpressionR="13" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                                        <ConditionSingle Enabled="true" ExpressionL="${var:ApocStartingDirection}" ExpressionTypeL="String" ExpressionR="24" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                                        <ConditionSingle Enabled="true" ExpressionL="${var:Rotation}" ExpressionTypeL="String" ExpressionR="Clockwise" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                                      </ConditionGroup>
+                                      <ConditionGroup Enabled="true" Grouping="And">
+                                        <ConditionSingle Enabled="true" ExpressionL="${var:ApocStartingDirection}" ExpressionTypeL="String" ExpressionR="BD" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                                        <ConditionSingle Enabled="true" ExpressionL="${var:Rotation}" ExpressionTypeL="String" ExpressionR="Counterclockwise" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                                      </ConditionGroup>
+                                    </Condition>
+                                  </Action>
+                                  <Action OrderNumber="4" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="A C safe, lean 2 4" ActionType="UseTTS" Asynchronous="False">
+                                    <Condition Enabled="true" Grouping="And">
+                                      <ConditionGroup Enabled="true" Grouping="Not">
+                                        <ConditionSingle Enabled="true" ExpressionL="${var:ApocStartingDirection}" ExpressionTypeL="String" ExpressionR="BD" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                                        <ConditionSingle Enabled="true" ExpressionL="${var:ApocStartingDirection}" ExpressionTypeL="String" ExpressionR="AC" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                                        <ConditionSingle Enabled="true" ExpressionL="${var:ApocStartingDirection}" ExpressionTypeL="String" ExpressionR="24" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                                        <ConditionSingle Enabled="true" ExpressionL="${var:Rotation}" ExpressionTypeL="String" ExpressionR="Clockwise" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                                      </ConditionGroup>
+                                      <ConditionGroup Enabled="true" Grouping="And">
+                                        <ConditionSingle Enabled="true" ExpressionL="${var:ApocStartingDirection}" ExpressionTypeL="String" ExpressionR="13" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                                        <ConditionSingle Enabled="true" ExpressionL="${var:Rotation}" ExpressionTypeL="String" ExpressionR="Counterclockwise" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                                      </ConditionGroup>
+                                    </Condition>
+                                  </Action>
+                                  <Action OrderNumber="5" SoundRouting="None" TTSRouting="None" Enabled="False" ActionType="Placeholder">
+                                    <Condition Enabled="false" Grouping="Or" />
+                                  </Action>
+                                  <Action OrderNumber="6" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="1 3 safe, lean B D" ActionType="UseTTS" Asynchronous="False">
+                                    <Condition Enabled="true" Grouping="And">
+                                      <ConditionGroup Enabled="true" Grouping="Not">
+                                        <ConditionSingle Enabled="true" ExpressionL="${var:ApocStartingDirection}" ExpressionTypeL="String" ExpressionR="BD" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                                        <ConditionSingle Enabled="true" ExpressionL="${var:ApocStartingDirection}" ExpressionTypeL="String" ExpressionR="13" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                                        <ConditionSingle Enabled="true" ExpressionL="${var:ApocStartingDirection}" ExpressionTypeL="String" ExpressionR="24" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                                        <ConditionSingle Enabled="true" ExpressionL="${var:Rotation}" ExpressionTypeL="String" ExpressionR="Counterclockwise" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                                      </ConditionGroup>
+                                      <ConditionGroup Enabled="true" Grouping="And">
+                                        <ConditionSingle Enabled="true" ExpressionL="${var:ApocStartingDirection}" ExpressionTypeL="String" ExpressionR="AC" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                                        <ConditionSingle Enabled="true" ExpressionL="${var:Rotation}" ExpressionTypeL="String" ExpressionR="Clockwise" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                                      </ConditionGroup>
+                                    </Condition>
+                                  </Action>
+                                  <Action OrderNumber="7" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="A C safe, lean 1 3" ActionType="UseTTS" Asynchronous="False">
+                                    <Condition Enabled="true" Grouping="And">
+                                      <ConditionGroup Enabled="true" Grouping="Not">
+                                        <ConditionSingle Enabled="true" ExpressionL="${var:ApocStartingDirection}" ExpressionTypeL="String" ExpressionR="BD" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                                        <ConditionSingle Enabled="true" ExpressionL="${var:ApocStartingDirection}" ExpressionTypeL="String" ExpressionR="13" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                                        <ConditionSingle Enabled="true" ExpressionL="${var:ApocStartingDirection}" ExpressionTypeL="String" ExpressionR="AC" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                                        <ConditionSingle Enabled="true" ExpressionL="${var:Rotation}" ExpressionTypeL="String" ExpressionR="Counterclockwise" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                                      </ConditionGroup>
+                                      <ConditionGroup Enabled="true" Grouping="And">
+                                        <ConditionSingle Enabled="true" ExpressionL="${var:ApocStartingDirection}" ExpressionTypeL="String" ExpressionR="24" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                                        <ConditionSingle Enabled="true" ExpressionL="${var:Rotation}" ExpressionTypeL="String" ExpressionR="Clockwise" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                                      </ConditionGroup>
+                                    </Condition>
+                                  </Action>
+                                  <Action OrderNumber="8" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="2 4 safe, lean A C" ActionType="UseTTS" Asynchronous="False">
+                                    <Condition Enabled="true" Grouping="And">
+                                      <ConditionGroup Enabled="true" Grouping="Not">
+                                        <ConditionSingle Enabled="true" ExpressionL="${var:ApocStartingDirection}" ExpressionTypeL="String" ExpressionR="AC" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                                        <ConditionSingle Enabled="true" ExpressionL="${var:ApocStartingDirection}" ExpressionTypeL="String" ExpressionR="13" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                                        <ConditionSingle Enabled="true" ExpressionL="${var:ApocStartingDirection}" ExpressionTypeL="String" ExpressionR="24" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                                        <ConditionSingle Enabled="true" ExpressionL="${var:Rotation}" ExpressionTypeL="String" ExpressionR="Counterclockwise" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                                      </ConditionGroup>
+                                      <ConditionGroup Enabled="true" Grouping="And">
+                                        <ConditionSingle Enabled="true" ExpressionL="${var:ApocStartingDirection}" ExpressionTypeL="String" ExpressionR="BD" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                                        <ConditionSingle Enabled="true" ExpressionL="${var:Rotation}" ExpressionTypeL="String" ExpressionR="Clockwise" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                                      </ConditionGroup>
+                                    </Condition>
+                                  </Action>
+                                  <Action OrderNumber="9" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="B D safe, lean 2 4" ActionType="UseTTS" Asynchronous="False">
+                                    <Condition Enabled="true" Grouping="And">
+                                      <ConditionGroup Enabled="true" Grouping="Not">
+                                        <ConditionSingle Enabled="true" ExpressionL="${var:ApocStartingDirection}" ExpressionTypeL="String" ExpressionR="BD" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                                        <ConditionSingle Enabled="true" ExpressionL="${var:ApocStartingDirection}" ExpressionTypeL="String" ExpressionR="AC" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                                        <ConditionSingle Enabled="true" ExpressionL="${var:ApocStartingDirection}" ExpressionTypeL="String" ExpressionR="24" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                                        <ConditionSingle Enabled="true" ExpressionL="${var:Rotation}" ExpressionTypeL="String" ExpressionR="Counterclockwise" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                                      </ConditionGroup>
+                                      <ConditionGroup Enabled="true" Grouping="And">
+                                        <ConditionSingle Enabled="true" ExpressionL="${var:Rotation}" ExpressionTypeL="String" ExpressionR="Clockwise" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                                        <ConditionSingle Enabled="true" ExpressionL="${var:ApocStartingDirection}" ExpressionTypeL="String" ExpressionR="13" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                                      </ConditionGroup>
+                                    </Condition>
+                                  </Action>
+                                </Actions>
+                                <Condition Enabled="false" Grouping="Or" />
+                                <Conditions />
+                              </Trigger>
+                              <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" Name="Direction Identifier" Id="e3e5b88b-5e12-4836-b182-9d8495495141" RegularExpression="^261\|[^|]*\|Add\|[^|]*\|(?:AggressionStatus\|[^|]*\|)?BNpcID\|1EB0FF\|BNpcNameID\|[^|]*\|(?:CastBuffID\|[^|]*\|)?(?:CastDurationCurrent\|[^|]*\|)?(?:CastDurationMax\|[^|]*\|)?(?:CastGroundTargetX\|[^|]*\|)?(?:CastGroundTargetY\|[^|]*\|)?(?:CastGroundTargetZ\|[^|]*\|)?(?:CastTargetID\|[^|]*\|)?(?:CurrentCP\|[^|]*\|)?(?:CurrentGP\|[^|]*\|)?(?:CurrentHP\|[^|]*\|)?(?:CurrentMP\|[^|]*\|)?(?:CurrentWorldID\|[^|]*\|)?(?:Distance\|[^|]*\|)?(?:EffectiveDistance\|[^|]*\|)?(?:Heading\|(?&lt;Heading&gt;[^|]*)\|)?(?:ID\|[^|]*\|)?(?:IsCasting1\|[^|]*\|)?(?:IsCasting2\|[^|]*\|)?(?:IsTargetable\|[^|]*\|)?(?:Job\|[^|]*\|)?(?:Level\|[^|]*\|)?(?:MaxCP\|[^|]*\|)?(?:MaxGP\|[^|]*\|)?(?:MaxHP\|[^|]*\|)?(?:MaxMP\|[^|]*\|)?(?:NPCTargetID\|[^|]*\|)?(?:PartyType\|[^|]*\|)?(?:PCTargetID\|[^|]*\|)?(?:PosX\|(?&lt;PosX&gt;[^|]*)\|)?(?:PosY\|(?&lt;PosY&gt;[^|]*)\|)?" PeriodRefire="Deny" RefirePeriodExpression="20000">
+                                <Actions>
+                                  <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" VariableOp="SetString" VariableName="ApocStartingDirection" VariableExpression="AC" ActionType="Variable" Asynchronous="False">
+                                    <Condition Enabled="true" Grouping="Or">
+                                      <ConditionSingle Enabled="true" ExpressionL="${Heading}" ExpressionTypeL="String" ExpressionR="0.0000" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                                      <ConditionSingle Enabled="true" ExpressionL="${Heading}" ExpressionTypeL="String" ExpressionR="3.1416" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                                    </Condition>
+                                  </Action>
+                                  <Action OrderNumber="2" SoundRouting="None" TTSRouting="None" VariableOp="SetString" VariableName="ApocStartingDirection" VariableExpression="BD" ActionType="Variable" Asynchronous="False">
+                                    <Condition Enabled="true" Grouping="Or">
+                                      <ConditionSingle Enabled="true" ExpressionL="${Heading}" ExpressionTypeL="String" ExpressionR="-1.5709" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                                      <ConditionSingle Enabled="true" ExpressionL="${Heading}" ExpressionTypeL="String" ExpressionR="1.5708" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                                    </Condition>
+                                  </Action>
+                                  <Action OrderNumber="3" SoundRouting="None" TTSRouting="None" VariableOp="SetString" VariableName="ApocStartingDirection" VariableExpression="13" ActionType="Variable" Asynchronous="False">
+                                    <Condition Enabled="true" Grouping="Or">
+                                      <ConditionSingle Enabled="true" ExpressionL="${Heading}" ExpressionTypeL="String" ExpressionR="0.7854" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                                      <ConditionSingle Enabled="true" ExpressionL="${Heading}" ExpressionTypeL="String" ExpressionR="-2.3563" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                                    </Condition>
+                                  </Action>
+                                  <Action OrderNumber="4" SoundRouting="None" TTSRouting="None" VariableOp="SetString" VariableName="ApocStartingDirection" VariableExpression="24" ActionType="Variable" Asynchronous="False">
+                                    <Condition Enabled="true" Grouping="Or">
+                                      <ConditionSingle Enabled="true" ExpressionL="${Heading}" ExpressionTypeL="String" ExpressionR="-0.7855" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                                      <ConditionSingle Enabled="true" ExpressionL="${Heading}" ExpressionTypeL="String" ExpressionR="2.3562" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                                    </Condition>
+                                  </Action>
+                                </Actions>
+                                <Condition Enabled="true" Grouping="And">
+                                  <ConditionSingle Enabled="true" ExpressionL="${PosX}" ExpressionTypeL="String" ExpressionR="100.0000" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                                  <ConditionSingle Enabled="true" ExpressionL="${PosY}" ExpressionTypeL="String" ExpressionR="100.0000" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                                </Condition>
+                                <Conditions />
+                              </Trigger>
+                              <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" Name="Rotation Identifier" Id="4ecdb097-be6b-49cb-aa2e-c538f8b036af" RegularExpression="^261\|[^|]*\|Add\|[^|]*\|(?:AggressionStatus\|[^|]*\|)?BNpcID\|1EB0FF\|BNpcNameID\|[^|]*\|(?:CastBuffID\|[^|]*\|)?(?:CastDurationCurrent\|[^|]*\|)?(?:CastDurationMax\|[^|]*\|)?(?:CastGroundTargetX\|[^|]*\|)?(?:CastGroundTargetY\|[^|]*\|)?(?:CastGroundTargetZ\|[^|]*\|)?(?:CastTargetID\|[^|]*\|)?(?:CurrentCP\|[^|]*\|)?(?:CurrentGP\|[^|]*\|)?(?:CurrentHP\|[^|]*\|)?(?:CurrentMP\|[^|]*\|)?(?:CurrentWorldID\|[^|]*\|)?(?:Distance\|[^|]*\|)?(?:EffectiveDistance\|[^|]*\|)?(?:Heading\|(?&lt;Heading&gt;[^|]*)\|)?(?:ID\|[^|]*\|)?(?:IsCasting1\|[^|]*\|)?(?:IsCasting2\|[^|]*\|)?(?:IsTargetable\|[^|]*\|)?(?:Job\|[^|]*\|)?(?:Level\|[^|]*\|)?(?:MaxCP\|[^|]*\|)?(?:MaxGP\|[^|]*\|)?(?:MaxHP\|[^|]*\|)?(?:MaxMP\|[^|]*\|)?(?:NPCTargetID\|[^|]*\|)?(?:PartyType\|[^|]*\|)?(?:PCTargetID\|[^|]*\|)?(?:PosX\|(?&lt;PosX&gt;[^|]*)\|)?(?:PosY\|(?&lt;PosY&gt;[^|]*)\|)?" PeriodRefire="Deny" RefirePeriodExpression="20000">
+                                <Actions>
+                                  <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" VariableOp="SetString" VariableName="Rotation" VariableExpression="Clockwise" ActionType="Variable" Asynchronous="False">
+                                    <Condition Enabled="true" Grouping="Or">
+                                      <ConditionGroup Enabled="true" Grouping="And">
+                                        <ConditionSingle Enabled="true" ExpressionL="${PosX}" ExpressionTypeL="String" ExpressionR="86.0000" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                                        <ConditionSingle Enabled="true" ExpressionL="${PosY}" ExpressionTypeL="String" ExpressionR="100.0000" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                                        <ConditionSingle Enabled="true" ExpressionL="${Heading}" ExpressionTypeL="String" ExpressionR="3.1416" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                                      </ConditionGroup>
+                                      <ConditionGroup Enabled="true" Grouping="And">
+                                        <ConditionSingle Enabled="true" ExpressionL="${PosX}" ExpressionTypeL="String" ExpressionR="100.0000" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                                        <ConditionSingle Enabled="true" ExpressionL="${PosY}" ExpressionTypeL="String" ExpressionR="114.0000" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                                        <ConditionSingle Enabled="true" ExpressionL="${Heading}" ExpressionTypeL="String" ExpressionR="-1.5709" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                                      </ConditionGroup>
+                                      <ConditionGroup Enabled="true" Grouping="And">
+                                        <ConditionSingle Enabled="true" ExpressionL="${PosX}" ExpressionTypeL="String" ExpressionR="114.0000" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                                        <ConditionSingle Enabled="true" ExpressionL="${PosY}" ExpressionTypeL="String" ExpressionR="100.0000" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                                        <ConditionSingle Enabled="true" ExpressionL="${Heading}" ExpressionTypeL="String" ExpressionR="0.0000" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                                      </ConditionGroup>
+                                      <ConditionGroup Enabled="true" Grouping="And">
+                                        <ConditionSingle Enabled="true" ExpressionL="${PosX}" ExpressionTypeL="String" ExpressionR="109.8995" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                                        <ConditionSingle Enabled="true" ExpressionL="${PosY}" ExpressionTypeL="String" ExpressionR="90.1005" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                                        <ConditionSingle Enabled="true" ExpressionL="${Heading}" ExpressionTypeL="String" ExpressionR="0.7854" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                                      </ConditionGroup>
+                                      <ConditionGroup Enabled="true" Grouping="And">
+                                        <ConditionSingle Enabled="true" ExpressionL="${PosX}" ExpressionTypeL="String" ExpressionR="109.8995" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                                        <ConditionSingle Enabled="true" ExpressionL="${PosY}" ExpressionTypeL="String" ExpressionR="109.8995" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                                        <ConditionSingle Enabled="true" ExpressionL="${Heading}" ExpressionTypeL="String" ExpressionR="-0.7855" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                                      </ConditionGroup>
+                                      <ConditionGroup Enabled="true" Grouping="And">
+                                        <ConditionSingle Enabled="true" ExpressionL="${PosX}" ExpressionTypeL="String" ExpressionR="90.1005" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                                        <ConditionSingle Enabled="true" ExpressionL="${PosY}" ExpressionTypeL="String" ExpressionR="90.1005" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                                        <ConditionSingle Enabled="true" ExpressionL="${Heading}" ExpressionTypeL="String" ExpressionR="2.3562" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                                      </ConditionGroup>
+                                      <ConditionGroup Enabled="true" Grouping="And">
+                                        <ConditionSingle Enabled="true" ExpressionL="${PosX}" ExpressionTypeL="String" ExpressionR="100.0000" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                                        <ConditionSingle Enabled="true" ExpressionL="${PosY}" ExpressionTypeL="String" ExpressionR="86.0000" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                                        <ConditionSingle Enabled="true" ExpressionL="${Heading}" ExpressionTypeL="String" ExpressionR="1.5708" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                                      </ConditionGroup>
+                                      <ConditionGroup Enabled="true" Grouping="And">
+                                        <ConditionSingle Enabled="true" ExpressionL="${PosX}" ExpressionTypeL="String" ExpressionR="90.1005" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                                        <ConditionSingle Enabled="true" ExpressionL="${PosY}" ExpressionTypeL="String" ExpressionR="109.8995" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                                        <ConditionSingle Enabled="true" ExpressionL="${Heading}" ExpressionTypeL="String" ExpressionR="-2.3563" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                                      </ConditionGroup>
+                                    </Condition>
+                                  </Action>
+                                  <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" VariableOp="SetString" VariableName="Rotation" VariableExpression="Counterclockwise" ActionType="Variable" Asynchronous="False">
+                                    <Condition Enabled="true" Grouping="Or">
+                                      <ConditionGroup Enabled="true" Grouping="And">
+                                        <ConditionSingle Enabled="true" ExpressionL="${PosX}" ExpressionTypeL="String" ExpressionR="86.0000" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                                        <ConditionSingle Enabled="true" ExpressionL="${PosY}" ExpressionTypeL="String" ExpressionR="100.0000" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                                        <ConditionSingle Enabled="true" ExpressionL="${Heading}" ExpressionTypeL="String" ExpressionR="0.0000" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                                      </ConditionGroup>
+                                      <ConditionGroup Enabled="true" Grouping="And">
+                                        <ConditionSingle Enabled="true" ExpressionL="${PosX}" ExpressionTypeL="String" ExpressionR="100.0000" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                                        <ConditionSingle Enabled="true" ExpressionL="${PosY}" ExpressionTypeL="String" ExpressionR="114.0000" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                                        <ConditionSingle Enabled="true" ExpressionL="${Heading}" ExpressionTypeL="String" ExpressionR="1.5708" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                                      </ConditionGroup>
+                                      <ConditionGroup Enabled="true" Grouping="And">
+                                        <ConditionSingle Enabled="true" ExpressionL="${PosX}" ExpressionTypeL="String" ExpressionR="114.0000" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                                        <ConditionSingle Enabled="true" ExpressionL="${PosY}" ExpressionTypeL="String" ExpressionR="100.0000" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                                        <ConditionSingle Enabled="true" ExpressionL="${Heading}" ExpressionTypeL="String" ExpressionR="3.1416" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                                      </ConditionGroup>
+                                      <ConditionGroup Enabled="true" Grouping="And">
+                                        <ConditionSingle Enabled="true" ExpressionL="${PosX}" ExpressionTypeL="String" ExpressionR="109.8995" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                                        <ConditionSingle Enabled="true" ExpressionL="${PosY}" ExpressionTypeL="String" ExpressionR="90.1005" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                                        <ConditionSingle Enabled="true" ExpressionL="${Heading}" ExpressionTypeL="String" ExpressionR="-2.3563" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                                      </ConditionGroup>
+                                      <ConditionGroup Enabled="true" Grouping="And">
+                                        <ConditionSingle Enabled="true" ExpressionL="${PosX}" ExpressionTypeL="String" ExpressionR="109.8995" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                                        <ConditionSingle Enabled="true" ExpressionL="${PosY}" ExpressionTypeL="String" ExpressionR="109.8995" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                                        <ConditionSingle Enabled="true" ExpressionL="${Heading}" ExpressionTypeL="String" ExpressionR="2.3562" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                                      </ConditionGroup>
+                                      <ConditionGroup Enabled="true" Grouping="And">
+                                        <ConditionSingle Enabled="true" ExpressionL="${PosX}" ExpressionTypeL="String" ExpressionR="90.1005" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                                        <ConditionSingle Enabled="true" ExpressionL="${PosY}" ExpressionTypeL="String" ExpressionR="90.1005" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                                        <ConditionSingle Enabled="true" ExpressionL="${Heading}" ExpressionTypeL="String" ExpressionR="-0.7855" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                                      </ConditionGroup>
+                                      <ConditionGroup Enabled="true" Grouping="And">
+                                        <ConditionSingle Enabled="true" ExpressionL="${PosX}" ExpressionTypeL="String" ExpressionR="100.0000" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                                        <ConditionSingle Enabled="true" ExpressionL="${PosY}" ExpressionTypeL="String" ExpressionR="86.0000" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                                        <ConditionSingle Enabled="true" ExpressionL="${Heading}" ExpressionTypeL="String" ExpressionR="-1.5709" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                                      </ConditionGroup>
+                                      <ConditionGroup Enabled="true" Grouping="And">
+                                        <ConditionSingle Enabled="true" ExpressionL="${PosX}" ExpressionTypeL="String" ExpressionR="90.1005" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                                        <ConditionSingle Enabled="true" ExpressionL="${PosY}" ExpressionTypeL="String" ExpressionR="109.8995" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                                        <ConditionSingle Enabled="true" ExpressionL="${Heading}" ExpressionTypeL="String" ExpressionR="0.7854" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                                      </ConditionGroup>
+                                    </Condition>
+                                  </Action>
+                                </Actions>
+                                <Condition Enabled="true" Grouping="Not">
+                                  <ConditionGroup Enabled="true" Grouping="And">
+                                    <ConditionSingle Enabled="true" ExpressionL="${PosX}" ExpressionTypeL="String" ExpressionR="100.0000" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                                    <ConditionSingle Enabled="true" ExpressionL="${PosY}" ExpressionTypeL="String" ExpressionR="100.0000" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                                  </ConditionGroup>
+                                </Condition>
+                              </Trigger>
+                              <Trigger Enabled="true" Source="FFXIVNetwork" Name="Callout Scheduler" Id="1cdd6fe9-fedd-4326-8308-45255c0a26fb" RegularExpression="^20\|[^|]*\|[^|]*\|[^|]*\|9D68\|">
+                                <Actions>
+                                  <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" TriggerId="485f1419-c4d9-4445-bd2f-72b0ef9e75d1" TriggerForce="regexp" ActionType="Trigger" ExecutionDelayExpression="2000" Asynchronous="False">
                                     <Condition Enabled="false" Grouping="Or" />
                                   </Action>
                                 </Actions>
                                 <Condition Enabled="false" Grouping="Or" />
+                                <Conditions />
                               </Trigger>
                             </Triggers>
                           </Folder>
                         </Folders>
-                        <Triggers />
+                        <Triggers>
+                          <Trigger Enabled="true" Source="FFXIVNetwork" Name="Darkest Dance" Id="4d6c94b5-145f-4625-b645-fef30d82fc16" RegularExpression="^20\|[^|]*\|[^|]*\|[^|]*\|9CF5\|">
+                            <Actions>
+                              <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Tank Far" ActionType="UseTTS">
+                                <Condition Enabled="false" Grouping="Or" />
+                              </Action>
+                            </Actions>
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Trigger>
+                          <Trigger Enabled="true" Source="FFXIVNetwork" Name="Spirit Taker" Id="e0d661f9-fe2f-4240-88a1-9d904297a5bd" RegularExpression="^20\|[^|]*\|[^|]*\|[^|]*\|9D60\|">
+                            <Actions>
+                              <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Spread" ActionType="UseTTS">
+                                <Condition Enabled="false" Grouping="Or" />
+                              </Action>
+                            </Actions>
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Trigger>
+                        </Triggers>
                       </Folder>
                     </Folders>
                     <Triggers>
                       <Trigger Enabled="true" Source="FFXIVNetwork" Name="Wipe Detector" Id="b635440b-36ef-4c9d-bce9-10d1b2a06dda" RegularExpression="^33\|[^|]*\|[A-F0-9]{8}\|4000000[3F]\|">
                         <Actions>
-                          <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" VariableName="IgnoreTower" ActionType="Variable">
+                          <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" VariableName="LightStack" ActionType="Variable">
                             <Condition Enabled="false" Grouping="Or" />
                           </Action>
-                          <Action OrderNumber="2" SoundRouting="None" TTSRouting="None" VariableName="IcicleStartPos" ActionType="Variable">
+                          <Action OrderNumber="2" SoundRouting="None" TTSRouting="None" VariableName="LightStackNumber" ActionType="Variable">
                             <Condition Enabled="false" Grouping="Or" />
                           </Action>
-                          <Action OrderNumber="3" SoundRouting="None" TTSRouting="None" VariableName="InOut" ActionType="Variable">
+                          <Action OrderNumber="3" SoundRouting="None" TTSRouting="None" VariableName="Chain" ActionType="Variable">
                             <Condition Enabled="false" Grouping="Or" />
                           </Action>
-                          <Action OrderNumber="4" SoundRouting="None" TTSRouting="None" VariableName="SafeSpot" ActionType="Variable">
+                          <Action OrderNumber="4" SoundRouting="None" TTSRouting="None" VariableName="IcicleStartPos" ActionType="Variable">
                             <Condition Enabled="false" Grouping="Or" />
                           </Action>
-                          <Action OrderNumber="5" SoundRouting="None" TTSRouting="None" TriggerOp="CancelTrigger" TriggerId="ce867d7d-76b6-47d5-99da-802860bc5e10" ActionType="Trigger">
+                          <Action OrderNumber="5" SoundRouting="None" TTSRouting="None" VariableName="InOut" ActionType="Variable">
                             <Condition Enabled="false" Grouping="Or" />
                           </Action>
-                          <Action OrderNumber="6" SoundRouting="None" TTSRouting="None" TriggerOp="CancelTrigger" TriggerId="8a3c564c-872b-4a8c-9861-ae1138c79cf6" ActionType="Trigger">
+                          <Action OrderNumber="6" SoundRouting="None" TTSRouting="None" VariableName="SafeSpot" ActionType="Variable">
                             <Condition Enabled="false" Grouping="Or" />
                           </Action>
-                          <Action OrderNumber="7" SoundRouting="None" TTSRouting="None" TriggerOp="CancelTrigger" TriggerId="1c2a7d5a-a473-467c-8d3e-c0f4e963ca8f" ActionType="Trigger">
+                          <Action OrderNumber="7" SoundRouting="None" TTSRouting="None" VariableName="ApocStartingDirection" ActionType="Variable">
                             <Condition Enabled="false" Grouping="Or" />
                           </Action>
-                          <Action OrderNumber="8" SoundRouting="None" TTSRouting="None" TriggerOp="CancelTrigger" TriggerId="654f8c98-350b-435a-bdd4-e56212d06e26" ActionType="Trigger">
+                          <Action OrderNumber="8" SoundRouting="None" TTSRouting="None" VariableName="Rotation" ActionType="Variable">
                             <Condition Enabled="false" Grouping="Or" />
                           </Action>
-                          <Action OrderNumber="9" SoundRouting="None" TTSRouting="None" TriggerOp="CancelTrigger" TriggerId="093f0801-a8bc-42d5-8a9d-044c43ce91d2" ActionType="Trigger">
+                          <Action OrderNumber="9" SoundRouting="None" TTSRouting="None" TriggerOp="CancelTrigger" TriggerId="8a3c564c-872b-4a8c-9861-ae1138c79cf6" ActionType="Trigger">
                             <Condition Enabled="false" Grouping="Or" />
                           </Action>
-                          <Action OrderNumber="10" SoundRouting="None" TTSRouting="None" TriggerOp="CancelTrigger" TriggerId="90442edc-e977-40bb-b6b0-45b61d6bbe73" ActionType="Trigger">
+                          <Action OrderNumber="10" SoundRouting="None" TTSRouting="None" TriggerOp="CancelTrigger" TriggerId="1c2a7d5a-a473-467c-8d3e-c0f4e963ca8f" ActionType="Trigger">
                             <Condition Enabled="false" Grouping="Or" />
                           </Action>
-                          <Action OrderNumber="11" SoundRouting="None" TTSRouting="None" TriggerOp="CancelTrigger" TriggerId="b8f9a6e2-8762-4122-a396-4ce56c2bf51a" ActionType="Trigger">
+                          <Action OrderNumber="11" SoundRouting="None" TTSRouting="None" TriggerOp="CancelTrigger" TriggerId="654f8c98-350b-435a-bdd4-e56212d06e26" ActionType="Trigger">
                             <Condition Enabled="false" Grouping="Or" />
                           </Action>
-                          <Action OrderNumber="12" SoundRouting="None" TTSRouting="None" TriggerOp="CancelTrigger" TriggerId="9cacebd1-663d-4a92-96fa-0ecf462ad68c" ActionType="Trigger">
+                          <Action OrderNumber="12" SoundRouting="None" TTSRouting="None" TriggerOp="CancelTrigger" TriggerId="093f0801-a8bc-42d5-8a9d-044c43ce91d2" ActionType="Trigger">
                             <Condition Enabled="false" Grouping="Or" />
                           </Action>
-                          <Action OrderNumber="13" SoundRouting="None" TTSRouting="None" TriggerOp="CancelTrigger" TriggerId="6e15b258-0ea6-416d-8322-03c98267dee3" ActionType="Trigger">
+                          <Action OrderNumber="13" SoundRouting="None" TTSRouting="None" TriggerOp="CancelTrigger" TriggerId="90442edc-e977-40bb-b6b0-45b61d6bbe73" ActionType="Trigger">
                             <Condition Enabled="false" Grouping="Or" />
                           </Action>
-                          <Action OrderNumber="14" SoundRouting="None" TTSRouting="None" TriggerOp="CancelTrigger" TriggerId="9d2e37db-fe33-4156-bd74-be29b4c5d7a1" ActionType="Trigger">
+                          <Action OrderNumber="14" SoundRouting="None" TTSRouting="None" TriggerOp="CancelTrigger" TriggerId="b8f9a6e2-8762-4122-a396-4ce56c2bf51a" ActionType="Trigger">
                             <Condition Enabled="false" Grouping="Or" />
                           </Action>
-                          <Action OrderNumber="15" SoundRouting="None" TTSRouting="None" TriggerOp="CancelTrigger" TriggerId="3c8d45d8-f5b0-498a-8a1e-45689e51fa3f" ActionType="Trigger">
+                          <Action OrderNumber="15" SoundRouting="None" TTSRouting="None" TriggerOp="CancelTrigger" TriggerId="9cacebd1-663d-4a92-96fa-0ecf462ad68c" ActionType="Trigger">
                             <Condition Enabled="false" Grouping="Or" />
                           </Action>
-                          <Action OrderNumber="16" SoundRouting="None" TTSRouting="None" TriggerOp="CancelTrigger" TriggerId="ac6f5b08-b6b6-4546-8d66-521e7f70b876" ActionType="Trigger">
+                          <Action OrderNumber="16" SoundRouting="None" TTSRouting="None" TriggerOp="CancelTrigger" TriggerId="6e15b258-0ea6-416d-8322-03c98267dee3" ActionType="Trigger">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                          <Action OrderNumber="17" SoundRouting="None" TTSRouting="None" TriggerOp="CancelTrigger" TriggerId="9d2e37db-fe33-4156-bd74-be29b4c5d7a1" ActionType="Trigger">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                          <Action OrderNumber="18" SoundRouting="None" TTSRouting="None" TriggerOp="CancelTrigger" TriggerId="3c8d45d8-f5b0-498a-8a1e-45689e51fa3f" ActionType="Trigger">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                          <Action OrderNumber="19" SoundRouting="None" TTSRouting="None" TriggerOp="CancelTrigger" TriggerId="ac6f5b08-b6b6-4546-8d66-521e7f70b876" ActionType="Trigger">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                          <Action OrderNumber="20" SoundRouting="None" TTSRouting="None" TriggerOp="CancelTrigger" TriggerId="1cdd6fe9-fedd-4326-8308-45255c0a26fb" ActionType="Trigger">
                             <Condition Enabled="false" Grouping="Or" />
                           </Action>
                         </Actions>
