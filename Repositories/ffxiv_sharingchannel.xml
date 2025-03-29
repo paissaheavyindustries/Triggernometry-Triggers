@@ -498,34 +498,6 @@
                   </Folder>
                 </Folders>
               </Folder>
-              <Folder Enabled="false" Name="TOP Near/Distant World TTS (by fruct1s)" Id="1d7d025b-d2b5-a1da-fedd-ddc1366a361c">
-                <Triggers />
-                <Folders>
-                  <Folder FFXIVZoneFilterEnabled="True" FfxivZoneFilterRegularExpression="1122" Id="de60904a-bbf6-49b8-a5bc-02049d736d26" Name="90 - 2 - The Omega Protocol (Ultimate) 1122" Enabled="true">
-                    <Folders />
-                    <Triggers>
-                      <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" Name="Near/Distant World TTS" Id="1aacf7b4-2a34-4385-95d3-e3c9237c4b06" RegularExpression="^26\|[^|]*\|D7(?&lt;id&gt;[23])\|[^|]*\|[^|]*\|[^|]*\|[^|]*\|[^|]*\|(?&lt;tar&gt;[^|]*)\|">
-                        <Actions>
-                          <Action OrderNumber="1" OBSEndPoint="" UseTTSTextExpression="Near World" TextAuraEffect="Bold, Underline" TextAuraForeground="Fuchsia" TextAuraOutline="#FF0080" TextAuraName="TATEmplate" TextAuraExpression="Template" TextAuraXIniExpression="784" TextAuraYIniExpression="360" TextAuraWIniExpression="1363" TextAuraHIniExpression="478" TextAuraOIniExpression="100" TextAuraTTLTickExpression="5-${_since}" TriggerId="2bd24d9d-d8bd-4fad-adda-a75f83fa03f8" TriggerText="${} Stack Spread HealerParty♥ 1234into Baitthen" TriggerForce="active" ActionType="UseTTS" Description="Near World TTS" DescriptionOverride="True">
-                            <Condition Enabled="true" Grouping="Or">
-                              <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="Numeric" ExpressionR="2" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                            </Condition>
-                          </Action>
-                          <Action OrderNumber="2" OBSEndPoint="" UseTTSTextExpression="Far World" TextAuraEffect="Bold, Underline" TextAuraForeground="Fuchsia" TextAuraOutline="#FF0080" TextAuraName="TATEmplate" TextAuraExpression="Template" TextAuraXIniExpression="784" TextAuraYIniExpression="360" TextAuraWIniExpression="1363" TextAuraHIniExpression="478" TextAuraOIniExpression="100" TextAuraTTLTickExpression="5-${_since}" TriggerId="2bd24d9d-d8bd-4fad-adda-a75f83fa03f8" TriggerText="${} Stack Spread HealerParty♥ 1234into Baitthen" TriggerForce="active" ActionType="UseTTS" Description="Far World TTS" DescriptionOverride="True">
-                            <Condition Enabled="true" Grouping="Or">
-                              <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="Numeric" ExpressionR="3" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                            </Condition>
-                          </Action>
-                        </Actions>
-                        <Condition Enabled="true" Grouping="Or">
-                          <ConditionSingle Enabled="true" ExpressionL="${tar}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                        </Condition>
-                        <Conditions />
-                      </Trigger>
-                    </Triggers>
-                  </Folder>
-                </Folders>
-              </Folder>
             </Folders>
           </Folder>
           <Folder Enabled="true" Name="6.11 - Dragonsong's Reprise" Id="9f157609-6e51-bd21-1596-ee8b94c568d9">
@@ -1329,7 +1301,7 @@
                   </Folder>
                 </Folders>
               </Folder>
-              <Folder Enabled="false" Name="FRU Full Fight (P1-5) (by izanaminomikotoo)" Id="b4e68daa-ebc4-5b20-9fc0-42f0cf5bc4e9">
+              <Folder Enabled="false" Name="FRU Full Fight (P1-5) (by sa.ble)" Id="9ad1dcdc-7b44-edde-004e-b82afd0d5d42">
                 <Triggers />
                 <Folders>
                   <Folder Id="162392d1-72a2-45d4-b036-76276518c59a" Name="FRU" Enabled="true">
@@ -6954,6 +6926,370 @@
                           </Action>
                         </Actions>
                         <Condition Enabled="false" Grouping="Or" />
+                      </Trigger>
+                    </Triggers>
+                  </Folder>
+                </Folders>
+              </Folder>
+              <Folder Enabled="false" Name="[7.2] Zelenia Ex (by user.__name__)" Id="b2ee0c3d-fc60-2595-f702-0a1664fb0c0b">
+                <Triggers />
+                <Folders>
+                  <Folder Id="b26bc5f9-9cf6-4b8a-a640-12d120b030db" Name="Ex7d Zelenia" Enabled="true">
+                    <Folders>
+                      <Folder FFXIVZoneFilterEnabled="True" FfxivZoneFilterRegularExpression="^1271$" Id="81e9c193-70be-4a46-a9a7-cff8f92114e3" Name="" Enabled="true">
+                        <Folders>
+                          <Folder Id="7234a294-02d6-49b9-96b4-06b84c6daea4" Name="0. Control" Enabled="true">
+                            <Folders />
+                            <Triggers>
+                              <Trigger Enabled="true" Sequential="True" Name="Init" Id="51d353d4-5d06-4c7c-9ec3-4a8e596122fe" RegularExpression="^.{15}\S+ 104:.:1:.:1">
+                                <Actions>
+                                  <Action OrderNumber="1" VariableOp="UnsetRegexUniversal" VariableName="^Ex7d_" ActionType="Variable" />
+                                  <Action OrderNumber="2" VariableOp="SetString" VariableName="Ex7d_flag" VariableExpression="1" ActionType="Variable" />
+                                </Actions>
+                              </Trigger>
+                              <Trigger Enabled="true" Name="Reset" Id="c2655f42-466c-4000-a09d-ea663a9dcb8e" RegularExpression="^.{15}\S+ 21:.{8}:400000(03|05)">
+                                <Actions>
+                                  <Action OrderNumber="1" FolderOp="CancelFolder" FolderId="b26bc5f9-9cf6-4b8a-a640-12d120b030db" ActionType="Folder" ExecutionDelayExpression="500" />
+                                </Actions>
+                              </Trigger>
+                            </Triggers>
+                          </Folder>
+                          <Folder Id="4a2c9e21-0852-4dea-9d0c-8fbab7da4a1a" Name="B. Adds" Enabled="true" RawEnvironmentVariables="phase = Adds">
+                            <Folders />
+                            <Triggers>
+                              <Trigger Enabled="true" Name="0. Init" Id="3584e489-0b96-464c-9b7c-39b5a8efbaf6" RegularExpression="^.{15}\S+ 14:4.{7}:[^:]*:A8B5:">
+                                <Actions>
+                                  <Action OrderNumber="1" VariableOp="SetString" VariableName="Ex7d_phase" VariableExpression="${env:phase}" ActionType="Variable" />
+                                  <Action OrderNumber="2" UseTTSTextExpression="Adds phase" ActionType="UseTTS" />
+                                </Actions>
+                              </Trigger>
+                              <Trigger Enabled="true" Name="O1. Tether" Id="352fafd6-07e5-46f3-a6c1-9bfc6a434466" RegularExpression="^Ex7d_Adds:cnt:(?&lt;cnt&gt;[1-4]):myTether:(?&lt;sid&gt;.+)">
+                                <Actions>
+                                  <Action OrderNumber="1" UseTTSTextExpression="${f:pick(${n: 0x${sid} = 0 }): Tether, Tower }" ActionType="UseTTS" />
+                                </Actions>
+                              </Trigger>
+                              <Trigger Enabled="true" Name="O2. L/R" Id="4125b2e0-8524-4dd4-9bd6-5472424e5e24" RegularExpression="^.{15}\S+ 111:(?&lt;sid&gt;4.{7}):003F:(?&lt;type&gt;1B|1C):">
+                                <Actions>
+                                  <Action OrderNumber="1" UseTTSTextExpression="${f:pick(${n: 0x${type} = 0x1B }): Right, Left} side" ActionType="UseTTS" />
+                                  <Action OrderNumber="2" ActionType="Placeholder" ExecutionDelayExpression="4200" />
+                                  <Action OrderNumber="3" />
+                                  <Action OrderNumber="4" UseTTSTextExpression="dodge" ActionType="UseTTS" />
+                                </Actions>
+                                <Condition Enabled="true" Grouping="Or">
+                                  <ConditionSingle Enabled="true" ExpressionL="${sid}" ExpressionTypeL="String" ExpressionR="${v:Ex7d_Adds_mySid}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                                </Condition>
+                              </Trigger>
+                              <Trigger Enabled="true" Name="1. Tether =&gt; O1" Id="6677c3d1-2e2c-432e-8ea5-cb287b60d618" RegularExpression="^.{15}\S+ 23:(?&lt;sid&gt;4.{7}):[^:]*:(?&lt;tid&gt;1.{7}):[^:]*:.{9}:0011">
+                                <Actions>
+                                  <Action OrderNumber="1" ListVariableOp="Push" ListVariableName="Ex7d_Adds_tid" ListVariableExpression="${tid}" ActionType="ListVariable" Asynchronous="False" />
+                                  <Action OrderNumber="2" ActionType="Placeholder" Asynchronous="False" Description="Self Tethered:" DescriptionOverride="True" />
+                                  <Action OrderNumber="3" VariableOp="SetString" VariableName="Ex7d_Adds_mySid" VariableExpression="${sid}" ActionType="Variable" Asynchronous="False">
+                                    <Condition Enabled="true" Grouping="Or">
+                                      <ConditionSingle Enabled="true" ExpressionL="${tid}" ExpressionTypeL="String" ExpressionR="${_me.id}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                                    </Condition>
+                                  </Action>
+                                  <Action OrderNumber="4" LogMessageText="Ex7d_Adds:cnt:${n: ceiling(${l:Ex7d_Adds_tid.size} / 2)}:myTether:${sid}" LogProcess="True" LogProcessACT="True" ActionType="LogMessage" Asynchronous="False">
+                                    <Condition Enabled="true" Grouping="Or">
+                                      <ConditionSingle Enabled="true" ExpressionL="${tid}" ExpressionTypeL="String" ExpressionR="${_me.id}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                                    </Condition>
+                                  </Action>
+                                  <Action OrderNumber="5" ActionType="Placeholder" Asynchronous="False" Description="Not Tethered * 2:" DescriptionOverride="True" />
+                                  <Action OrderNumber="6" VariableOp="SetString" VariableName="Ex7d_Adds_mySid" VariableExpression="0" ActionType="Variable" Asynchronous="False">
+                                    <Condition Enabled="true" Grouping="And">
+                                      <ConditionSingle Enabled="true" ExpressionL="${l:Ex7d_Adds_tid.size} % 2" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="String" ConditionType="StringEqualCase" />
+                                      <ConditionSingle Enabled="true" ExpressionL="${l:Ex7d_Adds_tid[-1]}" ExpressionTypeL="String" ExpressionR="${_me.id}" ExpressionTypeR="String" ConditionType="StringNotEqualNocase" />
+                                      <ConditionSingle Enabled="true" ExpressionL="${l:Ex7d_Adds_tid[-2]}" ExpressionTypeL="String" ExpressionR="${_me.id}" ExpressionTypeR="String" ConditionType="StringNotEqualNocase" />
+                                    </Condition>
+                                  </Action>
+                                  <Action OrderNumber="7" LogMessageText="Ex7d_Adds:cnt:${n: ceiling(${l:Ex7d_Adds_tid.size} / 2)}:myTether:0" LogProcess="True" LogProcessACT="True" ActionType="LogMessage" Asynchronous="False">
+                                    <Condition Enabled="true" Grouping="And">
+                                      <ConditionSingle Enabled="true" ExpressionL="${v:Ex7d_Adds_mySid}" ExpressionTypeL="String" ExpressionR="0" ExpressionTypeR="String" ConditionType="StringEqualCase" />
+                                    </Condition>
+                                  </Action>
+                                </Actions>
+                                <Condition Enabled="true" Grouping="Or">
+                                  <ConditionSingle Enabled="true" ExpressionL="${v:Ex7d_phase}" ExpressionTypeL="String" ExpressionR="${env:phase}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                                </Condition>
+                              </Trigger>
+                            </Triggers>
+                          </Folder>
+                          <Folder Id="8f2380c3-f4e4-4ae2-8a18-f697be33f852" Name="Misc" Enabled="true">
+                            <Folders />
+                            <Triggers>
+                              <Trigger Enabled="true" Name="AoE" Id="4ce5eb67-c8cc-48ff-bfd2-d618fec6fcef" RegularExpression="^.{15}\S+ 14:4.{7}:[^:]+:A89E:">
+                                <Actions>
+                                  <Action OrderNumber="1" UseTTSTextExpression="AoE" ActionType="UseTTS" />
+                                </Actions>
+                              </Trigger>
+                              <Trigger Enabled="true" Name="TB" Id="52afccef-8432-42eb-8cdb-47dd4fa059c8" RegularExpression="^.{15}\S+ 14:(?&lt;sid&gt;4.{7}):[^:]+:A89F:">
+                                <Actions>
+                                  <Action OrderNumber="1" UseTTSTextExpression="tether tb" ActionType="UseTTS" />
+                                </Actions>
+                              </Trigger>
+                              <Trigger Enabled="true" Name="Stack" Id="b1d1ed72-6a52-4c45-8ef4-482f0fdbadc9" RegularExpression="^.{15}\S+ 14:4.{7}:[^:]+:A8D5:">
+                                <Actions>
+                                  <Action OrderNumber="1" UseTTSTextExpression="Stack" ActionType="UseTTS" />
+                                </Actions>
+                              </Trigger>
+                            </Triggers>
+                          </Folder>
+                          <Folder Id="8988bbe2-7de2-4811-ada5-433b1b8dd4d7" Name="C. Bloom 1" Enabled="true" RawEnvironmentVariables="phase = 1">
+                            <Folders />
+                            <Triggers>
+                              <Trigger Enabled="true" Name="0. Init" Id="0b25ef75-897e-4929-ba23-a0072f611aa0" RegularExpression="^.{15}\S+ 14:4.{7}:[^:]*:A8B9:">
+                                <Actions>
+                                  <Action OrderNumber="1" VariableOp="SetString" VariableName="Ex7d_phase" VariableExpression="${env:phase}" ActionType="Variable" />
+                                  <Action OrderNumber="2" VariableOp="UnsetRegexUniversal" VariableName="^Ex7d_1" ActionType="Variable" />
+                                </Actions>
+                              </Trigger>
+                              <Trigger Enabled="true" Name="O1. MapEffect" Id="de2f06ab-2108-4c22-948a-a9697cc4f39f" RegularExpression="^.{15}\S+ 101:[^:]*:01000040:(?&lt;loc&gt;04|06)">
+                                <Actions>
+                                  <Action OrderNumber="1" UseTTSTextExpression="${f:pick(${n: ${loc} = 4 }): north counterclockwise, southeast clockwise }" ActionType="UseTTS" />
+                                  <Action OrderNumber="2" ActionType="Placeholder" ExecutionDelayExpression="22600" />
+                                  <Action OrderNumber="3" UseTTSTextExpression="Spread" ActionType="UseTTS" />
+                                </Actions>
+                                <Condition Enabled="true" Grouping="Or">
+                                  <ConditionSingle Enabled="true" ExpressionL="${v:Ex7d_phase}" ExpressionTypeL="String" ExpressionR="${env:phase}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                                </Condition>
+                              </Trigger>
+                            </Triggers>
+                          </Folder>
+                          <Folder Id="a1458d1e-2ba6-4245-9fc0-6f125b4149c8" Name="D. Bloom 2" Enabled="true" RawEnvironmentVariables="phase = 2">
+                            <Folders />
+                            <Triggers>
+                              <Trigger Enabled="true" Name="0. Init" Id="3d8e6035-df7a-4829-b9b6-615b3fd95706" RegularExpression="^.{15}\S+ 14:4.{7}:[^:]*:AA14:">
+                                <Actions>
+                                  <Action OrderNumber="1" VariableOp="SetString" VariableName="Ex7d_phase" VariableExpression="${env:phase}" ActionType="Variable" />
+                                  <Action OrderNumber="2" VariableOp="UnsetRegexUniversal" VariableName="^Ex7d_2" ActionType="Variable" />
+                                </Actions>
+                              </Trigger>
+                              <Trigger Enabled="true" Name="1. MapEffect" Id="f14e92ff-ed49-4fdb-b218-158000927e9b" RegularExpression="^.{15}\S+ 101:[^:]*:01000040:(?&lt;loc&gt;05|0A)">
+                                <Actions>
+                                  <Action OrderNumber="1" VariableOp="SetNumeric" VariableName="Ex7d_2_isTopLeftSafe" VariableExpression="0x${loc} = 5" ActionType="Variable" />
+                                </Actions>
+                                <Condition Enabled="true" Grouping="Or">
+                                  <ConditionSingle Enabled="true" ExpressionL="${v:Ex7d_phase}" ExpressionTypeL="String" ExpressionR="${env:phase}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                                </Condition>
+                              </Trigger>
+                              <Trigger Enabled="true" Name="2. In/Out =&gt; O1" Id="be866112-9a00-4d79-90b7-1c96338045b4" RegularExpression="^.{15}\S+ 14:4.{7}:[^:]+:(?&lt;aid&gt;A9B[89]):">
+                                <Actions>
+                                  <Action OrderNumber="1" VariableOp="SetNumeric" VariableName="Ex7d_2_isOutFirst" VariableExpression="0x${aid} = 0xA9B8" ActionType="Variable" Asynchronous="False" />
+                                  <Action OrderNumber="2" LogMessageText="Ex7d_2:isOutFirst:${v:Ex7d_2_isOutFirst}:isTopLeftSafe:${v:Ex7d_2_isTopLeftSafe}" LogProcess="True" LogProcessACT="True" ActionType="LogMessage" Asynchronous="False" />
+                                </Actions>
+                                <Condition Enabled="true" Grouping="Or">
+                                  <ConditionSingle Enabled="true" ExpressionL="${v:Ex7d_phase}" ExpressionTypeL="String" ExpressionR="${env:phase}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                                </Condition>
+                              </Trigger>
+                              <Trigger Enabled="true" Name="O1. Output" Id="b2faca9d-36e0-4fd3-893d-aaca688356ed" RegularExpression="^Ex7d_2:isOutFirst:(?&lt;isOutFirst&gt;0|1):isTopLeftSafe:(?&lt;isTopLeftSafe&gt;0|1)">
+                                <Actions>
+                                  <Action OrderNumber="1" UseTTSTextExpression="${?d: &#xD;&#xA;  00 = southwest，In, &#xD;&#xA;  01 = southeast，In, &#xD;&#xA;  10 = southeast，Out, &#xD;&#xA;  11 = southwest，Out &#xD;&#xA;  [${isOutFirst}${isTopLeftSafe}]&#xD;&#xA;}" ActionType="UseTTS" />
+                                  <Action OrderNumber="2" ActionType="Placeholder" ExecutionDelayExpression="6800" />
+                                  <Action OrderNumber="3" UseTTSTextExpression="${f:pick(${n: ${isOutFirst} = ${isTopLeftSafe} }): straight, diagonal } move" ActionType="UseTTS" />
+                                  <Action OrderNumber="4" />
+                                  <Action OrderNumber="5" ActionType="Placeholder" ExecutionDelayExpression="${isOutFirst} = ${isTopLeftSafe} ? 3000 : 2000" />
+                                  <Action OrderNumber="6" UseTTSTextExpression="move, tether" ActionType="UseTTS" />
+                                  <Action OrderNumber="7" />
+                                </Actions>
+                              </Trigger>
+                            </Triggers>
+                          </Folder>
+                          <Folder Id="007becd5-bf5d-429f-8dc9-fcb281b36811" Name="H. Bloom 6" Enabled="true" RawEnvironmentVariables="phase = 6">
+                            <Folders />
+                            <Triggers>
+                              <Trigger Enabled="true" Name="0. Init" Id="c87bed70-f221-4402-b061-9d281883d66d" RegularExpression="^.{15}\S+ 14:4.{7}:[^:]*:AA18:">
+                                <Actions>
+                                  <Action OrderNumber="1" VariableOp="SetString" VariableName="Ex7d_phase" VariableExpression="${env:phase}" ActionType="Variable" />
+                                  <Action OrderNumber="2" VariableOp="UnsetRegexUniversal" VariableName="^Ex7d_6" ActionType="Variable" />
+                                </Actions>
+                              </Trigger>
+                              <Trigger Enabled="true" Name="2. cleave" Id="6a4cce4c-d0b4-4012-a7a2-5eed63e69587" RegularExpression="^.{15}\S+ 14:4.{7}:[^:]+:(?&lt;aid&gt;A8DF|A8E1):">
+                                <Actions>
+                                  <Action OrderNumber="1" VariableOp="SetNumeric" VariableName="Ex7d_6_isTopRightSafeFirst" VariableExpression="0x${aid} = 0xA8DF" ActionType="Variable" Asynchronous="False" />
+                                  <Action OrderNumber="2" VariableOp="SetNumeric" VariableName="Ex7d_6_isInnerRose" VariableExpression="${v:Ex7d_6_isTopRightRed} = ${v:Ex7d_6_isTopRightSafeFirst}" ActionType="Variable" Asynchronous="False" />
+                                  <Action OrderNumber="3" UseTTSTextExpression="place ${f:pick(${v:Ex7d_6_isInnerRose}): outside, inside}" ActionType="UseTTS" Asynchronous="False" />
+                                </Actions>
+                              </Trigger>
+                              <Trigger Enabled="true" Name="1. MapEffect" Id="d16b6697-90dc-4467-9c1b-089613a58085" RegularExpression="^.{15}\S+ 101:[^:]*:01000040:(?&lt;loc&gt;05|06)">
+                                <Actions>
+                                  <Action OrderNumber="1" VariableOp="SetNumeric" VariableName="Ex7d_6_isTopRightRed" VariableExpression="0x${loc} = 5" ActionType="Variable" />
+                                </Actions>
+                                <Condition Enabled="true" Grouping="Or">
+                                  <ConditionSingle Enabled="true" ExpressionL="${v:Ex7d_phase}" ExpressionTypeL="String" ExpressionR="${env:phase}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                                </Condition>
+                              </Trigger>
+                            </Triggers>
+                          </Folder>
+                          <Folder Id="9e3d358a-ee9c-43af-ac43-e3ec0a1da14f" Name="G. Bloom 5" Enabled="true" RawEnvironmentVariables="phase = 5">
+                            <Folders />
+                            <Triggers>
+                              <Trigger Enabled="true" Name="0. Init" Id="303bcebd-6afd-4be8-8858-bcd988af83ff" RegularExpression="^.{15}\S+ 14:4.{7}:[^:]*:AA17:">
+                                <Actions>
+                                  <Action OrderNumber="1" VariableOp="SetString" VariableName="Ex7d_phase" VariableExpression="${env:phase}" ActionType="Variable" />
+                                  <Action OrderNumber="2" VariableOp="UnsetRegexUniversal" VariableName="^Ex7d_5" ActionType="Variable" />
+                                </Actions>
+                              </Trigger>
+                              <Trigger Enabled="true" Name="2. in/out =&gt; O2" Id="8cf525b2-f5f5-459d-91fb-9b7d57679495" RegularExpression="^.{15}\S+ 14:4.{7}:[^:]+:(?&lt;aid&gt;A9B[89]):">
+                                <Actions>
+                                  <Action OrderNumber="1" VariableOp="SetNumeric" VariableName="Ex7d_5_isOutFirst" VariableExpression="0x${aid} = 0xA9B8" ActionType="Variable" Asynchronous="False" />
+                                  <Action OrderNumber="2" LogMessageText="Ex7d_5:isTopRightSafeFirst:${v:Ex7d_5_isTopRightSafeFirst}:isOutFirst:${v:Ex7d_5_isOutFirst}" LogProcess="True" LogProcessACT="True" ActionType="LogMessage" Asynchronous="False" />
+                                </Actions>
+                                <Condition Enabled="true" Grouping="Or">
+                                  <ConditionSingle Enabled="true" ExpressionL="${v:Ex7d_phase}" ExpressionTypeL="String" ExpressionR="${env:phase}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                                </Condition>
+                              </Trigger>
+                              <Trigger Enabled="true" Name="1. half side AoE =&gt; O1 " Id="d7fbdead-d09a-4ed0-8ef7-9a5c22d5382f" RegularExpression="^.{15}\S+ 10F:(?&lt;id&gt;4.{7}):(?&lt;h&gt;[^:]+):[^:]*:[^:]*:(?&lt;x&gt;[^:]+):(?&lt;y&gt;[^:]+)" PrevActions="Interrupt" PeriodRefire="Deny" RefirePeriodExpression="10000">
+                                <Actions>
+                                  <Action OrderNumber="1" VariableOp="SetNumeric" VariableName="Ex7d_5_isTopRightSafeFirst" VariableExpression="projectheight(${x}, ${y}, ${h}, 108, 92) &gt; 5" ActionType="Variable" Asynchronous="False" />
+                                  <Action OrderNumber="2" LogMessageText="Ex7d_5:isTopRightSafeFirst:${v:Ex7d_5_isTopRightSafeFirst}" LogProcess="True" LogProcessACT="True" ActionType="LogMessage" Asynchronous="False" />
+                                </Actions>
+                                <Condition Enabled="true" Grouping="Or">
+                                  <ConditionSingle Enabled="true" ExpressionL="${_entity[${id}].bnpcid}" ExpressionTypeL="String" ExpressionR="18375" ExpressionTypeR="String" ConditionType="StringEqualCase" />
+                                </Condition>
+                              </Trigger>
+                              <Trigger Enabled="true" Name="O1." Id="0938b80f-eae8-4c4b-9950-1e2e5e47c7e3" RegularExpression="^Ex7d_5:isTopRightSafeFirst:(?&lt;isTopRightSafeFirst&gt;0|1)$">
+                                <Actions>
+                                  <Action OrderNumber="1" UseTTSTextExpression="${f:pick(${isTopRightSafeFirst}): southwest, northeast}" ActionType="UseTTS" />
+                                </Actions>
+                              </Trigger>
+                              <Trigger Enabled="true" Name="O2." Id="aa6b27d4-8f07-48a2-a65c-eb00041e622a" RegularExpression="^Ex7d_5:isTopRightSafeFirst:(?&lt;isTopRightSafeFirst&gt;0|1):isOutFirst:(?&lt;isOutFirst&gt;0|1)">
+                                <Actions>
+                                  <Action OrderNumber="1" UseTTSTextExpression="${f:pick(${isOutFirst}): in, out}" ActionType="UseTTS" />
+                                  <Action OrderNumber="2" ActionType="Placeholder" ExecutionDelayExpression="6400" />
+                                  <Action OrderNumber="3" UseTTSTextExpression="move" ActionType="UseTTS" />
+                                  <Action OrderNumber="4" />
+                                  <Action OrderNumber="5" ActionType="Placeholder" ExecutionDelayExpression="4600" />
+                                  <Action OrderNumber="6" UseTTSTextExpression="tether" ActionType="UseTTS" />
+                                </Actions>
+                                <Condition Enabled="true" Grouping="Or">
+                                  <ConditionSingle Enabled="true" ExpressionL="${v:Ex7d_phase}" ExpressionTypeL="String" ExpressionR="${env:phase}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                                </Condition>
+                              </Trigger>
+                            </Triggers>
+                          </Folder>
+                          <Folder Id="79830008-1fc4-45cd-b190-ceeeb91a6b78" Name="A. EF" Enabled="true" RawEnvironmentVariables="phase = EF">
+                            <Folders />
+                            <Triggers>
+                              <Trigger Enabled="true" Name="0. Init" Id="96223f1a-b1bf-4a23-bb88-519665453e80" RegularExpression="^.{15}\S+ 14:4.{7}:[^:]*:A8AD:">
+                                <Actions>
+                                  <Action OrderNumber="1" VariableOp="SetString" VariableName="Ex7d_phase" VariableExpression="${env:phase}" ActionType="Variable" />
+                                  <Action OrderNumber="2" VariableOp="UnsetRegexUniversal" VariableName="^Ex7d_EF" ActionType="Variable" />
+                                </Actions>
+                              </Trigger>
+                              <Trigger Enabled="true" Name="1. Close/Far =&gt; 2" Id="b1efd858-1867-4a3a-8916-91710e4f2b36" RegularExpression="^.{15}\S+ 1A:...:[^:]+:(?&lt;t&gt;[^:]+):.{8}:[^:]*:.{8}:[^:]*:(?&lt;type&gt;2F[67]):">
+                                <Actions>
+                                  <Action OrderNumber="1" ListVariableOp="Push" ListVariableExpressionType="Numeric" ListVariableName="Ex7d_EF_isClose" ListVariableExpression="0x${type} = 0x2F6" ActionType="ListVariable" Asynchronous="False" />
+                                  <Action OrderNumber="2" LogMessageText="Ex7d_EF:isClose:${l:Ex7d_EF_isClose.join(&quot;&quot;)}" LogProcess="True" LogProcessACT="True" ActionType="LogMessage" Asynchronous="False" />
+                                </Actions>
+                              </Trigger>
+                              <Trigger Enabled="true" Name="2.1 output 1" Id="efe0eb48-b14a-4afe-9d1e-0549d0dc6d56" RegularExpression="^Ex7d_EF:isClose:(?&lt;isClose1&gt;\d)$">
+                                <Actions>
+                                  <Action OrderNumber="1" UseTTSTextExpression="${f:pick(${n: ${isClose1} = ${_me.isTH} }): Far, Close}" ActionType="UseTTS" />
+                                </Actions>
+                              </Trigger>
+                              <Trigger Enabled="true" Name="2.2 output 2" Id="6e31d0a5-2652-42c8-9075-6af45d905c56" RegularExpression="^Ex7d_EF:isClose:(?&lt;isClose1&gt;0|1)(?&lt;isClose2&gt;0|1)$">
+                                <Actions>
+                                  <Action OrderNumber="1" UseTTSTextExpression="${?d:&#xD;&#xA;   00 = Far Close Close Far,&#xD;&#xA;   01 = Far Far Close Close,&#xD;&#xA;   10 = Close Close Far Far ,&#xD;&#xA;   11 = Close Far Far Close&#xD;&#xA;   [${n: ${isClose1} = ${_me.isTH}}${n: ${isClose2} = ${_me.isTH}}]&#xD;&#xA;}" ActionType="UseTTS" />
+                                  <Action OrderNumber="2" ActionType="Placeholder" ExecutionDelayExpression="9000" />
+                                  <Action OrderNumber="3" UseTTSTextExpression="Second ${f:pick(${n: ${isClose2} != ${_me.isTH} }): Far, Close}" ActionType="UseTTS" />
+                                  <Action OrderNumber="4" ActionType="Placeholder" ExecutionDelayExpression="3000" />
+                                  <Action OrderNumber="5" UseTTSTextExpression="Third ${f:pick(${n: ${isClose1} != ${_me.isTH} }): Far, Close}" ActionType="UseTTS" />
+                                  <Action OrderNumber="6" ActionType="Placeholder" ExecutionDelayExpression="3000" />
+                                  <Action OrderNumber="7" UseTTSTextExpression="Fourth ${f:pick(${n: ${isClose2} = ${_me.isTH} }): Far, Close}" ActionType="UseTTS" />
+                                </Actions>
+                              </Trigger>
+                              <Trigger Enabled="true" Name="Adds L/R" Id="140b2408-e7e7-42d2-aa82-693298f2416d" RegularExpression="^.{15}\S+ 107:4.{7}:A8B(?&lt;type&gt;0|1):(?&lt;x&gt;[^:]+):(?&lt;y&gt;[^:]+):">
+                                <Actions>
+                                  <Action OrderNumber="1" UseTTSTextExpression="${f:pick(${n: (${type} = 1) = (${y} &gt; 100) }): Left, Right }" ActionType="UseTTS" ExecutionDelayExpression="1500" />
+                                </Actions>
+                              </Trigger>
+                            </Triggers>
+                          </Folder>
+                          <Folder Id="5b41ca7f-3cfd-4086-a70e-91f557560b64" Name="F. Bloom 4" Enabled="true" RawEnvironmentVariables="phase = 4">
+                            <Folders />
+                            <Triggers>
+                              <Trigger Enabled="true" Name="0. Init" Id="326d414f-a617-4c91-91b1-9ee44399323c" RegularExpression="^.{15}\S+ 14:4.{7}:[^:]*:AA16:">
+                                <Actions>
+                                  <Action OrderNumber="1" VariableOp="SetString" VariableName="Ex7d_phase" VariableExpression="${env:phase}" ActionType="Variable" />
+                                  <Action OrderNumber="2" VariableOp="UnsetRegexUniversal" VariableName="^Ex7d_4" ActionType="Variable" />
+                                </Actions>
+                              </Trigger>
+                              <Trigger Enabled="true" Name="1. MapEffect =&gt; O1" Id="a30aa132-6de6-4688-b6ab-6febecd4965e" RegularExpression="^.{15}\S+ 101:[^:]*:01000040:(?&lt;loc&gt;0[456789AB])">
+                                <Actions>
+                                  <Action OrderNumber="1" ListVariableOp="Push" ListVariableExpressionType="Numeric" ListVariableName="Ex7d_4_InnerRedθ" ListVariableExpression="dir2rad(11 - 0x${loc}, -8)" ActionType="ListVariable" Asynchronous="False" />
+                                  <Action OrderNumber="2" ListVariableExpressionType="Numeric" VariableOp="SetNumeric" VariableName="Ex7d_4_θ" VariableExpression="${l:Ex7d_4_InnerRedθ[1]} + relθ(${l:Ex7d_4_InnerRedθ[1]}, ${l:Ex7d_4_InnerRedθ[2]}) / 2" ActionType="Variable" Asynchronous="False">
+                                    <Condition Enabled="true" Grouping="Or">
+                                      <ConditionSingle Enabled="true" ExpressionL="${l:Ex7d_4_InnerRedθ.size}" ExpressionTypeL="String" ExpressionR="2" ExpressionTypeR="String" ConditionType="StringEqualCase" />
+                                    </Condition>
+                                  </Action>
+                                  <Action OrderNumber="3" ListVariableExpressionType="Numeric" LogMessageText="Ex7d_4:θ:${v:Ex7d_4_θ}" LogProcess="True" LogProcessACT="True" ActionType="LogMessage" Asynchronous="False">
+                                    <Condition Enabled="true" Grouping="Or">
+                                      <ConditionSingle Enabled="true" ExpressionL="${l:Ex7d_4_InnerRedθ.size}" ExpressionTypeL="String" ExpressionR="2" ExpressionTypeR="String" ConditionType="StringEqualCase" />
+                                    </Condition>
+                                  </Action>
+                                </Actions>
+                                <Condition Enabled="true" Grouping="Or">
+                                  <ConditionSingle Enabled="true" ExpressionL="${v:Ex7d_phase}" ExpressionTypeL="String" ExpressionR="${env:phase}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                                </Condition>
+                              </Trigger>
+                              <Trigger Enabled="true" Name="O1." Id="db637356-cd79-45af-94ef-b1ba58bb9b65" RegularExpression="^Ex7d_4:θ:(?&lt;θ&gt;[^:]*)">
+                                <Actions>
+                                  <Action OrderNumber="1" ActionType="Placeholder" Asynchronous="False" Description="θ is the angle of the initial spread side. add your logic" DescriptionOverride="True" />
+                                  <Action OrderNumber="2" ActionType="Placeholder" ExecutionDelayExpression="13600" />
+                                  <Action OrderNumber="3" UseTTSTextExpression="stack" ActionType="UseTTS" />
+                                  <Action OrderNumber="4" ActionType="Placeholder" ExecutionDelayExpression="8000" />
+                                  <Action OrderNumber="5" />
+                                  <Action OrderNumber="6" UseTTSTextExpression="break tether" ActionType="UseTTS" />
+                                </Actions>
+                              </Trigger>
+                            </Triggers>
+                          </Folder>
+                          <Folder Id="bd2b8237-4750-41ba-82f5-eab490ec18b8" Name="E. Bloom 3" Enabled="true" RawEnvironmentVariables="phase = 3">
+                            <Folders />
+                            <Triggers>
+                              <Trigger Enabled="true" Name="0. Init" Id="0ec3f6a8-ba30-4c32-80c3-8eb8f75ec864" RegularExpression="^.{15}\S+ 14:4.{7}:[^:]*:AA15:">
+                                <Actions>
+                                  <Action OrderNumber="1" VariableOp="SetString" VariableName="Ex7d_phase" VariableExpression="${env:phase}" ActionType="Variable" />
+                                  <Action OrderNumber="2" VariableOp="UnsetRegexUniversal" VariableName="^Ex7d_3" ActionType="Variable" />
+                                </Actions>
+                              </Trigger>
+                              <Trigger Enabled="true" Name="1. MapEffect =&gt; O1" Id="39bff514-4583-42e4-81a5-77b8665026b5" RegularExpression="^.{15}\S+ 101:[^:]*:01000040:(?&lt;loc&gt;0[456789AB])">
+                                <Actions>
+                                  <Action OrderNumber="1" ListVariableOp="Push" ListVariableExpressionType="Numeric" ListVariableName="Ex7d_3_InnerRedθ" ListVariableExpression="dir2rad(11 - 0x${loc}, -8)" ActionType="ListVariable" Asynchronous="False" />
+                                  <Action OrderNumber="2" ListVariableExpressionType="Numeric" VariableOp="SetNumeric" VariableName="Ex7d_3_θ" VariableExpression="${l:Ex7d_3_InnerRedθ[1]} + relθ(${l:Ex7d_3_InnerRedθ[1]}, ${l:Ex7d_3_InnerRedθ[2]}) / 2" ActionType="Variable" Asynchronous="False">
+                                    <Condition Enabled="true" Grouping="Or">
+                                      <ConditionSingle Enabled="true" ExpressionL="${l:Ex7d_3_InnerRedθ.size}" ExpressionTypeL="String" ExpressionR="2" ExpressionTypeR="String" ConditionType="StringEqualCase" />
+                                    </Condition>
+                                  </Action>
+                                  <Action OrderNumber="3" ListVariableExpressionType="Numeric" LogMessageText="Ex7d_3:θ:${v:Ex7d_3_θ}" LogProcess="True" LogProcessACT="True" ActionType="LogMessage" Asynchronous="False">
+                                    <Condition Enabled="true" Grouping="Or">
+                                      <ConditionSingle Enabled="true" ExpressionL="${l:Ex7d_3_InnerRedθ.size}" ExpressionTypeL="String" ExpressionR="2" ExpressionTypeR="String" ConditionType="StringEqualCase" />
+                                    </Condition>
+                                  </Action>
+                                </Actions>
+                                <Condition Enabled="true" Grouping="Or">
+                                  <ConditionSingle Enabled="true" ExpressionL="${v:Ex7d_phase}" ExpressionTypeL="String" ExpressionR="${env:phase}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                                </Condition>
+                              </Trigger>
+                              <Trigger Enabled="true" Name="O1. " Id="f5641f68-8ff8-4012-8884-26a6fab7fde6" RegularExpression="^Ex7d_3:θ:(?&lt;θ&gt;[^:]*)">
+                                <Actions>
+                                  <Action OrderNumber="1" ActionType="Placeholder" Asynchronous="False" Description="θ is the angle of MT/D1's grey tile. add your logic" DescriptionOverride="True" />
+                                </Actions>
+                              </Trigger>
+                            </Triggers>
+                          </Folder>
+                        </Folders>
+                        <Triggers />
+                      </Folder>
+                    </Folders>
+                    <Triggers>
+                      <Trigger Enabled="true" Name="Delete variables" Id="833d3d42-f955-4f88-b690-36f8b1c4ed8e" RegularExpression="^.{15}\S+ 01:">
+                        <Actions>
+                          <Action OrderNumber="1" VariableOp="UnsetRegexUniversal" VariableName="^Ex7d" ActionType="Variable">
+                            <Condition Enabled="true" Grouping="Or">
+                              <ConditionSingle Enabled="true" ExpressionL="${ev:Ex7d_flag}" ExpressionTypeL="String" ExpressionR="1" ExpressionTypeR="String" ConditionType="StringEqualCase" />
+                            </Condition>
+                          </Action>
+                        </Actions>
                       </Trigger>
                     </Triggers>
                   </Folder>
