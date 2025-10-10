@@ -136,66 +136,6 @@
           <Folder Enabled="true" Name="6.31 - The Omega Protocol" Id="ef4c528c-8448-8319-adaf-cb35b85c3d60">
             <Triggers />
             <Folders>
-              <Folder Enabled="false" Name="Top Playstation HeadMarker Callout (by fruct1s)" Id="6c5b8bcc-61af-a7cb-2ac9-c3051c50845f">
-                <Triggers />
-                <Folders>
-                  <Folder Id="34e484ce-d61a-4f1d-9919-8470cc21542b" Name="PlayStation TOP" Enabled="true">
-                    <Folders />
-                    <Triggers>
-                      <Trigger Enabled="true" Source="FFXIVNetwork" Name="HeadCounterReset" Id="788d0f3b-cdcb-4a26-bca2-4da0343fb5b5" RegularExpression="^33\|[^|]*\|[A-F0-9]{8}\|4000000[3F]\|">
-                        <Actions>
-                          <Action OrderNumber="1" ListVariableName="HeadCounterName" VariableName="PS1HM" ActionType="Variable">
-                            <Condition Enabled="false" Grouping="Or" />
-                          </Action>
-                          <Action OrderNumber="2" VariableName="PS1HMoffset" ActionType="Variable">
-                            <Condition Enabled="false" Grouping="Or" />
-                          </Action>
-                        </Actions>
-                        <Condition Enabled="false" Grouping="Or" />
-                        <Conditions />
-                      </Trigger>
-                      <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" Name="HeadMarker" Id="f2c75372-c5f2-49f7-89fb-8a74170f3a6c" RegularExpression="^27\|[^|]*\|[^|]*\|(?&lt;name&gt;[^|]*)\|[^|]*\|[^|]*\|(?&lt;ID&gt;[0-9A-F]{4})\|" MutexToCapture="TOPHeadMarker">
-                        <Actions>
-                          <Action OrderNumber="1" VariableOp="SetNumeric" VariableName="PS1HMoffset" VariableExpression="hex2dec(${ID})-23" ActionType="Variable" Asynchronous="False">
-                            <Condition Enabled="true" Grouping="Or">
-                              <ConditionSingle Enabled="true" ExpressionL="${evar:PS1HMoffset}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                            </Condition>
-                          </Action>
-                          <Action OrderNumber="2" VariableOp="SetString" VariableName="PS1HM" VariableExpression="${func:dec2hex:${numeric:(hex2dec(${ID})-${var:PS1HMoffset})}}" ActionType="Variable" Asynchronous="False">
-                            <Condition Enabled="false" Grouping="Or" />
-                          </Action>
-                          <Action OrderNumber="3" UseTTSTextExpression="Circle" ActionType="UseTTS" Asynchronous="False">
-                            <Condition Enabled="true" Grouping="And">
-                              <ConditionSingle Enabled="true" ExpressionL="1A0" ExpressionTypeL="String" ExpressionR="${var:PS1HM}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                              <ConditionSingle Enabled="true" ExpressionL="${name}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                            </Condition>
-                          </Action>
-                          <Action OrderNumber="4" UseTTSTextExpression="Triangle" ActionType="UseTTS" Asynchronous="False">
-                            <Condition Enabled="true" Grouping="And">
-                              <ConditionSingle Enabled="true" ExpressionL="1A1" ExpressionTypeL="String" ExpressionR="${var:PS1HM}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                              <ConditionSingle Enabled="true" ExpressionL="${name}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                            </Condition>
-                          </Action>
-                          <Action OrderNumber="5" UseTTSTextExpression="Square" ActionType="UseTTS" Asynchronous="False">
-                            <Condition Enabled="true" Grouping="And">
-                              <ConditionSingle Enabled="true" ExpressionL="1A2" ExpressionTypeL="String" ExpressionR="${var:PS1HM}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                              <ConditionSingle Enabled="true" ExpressionL="${name}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                            </Condition>
-                          </Action>
-                          <Action OrderNumber="6" UseTTSTextExpression="X" ActionType="UseTTS" Asynchronous="False">
-                            <Condition Enabled="true" Grouping="And">
-                              <ConditionSingle Enabled="true" ExpressionL="1A3" ExpressionTypeL="String" ExpressionR="${var:PS1HM}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                              <ConditionSingle Enabled="true" ExpressionL="${name}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                            </Condition>
-                          </Action>
-                        </Actions>
-                        <Condition Enabled="false" Grouping="Or" />
-                        <Conditions />
-                      </Trigger>
-                    </Triggers>
-                  </Folder>
-                </Folders>
-              </Folder>
               <Folder Enabled="false" Name="TOP P1 Pantokrator CW/CCW rotate callout (by umichan)" Id="07d6e288-1f1f-1485-d258-1fba8b278c3a">
                 <Triggers />
                 <Folders>
@@ -1301,7 +1241,7 @@
                   </Folder>
                 </Folders>
               </Folder>
-              <Folder Enabled="false" Name="FRU Full Fight (P1-5) (by sa.ble)" Id="9ad1dcdc-7b44-edde-004e-b82afd0d5d42">
+              <Folder Enabled="false" Name="FRU Full Fight (P1-5) (by cheesebites9433)" Id="330e6149-d6a2-1b51-5450-65b6e50e1af4">
                 <Triggers />
                 <Folders>
                   <Folder Id="162392d1-72a2-45d4-b036-76276518c59a" Name="FRU" Enabled="true">
@@ -7295,6 +7235,72 @@
                   </Folder>
                 </Folders>
               </Folder>
+              <Folder Enabled="false" Name="FT Magitaur Triggers (by holotales)" Id="a6e39c2b-3728-e0c5-93ce-e929b1e80e52">
+                <Triggers />
+                <Folders>
+                  <Folder Id="5ed8ad01-c3cc-4010-b3b3-bbfba0c5e525" Name="Magitaur Network" Enabled="true">
+                    <Folders />
+                    <Triggers>
+                      <Trigger Enabled="true" Source="FFXIVNetwork" Name="Unseal Tanks In" Id="0cab1c37-6a79-4420-b256-820928c74f9e" RegularExpression="^20\|[^|]*\|[^|]*\|[^|]*\|A241\|">
+                        <Actions>
+                          <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Tanks In" ActionType="UseTTS">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                        </Actions>
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Trigger>
+                      <Trigger Enabled="true" Source="FFXIVNetwork" Name="Unseal Tanks Out" Id="4867e0bd-e4af-47e4-a9f1-8945c29e75fb" RegularExpression="^20\|[^|]*\|[^|]*\|[^|]*\|A242\|">
+                        <Actions>
+                          <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Tanks out" ActionType="UseTTS">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                        </Actions>
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Trigger>
+                      <Trigger Enabled="true" Source="FFXIVNetwork" Name="Critical Lanceblow" Id="3ddd5b1c-0761-49b3-a05d-26146b62e262" RegularExpression="^20\|[^|]*\|[^|]*\|[^|]*\|A24B\|">
+                        <Actions>
+                          <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="In and off" ActionType="UseTTS">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                        </Actions>
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Trigger>
+                      <Trigger Enabled="true" Source="FFXIVNetwork" Name="Critical Axeblow" Id="32a999b6-c3ac-42ff-83dd-13d5a4289351" RegularExpression="^20\|[^|]*\|[^|]*\|[^|]*\|A247\|">
+                        <Actions>
+                          <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="out and on platform" ActionType="UseTTS">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                        </Actions>
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Trigger>
+                      <Trigger Enabled="true" Source="FFXIVNetwork" Name="Forked fury tb" Id="2f53ca37-fb10-4cb9-b7ba-dddd55787ac9" RegularExpression="^20\|[^|]*\|[^|]*\|[^|]*\|A265\|">
+                        <Actions>
+                          <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="near far tb" ActionType="UseTTS">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                        </Actions>
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Trigger>
+                      <Trigger Enabled="true" Source="FFXIVNetwork" Name="Aura burst raidwide" Id="d950fe52-55a8-4600-b35a-ac1fc951fc37" RegularExpression="^20\|[^|]*\|[^|]*\|[^|]*\|A25A\|">
+                        <Actions>
+                          <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="canisters then raidwide" ActionType="UseTTS">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                        </Actions>
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Trigger>
+                      <Trigger Enabled="true" Source="FFXIVNetwork" Name="Unsealed Aura" Id="a95ee47b-5f8b-4dad-a49d-b9fb5dfcb83b" RegularExpression="^20\|[^|]*\|[^|]*\|[^|]*\|A264\|">
+                        <Actions>
+                          <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="raidwide" ActionType="UseTTS">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                        </Actions>
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Trigger>
+                    </Triggers>
+                  </Folder>
+                </Folders>
+              </Folder>
             </Folders>
           </Folder>
         </Folders>
@@ -8004,64 +8010,6 @@
                               </Action>
                             </Actions>
                             <Condition Enabled="false" Grouping="Or" />
-                          </Trigger>
-                        </Triggers>
-                      </Folder>
-                    </Folders>
-                  </Folder>
-                  <Folder Enabled="false" Name="p12 p2 (by holotales)" Id="bd7f9abb-0154-f2eb-2296-6ae15127497f">
-                    <Triggers />
-                    <Folders>
-                      <Folder Id="360c2e7b-f347-4836-88bc-7bb878515cce" Name="Dark and Light Tilts (incl. p2)" Enabled="true">
-                        <Folders />
-                        <Triggers>
-                          <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" Name="Dark Debuff Adjust" Id="2d4839a6-9b4a-48fc-a3be-c39ea03a54db" RegularExpression="^26\|[^|]*\|DF9\|[^|]*\|(?&lt;debufftimer&gt;[^|]*)\|[^|]*\|[^|]*\|[^|]*\|(?&lt;name&gt;[^|]*)\|">
-                            <Actions>
-                              <Action OrderNumber="1" UseTTSTextExpression="Short dark tilt" ActionType="UseTTS">
-                                <Condition Enabled="true" Grouping="Or">
-                                  <ConditionSingle Enabled="true" ExpressionL="${debufftimer}" ExpressionTypeL="String" ExpressionR="16.00" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                                </Condition>
-                              </Action>
-                              <Action OrderNumber="1" UseTTSTextExpression="Long dark tilt" ActionType="UseTTS">
-                                <Condition Enabled="true" Grouping="Or">
-                                  <ConditionSingle Enabled="true" ExpressionL="${debufftimer}" ExpressionTypeL="String" ExpressionR="20.00" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                                </Condition>
-                              </Action>
-                              <Action OrderNumber="3" UseTTSTextExpression="dark tilt" ActionType="UseTTS">
-                                <Condition Enabled="true" Grouping="And">
-                                  <ConditionSingle Enabled="true" ExpressionL="${debufftimer}" ExpressionTypeL="String" ExpressionR="16.00" ExpressionTypeR="String" ConditionType="StringNotEqualNocase" />
-                                  <ConditionSingle Enabled="true" ExpressionL="${debufftimer}" ExpressionTypeL="String" ExpressionR="20.00" ExpressionTypeR="String" ConditionType="StringNotEqualNocase" />
-                                </Condition>
-                              </Action>
-                            </Actions>
-                            <Condition Enabled="true" Grouping="Or">
-                              <ConditionSingle Enabled="true" ExpressionL="${name}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                            </Condition>
-                            <Conditions />
-                          </Trigger>
-                          <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" Name="Light Debuff Adjust" Id="38b68d4d-1599-469b-ae56-6af98fce008f" RegularExpression="^26\|[^|]*\|DF8\|[^|]*\|(?&lt;debufftimer&gt;[^|]*)\|[^|]*\|[^|]*\|[^|]*\|(?&lt;name&gt;[^|]*)\|">
-                            <Actions>
-                              <Action OrderNumber="1" UseTTSTextExpression="Short Light tilt" ActionType="UseTTS">
-                                <Condition Enabled="true" Grouping="Or">
-                                  <ConditionSingle Enabled="true" ExpressionL="${debufftimer}" ExpressionTypeL="String" ExpressionR="16.00" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                                </Condition>
-                              </Action>
-                              <Action OrderNumber="1" UseTTSTextExpression="Long light tilt" ActionType="UseTTS">
-                                <Condition Enabled="true" Grouping="Or">
-                                  <ConditionSingle Enabled="true" ExpressionL="${debufftimer}" ExpressionTypeL="String" ExpressionR="20.00" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                                </Condition>
-                              </Action>
-                              <Action OrderNumber="3" UseTTSTextExpression="light tilt" ActionType="UseTTS">
-                                <Condition Enabled="true" Grouping="And">
-                                  <ConditionSingle Enabled="true" ExpressionL="${debufftimer}" ExpressionTypeL="String" ExpressionR="16.00" ExpressionTypeR="String" ConditionType="StringNotEqualNocase" />
-                                  <ConditionSingle Enabled="true" ExpressionL="${debufftimer}" ExpressionTypeL="String" ExpressionR="20.00" ExpressionTypeR="String" ConditionType="StringNotEqualNocase" />
-                                </Condition>
-                              </Action>
-                            </Actions>
-                            <Condition Enabled="true" Grouping="Or">
-                              <ConditionSingle Enabled="true" ExpressionL="${name}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                            </Condition>
-                            <Conditions />
                           </Trigger>
                         </Triggers>
                       </Folder>
