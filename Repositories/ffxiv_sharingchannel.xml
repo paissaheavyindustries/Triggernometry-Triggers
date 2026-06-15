@@ -3622,6 +3622,238 @@
                   </Folder>
                 </Folders>
               </Folder>
+              <Folder Enabled="false" Name="P2 Forsaken Triggers (by frozenyogrt)" Id="d45d6516-78bb-edfa-b5bf-41eaea747451">
+                <Triggers />
+                <Folders>
+                  <Folder Id="ee3bcc51-71bb-4293-ab3c-07978b5e5a33" Name="Forsaken Future" Enabled="true">
+                    <Folders />
+                    <Triggers>
+                      <Trigger Enabled="true" Source="FFXIVNetwork" Name="DMU P2 - Store Past's End" Id="875aaafe-7c33-4ee7-800c-0d9cc23ace59" RegularExpression="^00\|[^|]*\|[^|]*\|\|Kefka readies Past's End\.">
+                        <Actions>
+                          <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Past stored" ActionType="UseTTS">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                          <Action OrderNumber="2" ListVariableOp="Insert" ListVariableName="endingType" ListVariableExpression="PAST" ListVariableIndex="0" SoundRouting="None" TTSRouting="None" ActionType="ListVariable">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                          <Action OrderNumber="3" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Bait between towers" ActionType="UseTTS" ExecutionDelayExpression="4000">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                        </Actions>
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Trigger>
+                      <Trigger Enabled="true" Source="FFXIVNetwork" Name="DMU P2 - Store Future's End" Id="a28966de-9350-40f6-9ab7-2f744a2b881c" RegularExpression="^00\|[^|]*\|[^|]*\|\|Kefka readies Future's End\.">
+                        <Actions>
+                          <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Future stored" ActionType="UseTTS">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                          <Action OrderNumber="2" ListVariableOp="Insert" ListVariableName="endingType" ListVariableExpression="FUTURE" ListVariableIndex="0" SoundRouting="None" TTSRouting="None" ActionType="ListVariable">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                          <Action OrderNumber="3" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Bait opposite towers" ActionType="UseTTS" ExecutionDelayExpression="4000">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                        </Actions>
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Trigger>
+                      <Trigger Enabled="true" Source="FFXIVNetwork" Name="DMU P2 - All Things Ending - Past" Id="d47c60d3-84bc-4d0e-bbe4-0b02aa1453ec" RegularExpression="^00\|[^|]*\|[^|]*\|\|Kefka readies All Things Ending\.">
+                        <Actions>
+                          <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Resolve Odd Tower Lineup" ActionType="UseTTS">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                        </Actions>
+                        <Condition Enabled="true" Grouping="Or">
+                          <ConditionSingle Enabled="true" ExpressionL="${endingType[0]}" ExpressionTypeL="String" ExpressionR="PAST" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                        </Condition>
+                      </Trigger>
+                      <Trigger Enabled="true" Source="FFXIVNetwork" Name="DMU P2 - All Things Ending - Future" Id="0ca8fc64-d3fd-4104-a3f7-76719814f860" RegularExpression="^00\|[^|]*\|[^|]*\|\|Kefka readies All Things Ending\.">
+                        <Actions>
+                          <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="All south for ODD towers" ActionType="UseTTS">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                        </Actions>
+                        <Condition Enabled="true" Grouping="Or">
+                          <ConditionSingle Enabled="true" ExpressionL="${endingType[0]}" ExpressionTypeL="String" ExpressionR="FUTURE" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                        </Condition>
+                      </Trigger>
+                    </Triggers>
+                  </Folder>
+                </Folders>
+              </Folder>
+              <Folder Enabled="false" Name="UMAD P4 Kefka Says (by holotales)" Id="4676d06a-c225-6f47-33c1-0e2a7c255f35">
+                <Triggers />
+                <Folders>
+                  <Folder Id="d6c0af22-7bbb-4807-9d65-eecdd9f1651b" Name="P4" Enabled="true">
+                    <Folders />
+                    <Triggers>
+                      <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" Name="Shriek" Id="d9a45677-2216-4d88-a06d-5bed881ee4e4" RegularExpression="^26\|[^|]*\|(15A7)\|[^|]*\|(?&lt;debufftimer&gt;[^|]*)\|[^|]*\|[^|]*\|[^|]*\|(?&lt;name&gt;[^|]*)\|" PeriodRefire="Deny" RefirePeriodExpression="1000" EditAutofireAllowCondition="True">
+                        <Actions>
+                          <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" VariableOp="SetString" VariableName="${_event}-shriek" VariableExpression="${var:exdeath-shriek}" ActionType="Variable">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                          <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="${var:${_event}-shriek}" ActionType="UseTTS" ExecutionDelayExpression="${numeric:${numeric:${debufftimer}*1000}-8000}">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                        </Actions>
+                        <Condition Enabled="false" Grouping="And">
+                          <ConditionSingle Enabled="true" ExpressionL="${name}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                          <ConditionSingle Enabled="true" ExpressionL="${debufftimer}" ExpressionTypeL="String" ExpressionR="20.00" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                        </Condition>
+                      </Trigger>
+                      <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" Name="Fire Place" Id="0dd65abf-1457-4521-96c8-bb5c1ef86702" RegularExpression="^26\|[^|]*\|(15AB)\|[^|]*\|(?&lt;debufftimer&gt;[^|]*)\|[^|]*\|[^|]*\|[^|]*\|(?&lt;name&gt;[^|]*)\|" PeriodRefire="Deny" RefirePeriodExpression="1000" EditAutofireAllowCondition="True">
+                        <Actions>
+                          <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" VariableOp="SetString" VariableName="${_event}-fire" VariableExpression="${var:chaos-fire-type}" ActionType="Variable">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                          <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="${var:${_event}-fire}" ActionType="UseTTS" ExecutionDelayExpression="${numeric:${numeric:${debufftimer}*1000}-8000}">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                        </Actions>
+                        <Condition Enabled="false" Grouping="And">
+                          <ConditionSingle Enabled="true" ExpressionL="${name}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                          <ConditionSingle Enabled="true" ExpressionL="${debufftimer}" ExpressionTypeL="String" ExpressionR="20.00" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                        </Condition>
+                      </Trigger>
+                      <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" Name="Spread stack" Id="2c7efca5-c439-4b6d-b3c5-8ded89b12ad7" RegularExpression="^26\|[^|]*\|(15A9)\|[^|]*\|(?&lt;debufftimer&gt;[^|]*)\|[^|]*\|[^|]*\|[^|]*\|(?&lt;name&gt;[^|]*)\|" PeriodRefire="Deny" RefirePeriodExpression="1000" EditAutofireAllowCondition="True">
+                        <Actions>
+                          <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" VariableOp="SetString" VariableName="${_event}-stack" VariableExpression="${var:exdeath-type} stack spread" ActionType="Variable">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                          <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="${var:${_event}-stack}" ActionType="UseTTS" ExecutionDelayExpression="${numeric:${numeric:${debufftimer}*1000}-8000}">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                        </Actions>
+                        <Condition Enabled="false" Grouping="And">
+                          <ConditionSingle Enabled="true" ExpressionL="${name}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                          <ConditionSingle Enabled="true" ExpressionL="${debufftimer}" ExpressionTypeL="String" ExpressionR="20.00" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                        </Condition>
+                      </Trigger>
+                      <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" Name="Dynamic Fluid" Id="8709f739-ea1a-4bf4-86cc-fd7f11a8f8c1" RegularExpression="^26\|[^|]*\|(15AC)\|[^|]*\|(?&lt;debufftimer&gt;[^|]*)\|[^|]*\|[^|]*\|[^|]*\|(?&lt;name&gt;[^|]*)\|" PeriodRefire="Deny" RefirePeriodExpression="1000" EditAutofireAllowCondition="True">
+                        <Actions>
+                          <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" VariableOp="SetString" VariableName="${_event}-fluid" VariableExpression="${var:chaos-water-type}" ActionType="Variable">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                          <Action OrderNumber="2" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="${var:${_event}-fluid}" ActionType="UseTTS" ExecutionDelayExpression="${numeric:${numeric:${debufftimer}*1000}-8000}">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                        </Actions>
+                        <Condition Enabled="false" Grouping="And">
+                          <ConditionSingle Enabled="true" ExpressionL="${name}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                          <ConditionSingle Enabled="true" ExpressionL="${debufftimer}" ExpressionTypeL="String" ExpressionR="20.00" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                        </Condition>
+                      </Trigger>
+                      <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" Name="Accel Bomb" Id="2f1537ed-faf8-41e0-b558-5955a860d20a" RegularExpression="^26\|[^|]*\|(15AA)\|[^|]*\|(?&lt;debufftimer&gt;[^|]*)\|[^|]*\|[^|]*\|[^|]*\|(?&lt;name&gt;[^|]*)\|" PeriodRefire="Deny" RefirePeriodExpression="1000" EditAutofireAllowCondition="True">
+                        <Actions>
+                          <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" VariableOp="SetString" VariableName="${_event}-accel" VariableExpression="${var:exdeath-accel}" ActionType="Variable">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                          <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="${var:${_event}-accel}" ActionType="UseTTS" ExecutionDelayExpression="${numeric:${numeric:${debufftimer}*1000}-4000}">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                        </Actions>
+                        <Condition Enabled="true" Grouping="And">
+                          <ConditionSingle Enabled="true" ExpressionL="${name}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                          <ConditionSingle Enabled="false" ExpressionL="${debufftimer}" ExpressionTypeL="String" ExpressionR="20.00" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                        </Condition>
+                      </Trigger>
+                      <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" Name="Exdeath Fake Cross" Id="47b31e3b-f6bf-4262-b44e-27e5c8ab18d4" RegularExpression="^26\|[^|]*\|(808)\|[^|]*\|(?&lt;debufftimer&gt;[^|]*)\|[^|]*\|[^|]*\|[^|]*\|(Neo Exdeath)\|461" PeriodRefire="Deny" RefirePeriodExpression="1000" EditAutofireAllowCondition="True">
+                        <Actions>
+                          <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Exdeath FAKE" ActionType="UseTTS">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                          <Action OrderNumber="2" SoundRouting="None" TTSRouting="None" VariableOp="SetString" VariableName="exdeath-type" VariableExpression="fake" ActionType="Variable">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                          <Action OrderNumber="3" SoundRouting="None" TTSRouting="None" VariableOp="SetString" VariableName="exdeath-accel" VariableExpression="move" ActionType="Variable">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                          <Action OrderNumber="4" SoundRouting="None" TTSRouting="None" VariableOp="SetString" VariableName="exdeath-shriek" VariableExpression="look at gaze" ActionType="Variable">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                        </Actions>
+                        <Condition Enabled="false" Grouping="And">
+                          <ConditionSingle Enabled="true" ExpressionL="${name}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                          <ConditionSingle Enabled="true" ExpressionL="${debufftimer}" ExpressionTypeL="String" ExpressionR="20.00" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                        </Condition>
+                      </Trigger>
+                      <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" Name="Exdeath Real Cross" Id="460bdbbf-9b2c-484d-9cd7-8a8a2a143203" RegularExpression="^26\|[^|]*\|(808)\|[^|]*\|(?&lt;debufftimer&gt;[^|]*)\|[^|]*\|[^|]*\|[^|]*\|(Neo Exdeath)\|462" PeriodRefire="Deny" RefirePeriodExpression="1000" EditAutofireAllowCondition="True">
+                        <Actions>
+                          <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Exdeath Real" ActionType="UseTTS">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                          <Action OrderNumber="2" SoundRouting="None" TTSRouting="None" VariableOp="SetString" VariableName="exdeath-type" VariableExpression="real" ActionType="Variable">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                          <Action OrderNumber="3" SoundRouting="None" TTSRouting="None" VariableOp="SetString" VariableName="exdeath-accel" VariableExpression="stop moving" ActionType="Variable">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                          <Action OrderNumber="4" SoundRouting="None" TTSRouting="None" VariableOp="SetString" VariableName="exdeath-shriek" VariableExpression="look away from gaze" ActionType="Variable">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                        </Actions>
+                        <Condition Enabled="false" Grouping="And">
+                          <ConditionSingle Enabled="true" ExpressionL="${name}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                          <ConditionSingle Enabled="true" ExpressionL="${debufftimer}" ExpressionTypeL="String" ExpressionR="20.00" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                        </Condition>
+                      </Trigger>
+                      <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" Name="Chaos Real" Id="94bfed74-e167-4496-8fc0-0869c852be10" RegularExpression="^26\|[^|]*\|(808)\|[^|]*\|(?&lt;debufftimer&gt;[^|]*)\|[^|]*\|[^|]*\|[^|]*\|(Chaos)\|460" PeriodRefire="Deny" RefirePeriodExpression="1000" EditAutofireAllowCondition="True">
+                        <Actions>
+                          <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Chaos Real" ActionType="UseTTS">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                          <Action OrderNumber="2" SoundRouting="None" TTSRouting="None" VariableOp="SetString" VariableName="chaos-type" VariableExpression="real" ActionType="Variable">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                          <Action OrderNumber="3" SoundRouting="None" TTSRouting="None" VariableOp="SetString" VariableName="chaos-fire-type" VariableExpression="middle bait then out" ActionType="Variable">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                          <Action OrderNumber="4" SoundRouting="None" TTSRouting="None" VariableOp="SetString" VariableName="chaos-water-type" VariableExpression="middle bait and stay" ActionType="Variable">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                        </Actions>
+                        <Condition Enabled="false" Grouping="And">
+                          <ConditionSingle Enabled="true" ExpressionL="${name}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                          <ConditionSingle Enabled="true" ExpressionL="${debufftimer}" ExpressionTypeL="String" ExpressionR="20.00" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                        </Condition>
+                      </Trigger>
+                      <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" Name="Chaos Fake" Id="7c8168bd-04a2-4c78-9188-4fd3ef44ea41" RegularExpression="^26\|[^|]*\|(808)\|[^|]*\|(?&lt;debufftimer&gt;[^|]*)\|[^|]*\|[^|]*\|[^|]*\|(Chaos)\|45F" PeriodRefire="Deny" RefirePeriodExpression="1000" EditAutofireAllowCondition="True">
+                        <Actions>
+                          <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Chaos Fake" ActionType="UseTTS">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                          <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" VariableOp="SetString" VariableName="chaos-fire-type" VariableExpression="middle bait then in" ActionType="Variable">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                          <Action OrderNumber="2" SoundRouting="None" TTSRouting="None" VariableOp="SetString" VariableName="chaos-type" VariableExpression="fake" ActionType="Variable">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                          <Action OrderNumber="2" SoundRouting="None" TTSRouting="None" VariableOp="SetString" VariableName="chaos-water-type" VariableExpression="middle bait then out" ActionType="Variable">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                        </Actions>
+                        <Condition Enabled="false" Grouping="And">
+                          <ConditionSingle Enabled="true" ExpressionL="${name}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                          <ConditionSingle Enabled="true" ExpressionL="${debufftimer}" ExpressionTypeL="String" ExpressionR="20.00" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                        </Condition>
+                      </Trigger>
+                      <Trigger Enabled="false" Source="FFXIVNetwork" Sequential="True" Name="TEST" Id="5e80186b-073f-413a-85fe-2238dbc1f391" RegularExpression="^26\|[^|]*\|(4BB)\|[^|]*\|(?&lt;debufftimer&gt;[^|]*)\|[^|]*\|[^|]*\|[^|]*\|(?&lt;name&gt;[^|]*)\|" DebugLevel="Verbose" PeriodRefire="Deny" RefirePeriodExpression="1000" EditAutofireAllowCondition="True">
+                        <Actions>
+                          <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" VariableOp="SetString" VariableName="${_event}-shriek" VariableExpression="${var:exdeath-type} gaze" ActionType="Variable">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                          <Action OrderNumber="2" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="${var:${_event}-shriek}" ActionType="UseTTS" ExecutionDelayExpression="${numeric:${numeric:${debufftimer}*1000}-8000}">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                        </Actions>
+                        <Condition Enabled="false" Grouping="And">
+                          <ConditionSingle Enabled="true" ExpressionL="${name}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                          <ConditionSingle Enabled="true" ExpressionL="${debufftimer}" ExpressionTypeL="String" ExpressionR="20.00" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                        </Condition>
+                      </Trigger>
+                    </Triggers>
+                  </Folder>
+                </Folders>
+              </Folder>
             </Folders>
           </Folder>
         </Folders>
@@ -3629,187 +3861,37 @@
       <Folder Enabled="true" Name="Disciples of War &amp; Magic" Id="c9f2c154-c86f-71fc-d05c-19816fca0d1f">
         <Triggers />
         <Folders>
-          <Folder Enabled="false" Name="Summoner Bahamut / Phoenix GCD Tracker (by zeffuro)" Id="18c3ea8b-e3dc-24cd-a581-720c31f87c8a">
+          <Folder Enabled="false" Name="Dancer Spend Esprit Reminder (by zeffuro)" Id="154541da-2967-2532-8235-1cf3d8027d11">
             <Triggers />
             <Folders>
-              <Folder Id="2329a8b5-f581-44fa-b376-c8e70d88b830" Name="SMN Bahamut / Phoenix GCD Counter" Enabled="true">
+              <Folder FFXIVJobFilterEnabled="True" FFXIVJobFilter="137438953472" Id="fe22353f-7430-493e-872b-12e686fd3a17" Name="Esprit" Enabled="true">
                 <Folders />
                 <Triggers>
-                  <Trigger Enabled="true" Source="FFXIVNetwork" Name="Bahamut / Phoenix Used" Id="b0d66889-c29e-402c-b683-d6190c71433c" RegularExpression="^2[12]\|[^|]*\|[A-Z0-9]{8}\|(?&lt;player&gt;[^|]{2,31})\|(1D03|64E7)\|(?&lt;spell&gt;[^|]+)\|">
+                  <Trigger Enabled="true" Source="FFXIVNetwork" Name="Esprit 80" Id="849b6eb3-4397-491a-ba49-667a666e440f" RegularExpression="^31\|[^|]*\|(?&lt;playerID&gt;[^|]*)\|(?&lt;p1&gt;[^|]*)26\|(?&lt;p2&gt;[^|]*)\|">
                     <Actions>
-                      <Action OrderNumber="1" VariableOp="SetNumeric" VariableName="AvaSMNGCDTrackerActive" VariableExpression="1" ActionType="Variable">
+                      <Action OrderNumber="1" UseTTSTextExpression="Spend Espritt" ActionType="UseTTS">
                         <Condition Enabled="false" Grouping="Or" />
                       </Action>
-                      <Action OrderNumber="2" VariableOp="SetNumeric" VariableName="AvaSMNGCDTrackerCounter" VariableExpression="0" ActionType="Variable">
-                        <Condition Enabled="false" Grouping="Or" />
-                      </Action>
-                      <Action OrderNumber="3" TextAuraEffect="Bold" TextAuraFontSize="36" TextAuraName="AvaSMNGCDTrackerText" TextAuraExpression="${var:AvaSMNGCDTrackerCounter}" TextAuraXIniExpression="1454" TextAuraYIniExpression="430" TextAuraWIniExpression="95" TextAuraHIniExpression="89" TextAuraOIniExpression="100" TextAuraUseOutline="True" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura">
-                        <Condition Enabled="false" Grouping="Or" />
-                      </Action>
-                      <Action OrderNumber="4" TriggerId="85e25533-ffec-4ed3-b3b0-129cef53a1bd" TriggerForce="regexp,conditions" ActionType="Trigger" ExecutionDelayExpression="16000">
+                      <Action OrderNumber="2" VariableOp="SetNumeric" VariableName="ZeffEspritTracker80Reached" VariableExpression="1" ActionType="Variable">
                         <Condition Enabled="false" Grouping="Or" />
                       </Action>
                     </Actions>
                     <Condition Enabled="true" Grouping="And">
-                      <ConditionSingle Enabled="true" ExpressionL="${player}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualCase" />
+                      <ConditionSingle Enabled="true" ExpressionL="${func:hex2dec:${func:substring(2,2):${func:padleft(48,6):${p1}}}}" ExpressionTypeL="Numeric" ExpressionR="80" ExpressionTypeR="Numeric" ConditionType="NumericGreaterEqual" />
+                      <ConditionSingle Enabled="true" ExpressionL="${var:ZeffEspritTracker80Reached}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
                     </Condition>
+                    <Conditions />
                   </Trigger>
-                  <Trigger Enabled="true" Source="FFXIVNetwork" Name="GCD Counter" Id="aa13f88d-63bc-41d0-a101-22d62db92a67" RegularExpression="^2[12]\|[^|]*\|[A-Z0-9]{8}\|(?&lt;player&gt;[^|]{2,31})\|(64D[CD]|(408[23]))\|(?&lt;spell&gt;[^|]+)\|" PeriodRefire="Deny" RefirePeriodExpression="100">
+                  <Trigger Enabled="true" Source="FFXIVNetwork" Name="Esprit Reset" Id="d569492a-7cd4-483e-9f84-55242722bc8a" RegularExpression="^31\|[^|]*\|(?&lt;playerID&gt;[^|]*)\|(?&lt;p1&gt;[^|]*)26\|(?&lt;p2&gt;[^|]*)\|">
                     <Actions>
-                      <Action OrderNumber="1" VariableOp="SetNumeric" VariableName="AvaSMNGCDTrackerCounter" VariableExpression="${var:AvaSMNGCDTrackerCounter} + 1" ActionType="Variable">
-                        <Condition Enabled="false" Grouping="Or" />
-                      </Action>
-                      <Action OrderNumber="2" UseTTSTextExpression="${var:AvaSMNGCDTrackerCounter}" ActionType="UseTTS" ExecutionDelayExpression="100">
+                      <Action OrderNumber="1" VariableOp="SetNumeric" VariableName="ZeffEspritTracker80Reached" VariableExpression="0" ActionType="Variable">
                         <Condition Enabled="false" Grouping="Or" />
                       </Action>
                     </Actions>
                     <Condition Enabled="true" Grouping="And">
-                      <ConditionSingle Enabled="true" ExpressionL="${var:AvaSMNGCDTrackerActive}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                      <ConditionSingle Enabled="true" ExpressionL="${player}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualCase" />
+                      <ConditionSingle Enabled="true" ExpressionL="${func:hex2dec:${func:substring(2,2):${func:padleft(48,6):${p1}}}}" ExpressionTypeL="Numeric" ExpressionR="80" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
                     </Condition>
-                  </Trigger>
-                  <Trigger Enabled="true" Source="FFXIVNetwork" Name="Wipe Reset" Id="85e25533-ffec-4ed3-b3b0-129cef53a1bd" RegularExpression="^33\|[^|]*\|[A-F0-9]{8}\|4000000[3F]\|">
-                    <Actions>
-                      <Action OrderNumber="1" VariableOp="SetNumeric" VariableName="AvaSMNGCDTrackerActive" VariableExpression="0" ActionType="Variable">
-                        <Condition Enabled="false" Grouping="Or" />
-                      </Action>
-                      <Action OrderNumber="2" TextAuraOp="DeactivateAura" TextAuraEffect="Bold" TextAuraFontSize="36" TextAuraName="AvaSMNGCDTrackerText" TextAuraExpression="${var:AvaSMNGCDTrackerCounter}" TextAuraXIniExpression="1454" TextAuraYIniExpression="430" TextAuraWIniExpression="95" TextAuraHIniExpression="89" TextAuraOIniExpression="100" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura">
-                        <Condition Enabled="false" Grouping="Or" />
-                      </Action>
-                      <Action OrderNumber="3" VariableOp="SetNumeric" VariableName="AvaSMNGCDTrackerCounter" VariableExpression="0" ActionType="Variable">
-                        <Condition Enabled="false" Grouping="Or" />
-                      </Action>
-                    </Actions>
-                    <Condition Enabled="false" Grouping="Or" />
-                  </Trigger>
-                </Triggers>
-              </Folder>
-            </Folders>
-          </Folder>
-          <Folder Enabled="false" Name="Dancer Step Tracker (by ahosenpai)" Id="2b763a67-6015-258c-94c2-ede8caa9e17e">
-            <Triggers />
-            <Folders>
-              <Folder Id="674c37ce-ef55-4e24-92f2-e68aee453a14" Name="Dance Step Tracker" Enabled="true">
-                <Folders />
-                <Triggers>
-                  <Trigger Enabled="true" Sequential="True" Name="Zeff Step Tracker Reset" Id="dec76a90-080a-4d19-a656-19d752e3d983" RegularExpression="\[.{14}Gauge 1F:[A-F0-9]{8}:(?&lt;Step1&gt;[1-4]{0,1}?)?(?&lt;Esprit&gt;[A-F0-9]{0,2}?)?(?&lt;Feathers&gt;[0-4]{1,2})?26:(?&lt;StepsCombo&gt;[0-4]?)??(?&lt;Step4&gt;[0-4]{0,2}?)?(?&lt;Step3&gt;[0-4]{0,2}?)?(?&lt;Step2&gt;[0-4]{2}?):">
-                    <Actions>
-                      <Action OrderNumber="1" AuraOp="DeactivateAuraRegex" AuraName="ZeffStepTracker.*" ActionType="Aura">
-                        <Condition Enabled="false" Grouping="Or" />
-                      </Action>
-                      <Action OrderNumber="2" TextAuraOp="DeactivateAuraRegex" TextAuraFontSize="8.25" TextAuraName="ZeffStepTracker.*" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura">
-                        <Condition Enabled="false" Grouping="Or" />
-                      </Action>
-                    </Actions>
-                    <Condition Enabled="true" Grouping="And">
-                      <ConditionSingle Enabled="true" ExpressionL="${func:dec2hex:${Step2}}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="String" ConditionType="NumericEqual" />
-                    </Condition>
-                  </Trigger>
-                  <Trigger Enabled="true" Sequential="True" Name="Zeff Step Tracker" Id="e64868fb-c27e-4dc1-9b5e-fc6975b3eb74" RegularExpression="\[.{14}Gauge 1F:[A-F0-9]{8}:(?&lt;Step1&gt;[1-4]{0,1}?)?(?&lt;Esprit&gt;[A-F0-9]{0,2}?)?(?&lt;Feathers&gt;[0-4]{1,2})?26:(?&lt;StepsCombo&gt;[0-4]?)??(?&lt;Step4&gt;[0-4]{0,2}?)?(?&lt;Step3&gt;[0-4]{0,2}?)?(?&lt;Step2&gt;[0-4]{2}?):">
-                    <Actions>
-                      <Action OrderNumber="1" VariableOp="SetNumeric" VariableName="ZeffDanceTrackerX" VariableExpression="1180" ActionType="Variable">
-                        <Condition Enabled="false" Grouping="Or" />
-                      </Action>
-                      <Action OrderNumber="2" VariableOp="SetNumeric" VariableName="ZeffDanceTrackerY" VariableExpression="820" ActionType="Variable">
-                        <Condition Enabled="false" Grouping="Or" />
-                      </Action>
-                      <Action OrderNumber="3" VariableOp="SetNumeric" VariableName="ZeffDanceTrackerSpacing" VariableExpression="40" ActionType="Variable">
-                        <Condition Enabled="false" Grouping="Or" />
-                      </Action>
-                      <Action OrderNumber="4" AuraImageMode="StretchImage" AuraName="ZeffStepTrackerStep1" AuraImage="https://xivapi.com/i/003000/00345${numeric:4+${func:dec2hex:${Step1}}}_hr1.png" AuraXIniExpression="${var:ZeffDanceTrackerX} + 3" AuraYIniExpression="${var:ZeffDanceTrackerY} + 1" AuraWIniExpression="34" AuraHIniExpression="34" AuraOIniExpression="100" ActionType="Aura">
-                        <Condition Enabled="false" Grouping="Or" />
-                      </Action>
-                      <Action OrderNumber="5" AuraImageMode="StretchImage" AuraName="ZeffStepTrackerStep1Overlay" AuraImage="https://raw.githubusercontent.com/Zeffuro/ZeffUI/master/skins/material-dark/images/icon-overlay.png" AuraXIniExpression="${var:ZeffDanceTrackerX}" AuraYIniExpression="${var:ZeffDanceTrackerY}" AuraWIniExpression="40" AuraHIniExpression="40" AuraOIniExpression="100" ActionType="Aura">
-                        <Condition Enabled="false" Grouping="Or" />
-                      </Action>
-                      <Action OrderNumber="6" AuraImageMode="StretchImage" AuraName="ZeffStepTrackerStep1OverlayCombo" AuraImage="https://raw.githubusercontent.com/Zeffuro/ZeffUI/master/skins/default/images/combo.gif" AuraXIniExpression="${var:ZeffDanceTrackerX}" AuraYIniExpression="${var:ZeffDanceTrackerY}" AuraWIniExpression="38" AuraHIniExpression="38" AuraOIniExpression="100" ActionType="Aura">
-                        <Condition Enabled="false" Grouping="Or" />
-                      </Action>
-                      <Action OrderNumber="7" AuraOp="DeactivateAura" AuraImageMode="StretchImage" AuraName="ZeffStepTrackerStep1OverlayCombo" AuraImage="https://github.com/Zeffuro/ZeffUI/blob/f08d98941dd686ab06e3caaa7707857a8ca1e3bd/skins/default/images/combo.gif?raw=true" AuraXIniExpression="${var:ZeffDanceTrackerX}" AuraYIniExpression="${var:ZeffDanceTrackerY}" AuraWIniExpression="40" AuraHIniExpression="40" AuraOIniExpression="100" ActionType="Aura">
-                        <Condition Enabled="true" Grouping="And">
-                          <ConditionSingle Enabled="true" ExpressionL="${func:dec2hex:${StepsCombo}}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="String" ConditionType="NumericNotEqual" />
-                        </Condition>
-                      </Action>
-                      <Action OrderNumber="8" TextAuraEffect="Bold" TextAuraFontSize="14.25" TextAuraForeground="White" TextAuraOutline="Black" TextAuraName="ZeffStepTrackerStep1Text" TextAuraExpression="${func:dec2hex:${Step1}}" TextAuraXIniExpression="${var:ZeffDanceTrackerX}" TextAuraYIniExpression="${var:ZeffDanceTrackerY} - 4" TextAuraWIniExpression="40" TextAuraHIniExpression="40" TextAuraOIniExpression="100" TextAuraUseOutline="True" TextAuraFontName="Expressway Rg" ActionType="TextAura">
-                        <Condition Enabled="false" Grouping="Or" />
-                      </Action>
-                      <Action OrderNumber="9" AuraImageMode="StretchImage" AuraName="ZeffStepTrackerStep2" AuraImage="https://xivapi.com/i/003000/00345${numeric:4+${func:dec2hex:${Step2}}}_hr1.png" AuraXIniExpression="${var:ZeffDanceTrackerX} + ${var:ZeffDanceTrackerSpacing} + 3" AuraYIniExpression="${var:ZeffDanceTrackerY} + 1" AuraWIniExpression="34" AuraHIniExpression="34" AuraOIniExpression="100" ActionType="Aura">
-                        <Condition Enabled="false" Grouping="Or" />
-                      </Action>
-                      <Action OrderNumber="10" AuraImageMode="StretchImage" AuraName="ZeffStepTrackerStep2Overlay" AuraImage="https://raw.githubusercontent.com/Zeffuro/ZeffUI/master/skins/material-dark/images/icon-overlay.png" AuraXIniExpression="${var:ZeffDanceTrackerX} + ${var:ZeffDanceTrackerSpacing}" AuraYIniExpression="${var:ZeffDanceTrackerY}" AuraWIniExpression="40" AuraHIniExpression="40" AuraOIniExpression="100" ActionType="Aura">
-                        <Condition Enabled="false" Grouping="Or" />
-                      </Action>
-                      <Action OrderNumber="11" AuraImageMode="StretchImage" AuraName="ZeffStepTrackerStep2OverlayCombo" AuraImage="https://raw.githubusercontent.com/Zeffuro/ZeffUI/master/skins/default/images/combo.gif" AuraXIniExpression="${var:ZeffDanceTrackerX} + ${var:ZeffDanceTrackerSpacing}" AuraYIniExpression="${var:ZeffDanceTrackerY}" AuraWIniExpression="38" AuraHIniExpression="38" AuraOIniExpression="100" ActionType="Aura">
-                        <Condition Enabled="true" Grouping="And">
-                          <ConditionSingle Enabled="true" ExpressionL="${func:dec2hex:${StepsCombo}}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="String" ConditionType="NumericEqual" />
-                        </Condition>
-                      </Action>
-                      <Action OrderNumber="12" AuraOp="DeactivateAura" AuraImageMode="StretchImage" AuraName="ZeffStepTrackerStep2OverlayCombo" AuraImage="https://github.com/Zeffuro/ZeffUI/blob/f08d98941dd686ab06e3caaa7707857a8ca1e3bd/skins/default/images/combo.gif?raw=true" AuraXIniExpression="${var:ZeffDanceTrackerX}" AuraYIniExpression="${var:ZeffDanceTrackerY}" AuraWIniExpression="40" AuraHIniExpression="40" AuraOIniExpression="100" ActionType="Aura">
-                        <Condition Enabled="true" Grouping="And">
-                          <ConditionSingle Enabled="true" ExpressionL="${func:dec2hex:${StepsCombo}}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="String" ConditionType="NumericNotEqual" />
-                        </Condition>
-                      </Action>
-                      <Action OrderNumber="13" TextAuraEffect="Bold" TextAuraFontSize="14.25" TextAuraForeground="White" TextAuraOutline="Black" TextAuraName="ZeffStepTrackerStep2Text" TextAuraExpression="${func:dec2hex:${Step2}}" TextAuraXIniExpression="${var:ZeffDanceTrackerX} + ${var:ZeffDanceTrackerSpacing}" TextAuraYIniExpression="${var:ZeffDanceTrackerY} - 4" TextAuraWIniExpression="40" TextAuraHIniExpression="40" TextAuraOIniExpression="100" TextAuraUseOutline="True" TextAuraFontName="Expressway Rg" ActionType="TextAura">
-                        <Condition Enabled="false" Grouping="Or" />
-                      </Action>
-                      <Action OrderNumber="14" AuraImageMode="StretchImage" AuraName="ZeffStepTrackerStep3" AuraImage="https://xivapi.com/i/003000/00345${numeric:4+${func:dec2hex:${Step3}}}_hr1.png" AuraXIniExpression="${var:ZeffDanceTrackerX} + (${var:ZeffDanceTrackerSpacing} * 2) + 3" AuraYIniExpression="${var:ZeffDanceTrackerY} + 1" AuraWIniExpression="34" AuraHIniExpression="34" AuraOIniExpression="100" ActionType="Aura">
-                        <Condition Enabled="true" Grouping="And">
-                          <ConditionSingle Enabled="true" ExpressionL="${func:dec2hex:${Step3}}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="String" ConditionType="NumericNotEqual" />
-                        </Condition>
-                      </Action>
-                      <Action OrderNumber="15" AuraImageMode="StretchImage" AuraName="ZeffStepTrackerStep3Overlay" AuraImage="https://raw.githubusercontent.com/Zeffuro/ZeffUI/master/skins/material-dark/images/icon-overlay.png" AuraXIniExpression="${var:ZeffDanceTrackerX} + (${var:ZeffDanceTrackerSpacing} * 2)" AuraYIniExpression="${var:ZeffDanceTrackerY}" AuraWIniExpression="40" AuraHIniExpression="40" AuraOIniExpression="100" ActionType="Aura">
-                        <Condition Enabled="true" Grouping="And">
-                          <ConditionSingle Enabled="true" ExpressionL="${func:dec2hex:${Step3}}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="String" ConditionType="NumericNotEqual" />
-                        </Condition>
-                      </Action>
-                      <Action OrderNumber="16" AuraImageMode="StretchImage" AuraName="ZeffStepTrackerStep3OverlayCombo" AuraImage="https://raw.githubusercontent.com/Zeffuro/ZeffUI/master/skins/default/images/combo.gif" AuraXIniExpression="${var:ZeffDanceTrackerX} + (${var:ZeffDanceTrackerSpacing} * 2)" AuraYIniExpression="${var:ZeffDanceTrackerY}" AuraWIniExpression="38" AuraHIniExpression="38" AuraOIniExpression="100" ActionType="Aura">
-                        <Condition Enabled="true" Grouping="And">
-                          <ConditionSingle Enabled="true" ExpressionL="${func:dec2hex:${StepsCombo}}" ExpressionTypeL="Numeric" ExpressionR="2" ExpressionTypeR="String" ConditionType="NumericEqual" />
-                          <ConditionSingle Enabled="true" ExpressionL="${func:dec2hex:${Step3}}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="String" ConditionType="NumericNotEqual" />
-                        </Condition>
-                      </Action>
-                      <Action OrderNumber="17" AuraOp="DeactivateAura" AuraImageMode="StretchImage" AuraName="ZeffStepTrackerStep3OverlayCombo" AuraImage="https://github.com/Zeffuro/ZeffUI/blob/f08d98941dd686ab06e3caaa7707857a8ca1e3bd/skins/default/images/combo.gif?raw=true" AuraXIniExpression="${var:ZeffDanceTrackerX}" AuraYIniExpression="${var:ZeffDanceTrackerY}" AuraWIniExpression="40" AuraHIniExpression="40" AuraOIniExpression="100" ActionType="Aura">
-                        <Condition Enabled="true" Grouping="And">
-                          <ConditionSingle Enabled="true" ExpressionL="${func:dec2hex:${StepsCombo}}" ExpressionTypeL="Numeric" ExpressionR="2" ExpressionTypeR="String" ConditionType="NumericNotEqual" />
-                          <ConditionSingle Enabled="true" ExpressionL="${func:dec2hex:${Step3}}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="String" ConditionType="NumericNotEqual" />
-                        </Condition>
-                      </Action>
-                      <Action OrderNumber="18" TextAuraEffect="Bold" TextAuraFontSize="14.25" TextAuraForeground="White" TextAuraOutline="Black" TextAuraName="ZeffStepTrackerStep3Text" TextAuraExpression="${func:dec2hex:${Step3}}" TextAuraXIniExpression="${var:ZeffDanceTrackerX} + (${var:ZeffDanceTrackerSpacing} * 2)" TextAuraYIniExpression="${var:ZeffDanceTrackerY} - 4" TextAuraWIniExpression="40" TextAuraHIniExpression="40" TextAuraOIniExpression="100" TextAuraUseOutline="True" TextAuraFontName="Expressway Rg" ActionType="TextAura">
-                        <Condition Enabled="true" Grouping="And">
-                          <ConditionSingle Enabled="true" ExpressionL="${func:dec2hex:${Step3}}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="String" ConditionType="NumericNotEqual" />
-                        </Condition>
-                      </Action>
-                      <Action OrderNumber="19" AuraImageMode="StretchImage" AuraName="ZeffStepTrackerStep4" AuraImage="https://xivapi.com/i/003000/00345${numeric:4+${func:dec2hex:${Step4}}}_hr1.png" AuraXIniExpression="${var:ZeffDanceTrackerX} + (${var:ZeffDanceTrackerSpacing} * 3) + 3" AuraYIniExpression="${var:ZeffDanceTrackerY} + 1" AuraWIniExpression="34" AuraHIniExpression="34" AuraOIniExpression="100" ActionType="Aura">
-                        <Condition Enabled="true" Grouping="And">
-                          <ConditionSingle Enabled="true" ExpressionL="${func:dec2hex:${Step3}}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="String" ConditionType="NumericNotEqual" />
-                        </Condition>
-                      </Action>
-                      <Action OrderNumber="20" AuraImageMode="StretchImage" AuraName="ZeffStepTrackerStep4Overlay" AuraImage="https://raw.githubusercontent.com/Zeffuro/ZeffUI/master/skins/material-dark/images/icon-overlay.png" AuraXIniExpression="${var:ZeffDanceTrackerX} + (${var:ZeffDanceTrackerSpacing} * 3) " AuraYIniExpression="${var:ZeffDanceTrackerY}" AuraWIniExpression="40" AuraHIniExpression="40" AuraOIniExpression="100" ActionType="Aura">
-                        <Condition Enabled="true" Grouping="And">
-                          <ConditionSingle Enabled="true" ExpressionL="${func:dec2hex:${Step3}}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="String" ConditionType="NumericNotEqual" />
-                        </Condition>
-                      </Action>
-                      <Action OrderNumber="21" AuraImageMode="StretchImage" AuraName="ZeffStepTrackerStep4OverlayCombo" AuraImage="https://raw.githubusercontent.com/Zeffuro/ZeffUI/master/skins/default/images/combo.gif" AuraXIniExpression="${var:ZeffDanceTrackerX} + (${var:ZeffDanceTrackerSpacing} * 3)" AuraYIniExpression="${var:ZeffDanceTrackerY}" AuraWIniExpression="38" AuraHIniExpression="38" AuraOIniExpression="100" ActionType="Aura">
-                        <Condition Enabled="true" Grouping="And">
-                          <ConditionSingle Enabled="true" ExpressionL="${func:dec2hex:${StepsCombo}}" ExpressionTypeL="Numeric" ExpressionR="3" ExpressionTypeR="String" ConditionType="NumericEqual" />
-                          <ConditionSingle Enabled="true" ExpressionL="${func:dec2hex:${Step3}}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="String" ConditionType="NumericNotEqual" />
-                        </Condition>
-                      </Action>
-                      <Action OrderNumber="22" AuraOp="DeactivateAura" AuraImageMode="StretchImage" AuraName="ZeffStepTrackerStep4OverlayCombo" AuraImage="https://github.com/Zeffuro/ZeffUI/blob/f08d98941dd686ab06e3caaa7707857a8ca1e3bd/skins/default/images/combo.gif?raw=true" AuraXIniExpression="${var:ZeffDanceTrackerX}" AuraYIniExpression="${var:ZeffDanceTrackerY}" AuraWIniExpression="40" AuraHIniExpression="40" AuraOIniExpression="100" ActionType="Aura">
-                        <Condition Enabled="true" Grouping="And">
-                          <ConditionSingle Enabled="true" ExpressionL="${func:dec2hex:${StepsCombo}}" ExpressionTypeL="Numeric" ExpressionR="3" ExpressionTypeR="String" ConditionType="NumericNotEqual" />
-                          <ConditionSingle Enabled="true" ExpressionL="${func:dec2hex:${Step3}}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="String" ConditionType="NumericNotEqual" />
-                        </Condition>
-                      </Action>
-                      <Action OrderNumber="23" TextAuraEffect="Bold" TextAuraFontSize="14.25" TextAuraForeground="White" TextAuraOutline="Black" TextAuraName="ZeffStepTrackerStep4Text" TextAuraExpression="${func:dec2hex:${Step4}}" TextAuraXIniExpression="${var:ZeffDanceTrackerX} + (${var:ZeffDanceTrackerSpacing} * 3)" TextAuraYIniExpression="${var:ZeffDanceTrackerY} - 4" TextAuraWIniExpression="40" TextAuraHIniExpression="40" TextAuraOIniExpression="100" TextAuraUseOutline="True" TextAuraFontName="Expressway Rg" ActionType="TextAura">
-                        <Condition Enabled="true" Grouping="And">
-                          <ConditionSingle Enabled="true" ExpressionL="${func:dec2hex:${Step3}}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="String" ConditionType="NumericNotEqual" />
-                        </Condition>
-                      </Action>
-                    </Actions>
-                    <Condition Enabled="true" Grouping="And">
-                      <ConditionSingle Enabled="true" ExpressionL="${func:dec2hex:${Step2}}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="String" ConditionType="NumericNotEqual" />
-                    </Condition>
+                    <Conditions />
                   </Trigger>
                 </Triggers>
               </Folder>
