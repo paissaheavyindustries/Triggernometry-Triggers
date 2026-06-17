@@ -3684,14 +3684,137 @@
                 <Triggers />
                 <Folders>
                   <Folder Id="d6c0af22-7bbb-4807-9d65-eecdd9f1651b" Name="P4" Enabled="true">
-                    <Folders />
+                    <Folders>
+                      <Folder Id="f89d27c2-a41f-43a5-8440-195bb1087231" Name="REQUIRED SETUP" Enabled="true">
+                        <Folders />
+                        <Triggers>
+                          <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" Name="Chaos Fake Setup" Id="7c8168bd-04a2-4c78-9188-4fd3ef44ea41" RegularExpression="^26\|[^|]*\|(808)\|[^|]*\|(?&lt;debufftimer&gt;[^|]*)\|[^|]*\|[^|]*\|[^|]*\|[^|]*\|45F" PeriodRefire="Deny" RefirePeriodExpression="1000" EditAutofireAllowCondition="True">
+                            <Actions>
+                              <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" VariableOp="SetString" VariableName="chaos-fire-type" VariableExpression="middle bait then in" ActionType="Variable">
+                                <Condition Enabled="false" Grouping="Or" />
+                              </Action>
+                              <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" VariableOp="SetString" VariableName="chaos-type" VariableExpression="fake" ActionType="Variable">
+                                <Condition Enabled="false" Grouping="Or" />
+                              </Action>
+                              <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" VariableOp="SetString" VariableName="chaos-water-type" VariableExpression="middle bait then out" ActionType="Variable">
+                                <Condition Enabled="false" Grouping="Or" />
+                              </Action>
+                            </Actions>
+                            <Condition Enabled="false" Grouping="And">
+                              <ConditionSingle Enabled="true" ExpressionL="${name}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                              <ConditionSingle Enabled="true" ExpressionL="${debufftimer}" ExpressionTypeL="String" ExpressionR="20.00" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                            </Condition>
+                          </Trigger>
+                          <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" Name="Chaos Real Setup" Id="94bfed74-e167-4496-8fc0-0869c852be10" RegularExpression="^26\|[^|]*\|(808)\|[^|]*\|(?&lt;debufftimer&gt;[^|]*)\|[^|]*\|[^|]*\|[^|]*\|[^|]*\|460" PeriodRefire="Deny" RefirePeriodExpression="1000" EditAutofireAllowCondition="True">
+                            <Actions>
+                              <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" VariableOp="SetString" VariableName="chaos-type" VariableExpression="real" ActionType="Variable">
+                                <Condition Enabled="false" Grouping="Or" />
+                              </Action>
+                              <Action OrderNumber="2" SoundRouting="None" TTSRouting="None" VariableOp="SetString" VariableName="chaos-fire-type" VariableExpression="middle bait then out" ActionType="Variable">
+                                <Condition Enabled="false" Grouping="Or" />
+                              </Action>
+                              <Action OrderNumber="3" SoundRouting="None" TTSRouting="None" VariableOp="SetString" VariableName="chaos-water-type" VariableExpression="middle bait and stay" ActionType="Variable">
+                                <Condition Enabled="false" Grouping="Or" />
+                              </Action>
+                            </Actions>
+                            <Condition Enabled="false" Grouping="And">
+                              <ConditionSingle Enabled="true" ExpressionL="${name}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                              <ConditionSingle Enabled="true" ExpressionL="${debufftimer}" ExpressionTypeL="String" ExpressionR="20.00" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                            </Condition>
+                          </Trigger>
+                          <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" Name="Exdeath Fake Cross Setup" Id="47b31e3b-f6bf-4262-b44e-27e5c8ab18d4" RegularExpression="^26\|[^|]*\|(808)\|[^|]*\|(?&lt;debufftimer&gt;[^|]*)\|[^|]*\|[^|]*\|[^|]*\|[^|]*\|461" PeriodRefire="Deny" RefirePeriodExpression="1000" EditAutofireAllowCondition="True">
+                            <Actions>
+                              <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" VariableOp="SetString" VariableName="exdeath-type" VariableExpression="fake" ActionType="Variable">
+                                <Condition Enabled="false" Grouping="Or" />
+                              </Action>
+                              <Action OrderNumber="2" SoundRouting="None" TTSRouting="None" VariableOp="SetString" VariableName="exdeath-accel" VariableExpression="move" ActionType="Variable">
+                                <Condition Enabled="false" Grouping="Or" />
+                              </Action>
+                              <Action OrderNumber="3" SoundRouting="None" TTSRouting="None" VariableOp="SetString" VariableName="exdeath-shriek" VariableExpression="look at gaze" ActionType="Variable">
+                                <Condition Enabled="false" Grouping="Or" />
+                              </Action>
+                            </Actions>
+                            <Condition Enabled="false" Grouping="And">
+                              <ConditionSingle Enabled="true" ExpressionL="${name}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                              <ConditionSingle Enabled="true" ExpressionL="${debufftimer}" ExpressionTypeL="String" ExpressionR="20.00" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                            </Condition>
+                          </Trigger>
+                          <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" Name="Exdeath Real Cross Setup" Id="460bdbbf-9b2c-484d-9cd7-8a8a2a143203" RegularExpression="^26\|[^|]*\|(808)\|[^|]*\|(?&lt;debufftimer&gt;[^|]*)\|[^|]*\|[^|]*\|[^|]*\|[^|]*\|462" PeriodRefire="Deny" RefirePeriodExpression="1000" EditAutofireAllowCondition="True">
+                            <Actions>
+                              <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" VariableOp="SetString" VariableName="exdeath-type" VariableExpression="real" ActionType="Variable">
+                                <Condition Enabled="false" Grouping="Or" />
+                              </Action>
+                              <Action OrderNumber="2" SoundRouting="None" TTSRouting="None" VariableOp="SetString" VariableName="exdeath-accel" VariableExpression="stop moving" ActionType="Variable">
+                                <Condition Enabled="false" Grouping="Or" />
+                              </Action>
+                              <Action OrderNumber="3" SoundRouting="None" TTSRouting="None" VariableOp="SetString" VariableName="exdeath-shriek" VariableExpression="look away from gaze" ActionType="Variable">
+                                <Condition Enabled="false" Grouping="Or" />
+                              </Action>
+                            </Actions>
+                            <Condition Enabled="false" Grouping="And">
+                              <ConditionSingle Enabled="true" ExpressionL="${name}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                              <ConditionSingle Enabled="true" ExpressionL="${debufftimer}" ExpressionTypeL="String" ExpressionR="20.00" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                            </Condition>
+                          </Trigger>
+                        </Triggers>
+                      </Folder>
+                      <Folder Id="b3e66e67-e6e1-4646-a26a-911aa8910cc6" Name="Optional Chaos and Exdeath Fake Real Calls" Enabled="false">
+                        <Folders />
+                        <Triggers>
+                          <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" Name="Chaos Fake Callout" Id="acd62f7a-aed3-4903-aacc-e7db9eb5d83c" RegularExpression="^26\|[^|]*\|(808)\|[^|]*\|(?&lt;debufftimer&gt;[^|]*)\|[^|]*\|[^|]*\|[^|]*\|[^|]*\|45F" PeriodRefire="Deny" RefirePeriodExpression="1000" EditAutofireAllowCondition="True">
+                            <Actions>
+                              <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Chaos Fake" ActionType="UseTTS">
+                                <Condition Enabled="false" Grouping="Or" />
+                              </Action>
+                            </Actions>
+                            <Condition Enabled="false" Grouping="And">
+                              <ConditionSingle Enabled="true" ExpressionL="${name}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                              <ConditionSingle Enabled="true" ExpressionL="${debufftimer}" ExpressionTypeL="String" ExpressionR="20.00" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                            </Condition>
+                          </Trigger>
+                          <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" Name="Chaos Real Callout" Id="f3125197-202a-400f-a95d-30f06aab86e9" RegularExpression="^26\|[^|]*\|(808)\|[^|]*\|(?&lt;debufftimer&gt;[^|]*)\|[^|]*\|[^|]*\|[^|]*\|[^|]*\|460" PeriodRefire="Deny" RefirePeriodExpression="1000" EditAutofireAllowCondition="True">
+                            <Actions>
+                              <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Chaos Real" ActionType="UseTTS">
+                                <Condition Enabled="false" Grouping="Or" />
+                              </Action>
+                            </Actions>
+                            <Condition Enabled="false" Grouping="And">
+                              <ConditionSingle Enabled="true" ExpressionL="${name}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                              <ConditionSingle Enabled="true" ExpressionL="${debufftimer}" ExpressionTypeL="String" ExpressionR="20.00" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                            </Condition>
+                          </Trigger>
+                          <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" Name="Exdeath Fake Cross Callout" Id="223f9ed1-d85f-49c8-9adf-ac06d1aba3a1" RegularExpression="^26\|[^|]*\|(808)\|[^|]*\|(?&lt;debufftimer&gt;[^|]*)\|[^|]*\|[^|]*\|[^|]*\|[^|]*\|461" PeriodRefire="Deny" RefirePeriodExpression="1000" EditAutofireAllowCondition="True">
+                            <Actions>
+                              <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Exdeath FAKE" ActionType="UseTTS">
+                                <Condition Enabled="false" Grouping="Or" />
+                              </Action>
+                            </Actions>
+                            <Condition Enabled="false" Grouping="And">
+                              <ConditionSingle Enabled="true" ExpressionL="${name}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                              <ConditionSingle Enabled="true" ExpressionL="${debufftimer}" ExpressionTypeL="String" ExpressionR="20.00" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                            </Condition>
+                          </Trigger>
+                          <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" Name="Exdeath Real Cross Callout" Id="02a4a746-cb2e-41f2-b00d-5475959abe24" RegularExpression="^26\|[^|]*\|(808)\|[^|]*\|(?&lt;debufftimer&gt;[^|]*)\|[^|]*\|[^|]*\|[^|]*\|[^|]*\|462" PeriodRefire="Deny" RefirePeriodExpression="1000" EditAutofireAllowCondition="True">
+                            <Actions>
+                              <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Exdeath Real" ActionType="UseTTS">
+                                <Condition Enabled="false" Grouping="Or" />
+                              </Action>
+                            </Actions>
+                            <Condition Enabled="false" Grouping="And">
+                              <ConditionSingle Enabled="true" ExpressionL="${name}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                              <ConditionSingle Enabled="true" ExpressionL="${debufftimer}" ExpressionTypeL="String" ExpressionR="20.00" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                            </Condition>
+                          </Trigger>
+                        </Triggers>
+                      </Folder>
+                    </Folders>
                     <Triggers>
                       <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" Name="Shriek" Id="d9a45677-2216-4d88-a06d-5bed881ee4e4" RegularExpression="^26\|[^|]*\|(15A7)\|[^|]*\|(?&lt;debufftimer&gt;[^|]*)\|[^|]*\|[^|]*\|[^|]*\|(?&lt;name&gt;[^|]*)\|" PeriodRefire="Deny" RefirePeriodExpression="1000" EditAutofireAllowCondition="True">
                         <Actions>
                           <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" VariableOp="SetString" VariableName="${_event}-shriek" VariableExpression="${var:exdeath-shriek}" ActionType="Variable">
                             <Condition Enabled="false" Grouping="Or" />
                           </Action>
-                          <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="${var:${_event}-shriek}" ActionType="UseTTS" ExecutionDelayExpression="${numeric:${numeric:${debufftimer}*1000}-8000}">
+                          <Action OrderNumber="2" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="${var:${_event}-shriek}" ActionType="UseTTS" ExecutionDelayExpression="${numeric:${numeric:${debufftimer}*1000}-9000}">
                             <Condition Enabled="false" Grouping="Or" />
                           </Action>
                         </Actions>
@@ -3705,7 +3828,7 @@
                           <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" VariableOp="SetString" VariableName="${_event}-fire" VariableExpression="${var:chaos-fire-type}" ActionType="Variable">
                             <Condition Enabled="false" Grouping="Or" />
                           </Action>
-                          <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="${var:${_event}-fire}" ActionType="UseTTS" ExecutionDelayExpression="${numeric:${numeric:${debufftimer}*1000}-8000}">
+                          <Action OrderNumber="2" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="${var:${_event}-fire}" ActionType="UseTTS" ExecutionDelayExpression="${numeric:${numeric:${debufftimer}*1000}-8000}">
                             <Condition Enabled="false" Grouping="Or" />
                           </Action>
                         </Actions>
@@ -3719,7 +3842,7 @@
                           <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" VariableOp="SetString" VariableName="${_event}-stack" VariableExpression="${var:exdeath-type} stack spread" ActionType="Variable">
                             <Condition Enabled="false" Grouping="Or" />
                           </Action>
-                          <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="${var:${_event}-stack}" ActionType="UseTTS" ExecutionDelayExpression="${numeric:${numeric:${debufftimer}*1000}-8000}">
+                          <Action OrderNumber="2" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="${var:${_event}-stack}" ActionType="UseTTS" ExecutionDelayExpression="${numeric:${numeric:${debufftimer}*1000}-11000}">
                             <Condition Enabled="false" Grouping="Or" />
                           </Action>
                         </Actions>
@@ -3747,7 +3870,7 @@
                           <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" VariableOp="SetString" VariableName="${_event}-accel" VariableExpression="${var:exdeath-accel}" ActionType="Variable">
                             <Condition Enabled="false" Grouping="Or" />
                           </Action>
-                          <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="${var:${_event}-accel}" ActionType="UseTTS" ExecutionDelayExpression="${numeric:${numeric:${debufftimer}*1000}-4000}">
+                          <Action OrderNumber="2" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="${var:${_event}-accel}" ActionType="UseTTS" ExecutionDelayExpression="${numeric:${numeric:${debufftimer}*1000}-4000}">
                             <Condition Enabled="false" Grouping="Or" />
                           </Action>
                         </Actions>
@@ -3756,87 +3879,7 @@
                           <ConditionSingle Enabled="false" ExpressionL="${debufftimer}" ExpressionTypeL="String" ExpressionR="20.00" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                         </Condition>
                       </Trigger>
-                      <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" Name="Exdeath Fake Cross" Id="47b31e3b-f6bf-4262-b44e-27e5c8ab18d4" RegularExpression="^26\|[^|]*\|(808)\|[^|]*\|(?&lt;debufftimer&gt;[^|]*)\|[^|]*\|[^|]*\|[^|]*\|(Neo Exdeath)\|461" PeriodRefire="Deny" RefirePeriodExpression="1000" EditAutofireAllowCondition="True">
-                        <Actions>
-                          <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Exdeath FAKE" ActionType="UseTTS">
-                            <Condition Enabled="false" Grouping="Or" />
-                          </Action>
-                          <Action OrderNumber="2" SoundRouting="None" TTSRouting="None" VariableOp="SetString" VariableName="exdeath-type" VariableExpression="fake" ActionType="Variable">
-                            <Condition Enabled="false" Grouping="Or" />
-                          </Action>
-                          <Action OrderNumber="3" SoundRouting="None" TTSRouting="None" VariableOp="SetString" VariableName="exdeath-accel" VariableExpression="move" ActionType="Variable">
-                            <Condition Enabled="false" Grouping="Or" />
-                          </Action>
-                          <Action OrderNumber="4" SoundRouting="None" TTSRouting="None" VariableOp="SetString" VariableName="exdeath-shriek" VariableExpression="look at gaze" ActionType="Variable">
-                            <Condition Enabled="false" Grouping="Or" />
-                          </Action>
-                        </Actions>
-                        <Condition Enabled="false" Grouping="And">
-                          <ConditionSingle Enabled="true" ExpressionL="${name}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                          <ConditionSingle Enabled="true" ExpressionL="${debufftimer}" ExpressionTypeL="String" ExpressionR="20.00" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                        </Condition>
-                      </Trigger>
-                      <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" Name="Exdeath Real Cross" Id="460bdbbf-9b2c-484d-9cd7-8a8a2a143203" RegularExpression="^26\|[^|]*\|(808)\|[^|]*\|(?&lt;debufftimer&gt;[^|]*)\|[^|]*\|[^|]*\|[^|]*\|(Neo Exdeath)\|462" PeriodRefire="Deny" RefirePeriodExpression="1000" EditAutofireAllowCondition="True">
-                        <Actions>
-                          <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Exdeath Real" ActionType="UseTTS">
-                            <Condition Enabled="false" Grouping="Or" />
-                          </Action>
-                          <Action OrderNumber="2" SoundRouting="None" TTSRouting="None" VariableOp="SetString" VariableName="exdeath-type" VariableExpression="real" ActionType="Variable">
-                            <Condition Enabled="false" Grouping="Or" />
-                          </Action>
-                          <Action OrderNumber="3" SoundRouting="None" TTSRouting="None" VariableOp="SetString" VariableName="exdeath-accel" VariableExpression="stop moving" ActionType="Variable">
-                            <Condition Enabled="false" Grouping="Or" />
-                          </Action>
-                          <Action OrderNumber="4" SoundRouting="None" TTSRouting="None" VariableOp="SetString" VariableName="exdeath-shriek" VariableExpression="look away from gaze" ActionType="Variable">
-                            <Condition Enabled="false" Grouping="Or" />
-                          </Action>
-                        </Actions>
-                        <Condition Enabled="false" Grouping="And">
-                          <ConditionSingle Enabled="true" ExpressionL="${name}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                          <ConditionSingle Enabled="true" ExpressionL="${debufftimer}" ExpressionTypeL="String" ExpressionR="20.00" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                        </Condition>
-                      </Trigger>
-                      <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" Name="Chaos Real" Id="94bfed74-e167-4496-8fc0-0869c852be10" RegularExpression="^26\|[^|]*\|(808)\|[^|]*\|(?&lt;debufftimer&gt;[^|]*)\|[^|]*\|[^|]*\|[^|]*\|(Chaos)\|460" PeriodRefire="Deny" RefirePeriodExpression="1000" EditAutofireAllowCondition="True">
-                        <Actions>
-                          <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Chaos Real" ActionType="UseTTS">
-                            <Condition Enabled="false" Grouping="Or" />
-                          </Action>
-                          <Action OrderNumber="2" SoundRouting="None" TTSRouting="None" VariableOp="SetString" VariableName="chaos-type" VariableExpression="real" ActionType="Variable">
-                            <Condition Enabled="false" Grouping="Or" />
-                          </Action>
-                          <Action OrderNumber="3" SoundRouting="None" TTSRouting="None" VariableOp="SetString" VariableName="chaos-fire-type" VariableExpression="middle bait then out" ActionType="Variable">
-                            <Condition Enabled="false" Grouping="Or" />
-                          </Action>
-                          <Action OrderNumber="4" SoundRouting="None" TTSRouting="None" VariableOp="SetString" VariableName="chaos-water-type" VariableExpression="middle bait and stay" ActionType="Variable">
-                            <Condition Enabled="false" Grouping="Or" />
-                          </Action>
-                        </Actions>
-                        <Condition Enabled="false" Grouping="And">
-                          <ConditionSingle Enabled="true" ExpressionL="${name}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                          <ConditionSingle Enabled="true" ExpressionL="${debufftimer}" ExpressionTypeL="String" ExpressionR="20.00" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                        </Condition>
-                      </Trigger>
-                      <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" Name="Chaos Fake" Id="7c8168bd-04a2-4c78-9188-4fd3ef44ea41" RegularExpression="^26\|[^|]*\|(808)\|[^|]*\|(?&lt;debufftimer&gt;[^|]*)\|[^|]*\|[^|]*\|[^|]*\|(Chaos)\|45F" PeriodRefire="Deny" RefirePeriodExpression="1000" EditAutofireAllowCondition="True">
-                        <Actions>
-                          <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Chaos Fake" ActionType="UseTTS">
-                            <Condition Enabled="false" Grouping="Or" />
-                          </Action>
-                          <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" VariableOp="SetString" VariableName="chaos-fire-type" VariableExpression="middle bait then in" ActionType="Variable">
-                            <Condition Enabled="false" Grouping="Or" />
-                          </Action>
-                          <Action OrderNumber="2" SoundRouting="None" TTSRouting="None" VariableOp="SetString" VariableName="chaos-type" VariableExpression="fake" ActionType="Variable">
-                            <Condition Enabled="false" Grouping="Or" />
-                          </Action>
-                          <Action OrderNumber="2" SoundRouting="None" TTSRouting="None" VariableOp="SetString" VariableName="chaos-water-type" VariableExpression="middle bait then out" ActionType="Variable">
-                            <Condition Enabled="false" Grouping="Or" />
-                          </Action>
-                        </Actions>
-                        <Condition Enabled="false" Grouping="And">
-                          <ConditionSingle Enabled="true" ExpressionL="${name}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                          <ConditionSingle Enabled="true" ExpressionL="${debufftimer}" ExpressionTypeL="String" ExpressionR="20.00" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                        </Condition>
-                      </Trigger>
-                      <Trigger Enabled="false" Source="FFXIVNetwork" Sequential="True" Name="TEST" Id="5e80186b-073f-413a-85fe-2238dbc1f391" RegularExpression="^26\|[^|]*\|(4BB)\|[^|]*\|(?&lt;debufftimer&gt;[^|]*)\|[^|]*\|[^|]*\|[^|]*\|(?&lt;name&gt;[^|]*)\|" DebugLevel="Verbose" PeriodRefire="Deny" RefirePeriodExpression="1000" EditAutofireAllowCondition="True">
+                      <Trigger Enabled="false" Source="FFXIVNetwork" Sequential="True" Name="TEST (triplecast timer)" Id="5e80186b-073f-413a-85fe-2238dbc1f391" RegularExpression="^26\|[^|]*\|(4BB)\|[^|]*\|(?&lt;debufftimer&gt;[^|]*)\|[^|]*\|[^|]*\|[^|]*\|(?&lt;name&gt;[^|]*)\|" DebugLevel="Verbose" PeriodRefire="Deny" RefirePeriodExpression="1000" EditAutofireAllowCondition="True">
                         <Actions>
                           <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" VariableOp="SetString" VariableName="${_event}-shriek" VariableExpression="${var:exdeath-type} gaze" ActionType="Variable">
                             <Condition Enabled="false" Grouping="Or" />
@@ -3849,6 +3892,26 @@
                           <ConditionSingle Enabled="true" ExpressionL="${name}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                           <ConditionSingle Enabled="true" ExpressionL="${debufftimer}" ExpressionTypeL="String" ExpressionR="20.00" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                         </Condition>
+                      </Trigger>
+                      <Trigger Enabled="true" Source="FFXIVNetwork" Name="STOP ON WIPE" Id="a8b6a954-0f5e-4a02-8762-eb8a0bacb6f9" RegularExpression="^(01|33\|[^|]*\|[^|]*\|400000(?&gt;03|0F)\|)">
+                        <Actions>
+                          <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" TriggerOp="CancelTrigger" TriggerId="2c7efca5-c439-4b6d-b3c5-8ded89b12ad7" ActionType="Trigger">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                          <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" TriggerOp="CancelTrigger" TriggerId="d9a45677-2216-4d88-a06d-5bed881ee4e4" ActionType="Trigger">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                          <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" TriggerOp="CancelTrigger" TriggerId="0dd65abf-1457-4521-96c8-bb5c1ef86702" ActionType="Trigger">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                          <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" TriggerOp="CancelTrigger" TriggerId="8709f739-ea1a-4bf4-86cc-fd7f11a8f8c1" ActionType="Trigger">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                          <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" TriggerOp="CancelTrigger" TriggerId="2f1537ed-faf8-41e0-b558-5955a860d20a" ActionType="Trigger">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                        </Actions>
+                        <Condition Enabled="false" Grouping="Or" />
                       </Trigger>
                     </Triggers>
                   </Folder>
